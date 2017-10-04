@@ -1,0 +1,762 @@
+\chapter{Multicore Power and Performance Modelling}
+\label{chap: REPP}
+
+In this chapter, we introduce the single-core and multicore modelling methodology and
+prediction technique (REPP), and evaluate on three major architectures: Intel, ARM and
+AMD. REPP is modelled using multi linear regression models constructed in two steps:
+\textit{offline} modelling and \textit{online} modelling.
+
+\begin{description}[leftmargin=0pt]
+
+    \looseness -1 \item[Offline modelling.] In the offline modelling technique, a subset
+        of applications from representative benchmarks suites are profiled to build power
+        models and performance models offline for a single-core. The models built can
+        predict power and performance at the available DVFS states and Cl-States with high
+        accuracy. The offline design phase is attractive because {\small \circled{1}} it
+        eliminates the overhead of learning and tuning the performance and power model at
+        various DVFS states and Cl-States at runtime; {\small \circled{2}} it does not
+        rely on using power sensors/meters to estimate power and performance at runtime;
+        {\small \circled{3}} it is a one-time effort.  
+    
+    
+    %\looseness -1 \item[Offline modelling.] In the offline modelling technique, a subset
+        %of applications from representative benchmarks suites (Section~\ref{subsec:
+        %training}) are profiled to build power models (Section~\ref{subsec: model power})
+        %and performance models (Section~\ref{subsec: model performance}) offline for a
+        %single-core. The models built can predict power and performance at the available
+        %DVFS states and Cl-States with high accuracy. The offline design phase is
+        %attractive because {\small \circled{1}} it eliminates the overhead of learning
+        %and tuning the performance and power model at various DVFS states and Cl-States
+        %at runtime; {\small \circled{2}} it does not rely on using power sensors/meters
+        %to estimate power and performance at runtime; {\small \circled{3}} it is a
+        %one-time effort.  
+
+    \item[Online modelling.] In the online modelling technique, we extend our models to
+        the multicore environment, by \textit{aggregating} the per core contributions. The
+        models when exposed to a multicore system need to tackle with shared resource
+        contention, which is modelled using simple multi linear regression technique.
+        Finally, we describe a technique for power and performance control across the
+        multicore environment.  
+
+\end{description}
+
+The remainder of this chapter is structured as follows. Sections~\ref{subsec: offline
+models} and~\ref{subsec: mult model} describe the design of single-core and multicore
+modelling technique, respectively. Sections~\ref{subsubsection: offlinesinglecore
+evaluation} and~\ref{subsubsection: singlecore eval} focus on the offline and online
+validation of the single-core models. Section~\ref{subsubsection: no-contention} evaluates
+REPP without considering the shared resource contention.  Sections~\ref{subsubsection:
+technical approach} and~\ref{subsubsection: multicore evaluation with constraints}
+demonstrate the results of the multicore modelling technique without and with external
+user specified constraints. Section~\ref{subsec: conclusion} concludes the chapter. The
+notations used hence-forth for the rest of the chapter are detailed in
+Table~\ref{tab:Notations}.
+
+\iffalse
+\begin{itemize}
+      \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt} \setlength{\parsep}{0pt} \item[{\small{\circled{1}}}]
+  Sections~\ref{subsec: offline models} and~\ref{subsec: mult model} describe the design
+  of single-core and multicore modelling technique, respectively.
+  \item[{\small{\circled{2}}}] Sections~\ref{subsubsection: offlinesinglecore evaluation}
+      and~\ref{subsubsection: singlecore eval} focus on the offline and online validation
+      of the single-core models.  \item[{\small{\circled{3}}}] Section~\ref{subsubsection:
+      no-contention} evaluates REPP without considering the shared resource contention.
+  \item[{\small{\circled{4}}}] Sections~\ref{subsubsection: technical approach}
+      and~\ref{subsubsection: multicore evaluation with constraints} demonstrate the
+      results of the multicore modelling technique without and with external user
+      specified constraints.  \item[{\small{\circled{5}}}] Section~\ref{subsec:
+  conclusion} concludes the chapter.  \end{itemize} \fi
+
+%\nomenclature[s-c]{$c$}{Current state}
+%\nomenclature[s-i]{$i$}{Intermediate state}
+%\nomenclature[s-f]{$i$}{Future state}
+
+
+\nomenclature[g-pc]{$P_\mathit{c}$}{Current frequency for DVFS state}
+\nomenclature[g-pi]{$P_\mathit{i}$}{Intermediate frequency for DVFS state}
+\nomenclature[g-pf]{$P_\mathit{f}$}{Future frequency for DVFS state}
+
+\nomenclature[g-clc]{$Cl_\mathit{c}$}{Current Cl-State}
+\nomenclature[g-cli]{$Cl_\mathit{i}$}{Intermediate Cl-State}
+\nomenclature[g-clf]{$Cl_\mathit{f}$}{Future Cl-State}
+
+\nomenclature[g-ac]{$\alpha_\mathit{c}$}{Current configuration, that is, ($P_\mathit{c}$, $Cl_\mathit{c}$)}
+\nomenclature[g-af]{$\alpha_\mathit{f}$}{Future configuration, that is, ($P_\mathit{f}$, $Cl_\mathit{f}$)}
+
+\nomenclature[g-ec]{$\eta_\mathit{c}$}{Performance (IPS) at current configuration}
+\nomenclature[g-ef]{$\eta_\mathit{f}$}{Performance (IPS) at future configuration}
+
+\nomenclature[g-rc]{$\rho_\mathit{c}$}{Power at current configuration}
+\nomenclature[g-rf]{$\rho_\mathit{f}$}{Power at future configuration}
+
+\begin{table}[ht] 
+    \centering 
+    
+    \caption{Summary and description of the symbolic notations}%and describing the
+
+    \scalebox{0.9}{
+    \begin{tabular}{llr} 
+        \toprule Notation & Description \\
+        \midrule 
+        $P_\mathit{c}$ & Current DVFS state. \\ 
+        $P_\mathit{i}$ & Intermediate DVFS state. \\ 
+        $P_\mathit{f}$ & Future DVFS state. \\ 
+        
+        $P_\mathit{c}$ & Current frequency for DVFS state. \\ 
+        $P_\mathit{i}$ & Intermediate frequency for DVFS state. \\ 
+        $P_\mathit{f}$ & Future frequency for DVFS state. \\ 
+
+        $Cl_\mathit{c}$ & Current Cl-State. \\ 
+        $Cl_\mathit{i}$ & Intermediate Cl-State. \\ 
+        $Cl_\mathit{f}$ & Future Cl-State. \\ 
+
+         $\alpha_\mathit{c}$ & Current configuration, that is, ($P_\mathit{c}$, $Cl_\mathit{c}$). \\ 
+         $\alpha_\mathit{f}$ & Future configuration, that is, ($P_\mathit{f}$, $Cl_\mathit{f}$). \\ 
+
+        $\eta_\mathit{c}$ & Performance (IPS) at current configuration. \\
+        $\eta_\mathit{f}$ & Performance (IPS) at future configuration. \\ 
+
+        $\rho_\mathit{c}$ & Power at current configuration. \\ 
+        $\rho_\mathit{f}$ & Power at future configuration. \\ 
+        \bottomrule
+    \end{tabular}
+}
+    \label{tab:Notations}
+\end{table}
+
+\section{Single-Core Offline Modelling}
+\label{subsec: offline models}
+
+We predict performance and power in a different DVFS state and Cl-State, based on the
+activity recorded at the current DVFS state and Cl-State in the microarchitectural
+components floating point units (FP), integer units (INT), front end (FE), branch
+predictor unit (BPU), private L1 cache (L1), private L2 cache (L2), last level cache
+(LLC), and the memory sub-system (MEM).  Since these components do not have PMCs that
+directly record their activity, we use the available PMCs to calculate each component's
+\textbf{Activity Ratio} (AR).  The activity ratio is defined as the component's average
+number of \si\micro ops (micro-ops) per cycle (\si\micro ops/cycle).  
+
+\nomenclature[z-AR]{AR}{Activity Ratio}
+
+
+\looseness -1 Table~\ref{tab: tableactivity} summarises the microarchitectural components
+and modelled components on the Intel processor~\citep{Intel}.  Similar components are
+modelled on AMD~\citep{AMD} and ARM~\citep{ARM}.  Table \ref{tab:pmcsused} summarises the
+microarchitectural components, activity formulas for Intel, AMD, and ARM; and their
+respective raw \textsf{perf} event registers~\citep{Intel, AMD, ARM}.  To compute the
+activity ratio, the activity in each component, for each architecture, is divided by
+\texttt{cpu\_clk\_unhalted (r076)} on Intel, \texttt{cpu\_cycles (cycles)} on ARM and
+\texttt{cpu\_clk\_unhalted:0x01 (r13c)} on AMD, respectively.  
+
+
+\begin{table}[ht]
+\centering
+\caption{Component definitions for Intel Core i7}
+%\scalebox{0.9}{    
+\begin{tabular}{llr} 
+%    \arraystretch{1.1}
+\toprule
+Component & Modelled components\\ 
+\midrule
+    FE (IPC) & L1\_ITLB, L1\_ICACHE, PREDECODE, FETCH\_UNIT, \\ 
+             & \si\micro CODE ROM, \si\micro OP BUFFER, LSD, SPT, RAT, ROB, RETIRE \\ 
+    INT      & Integer arithmetic units \\ 
+    FP       & Floating point arithmetic units\\
+    BPU      & BPU and branch execution\\
+    L1       & LD/ST execution, MOB, L1, L1 DTLB, L2 DTLB \\
+    L2       & L2\\ 
+    LLC      & LLC\\ 
+    MEM      & Memory and Front Side Bus (FSB)\\ 
+    IPS      & Instructions per second \\
+    LLC misses & Last level cache misses \\
+\bottomrule \end{tabular}
+%}
+\label{tab: tableactivity}
+\end{table}
+
+
+
+\begin{table}[htbp]
+    \centering
+    \caption[Formula to compute activity ratio]{\captitle{Formula to compute activity ratio.} Events and \textit{perf} raw event numbers used on Intel (top), AMD (middle), ARM (bottom) machines} 
+
+    \rotatebox{90}{\text{INTEL}}
+    \scalebox{0.85}{
+    \begin{tabular}{@{}lllr@{}}
+    \toprule
+    Component  & Intel & Intel (\textit{perf} raw event)\\
+    \midrule
+    FE          & UOPS\_RETIRED:ANY &  R1C2\\
+    INT         & (UOPS\_DISPATCHED\_PORT:(PORT\_0 &  R1A1 + R2A1 +  &\\
+                & + PORT\_1 + PORT\_5) - FP\_COMP\_& R80A1 - R110\\
+                & OPS\_EXE:X87 - BR\_INST\_RETIRED) & - R0C4\\
+    FP          & FP\_COMP\_OPS\_EXE:X87 & R110\\
+    BPU         & BR\_INST\_EXECUTED &  RFF88\\
+    L1          & PERF\_COUNT\_HW\_CACHE\_L1D& -  \\
+    L2          & L2\_RQSTS:0XC0  & RC024\\
+    L3           & LAST\_LEVEL\_CACHE\_REFERENCES  & R4F2E\\
+    MEM         & PERF\_COUNT\_HW\_BUS\_CYCLES  & BUS-CYCLES\\
+    IPS        & INSTRUCTIONS                                 &   INSTRUCTIONS\\
+    L3 MISSES & CACHE-MISSES                                  &   CACHE-MISSES\\
+    \bottomrule
+    \end{tabular} 
+    }
+
+    \vspace*{2em}
+
+    \rotatebox{90}{\text{AMD}}% \vspace*{10mm}}}
+    \scalebox{0.82}{
+    \begin{tabular}{@{}lllr@{}}
+    \toprule
+    Component  & AMD                                           & AMD (\textit{perf} raw event)     \\ 
+    \midrule
+    FE         & RETIRED\_UOPS                                 &   R5000C1:U            \\     
+    INT        & DISPATCH\_STALL\_FOR\_INT\_SCHED\_QUEUE\_FULL &   R0D6                 \\        
+    FP         & RETIRED\_MMX\_AND\_FP\_INSTRUCTIONS:X87       &   R5001CB:U \\
+    BPU        & BRANCH\_RETIRED                               &   R5000C3:U \\
+    L1         & PERF\_COUNT\_HW\_CACHE\_L1D                   &   -       \\
+    L2         & REQUESTS\_TO\_L2                              &   R037D \\
+    L3         & PERF\_COUNT\_HW\_CACHE\_REFERENCES            &   R080  \\
+    MEM        & PERF\_COUNT\_HW\_BUS\_CYCLES                  &   R0062 \\
+    IPS        & INSTRUCTIONS                                 &   INSTRUCTIONS\\
+    L3 MISSES  & CACHE-MISSES                                  &   CACHE-MISSES\\
+    \bottomrule
+    \end{tabular} 
+}
+
+    \vspace*{2em}
+    \rotatebox{90}{\text{ARM}}
+    \scalebox{0.85}{    
+    \begin{tabular}{@{}lllr@{}}
+    \toprule
+        Component & ARM                          &   ARM (\textit{perf} raw event)\\
+    \midrule
+    FE        &  -                           & -          \\
+    INT       & INST\_SPEC\_EXEC\_SIMD       & R074        \\
+    FP        & INST\_SPEC\_EXEC\_VFP        & R075        \\
+    BPU       & INST\_SPEC\_EXEC\_SOFT\_PC   & BRANCHES    \\
+    L1        & L1D\_CACHE                   & R04         \\
+    L2        & L2D\_CACHE                   & R16         \\
+    L3        & NO L3                        & NO L3        \\
+    MEM       & PERF\_COUNT\_HW\_BUS\_CYCLES & BUS-CYCLES  \\
+    IPS        & INSTRUCTIONS                                 &   INSTRUCTIONS\\
+    L3 MISSES & CACHE-MISSES                                  &   CACHE-MISSES\\
+    \bottomrule
+    \end{tabular} 
+    }
+
+    \label{tab:pmcsused}
+\end{table}
+
+
+
+\looseness -1 In building the multi linear regression models, we specifically profile the
+activity in the aforementioned microarchitectural components because our results using
+microbenchmarks, on each architecture, have shown that these microarchitectural components
+have a high dynamic power. We define dynamic power as the difference between the current
+power consumption and power consumption when idle. The activity formulas were built using
+carefully selected PMCs that are highly correlated with the dynamic power and performance.
+For instance, on the Intel platforms' pipeline functionality, the scheduler which is a
+part of the out-of-order engine has six issue ports, out of which ports 0, 1 and 5 are
+shared for integer, branch instructions and floating point instructions.  However, there
+are counters for each port, branch instructions and floating point instructions.
+Therefore, we subtract the instructions issued using ports 0, 1 and 5 and the branch
+instructions and number of floating point instructions to get the total number of integer
+instructions. By contrast, on AMD and ARM, the microarchitectural components have unique
+counters for a total number of integer instructions.
+
+
+
+\nomenclature[z-FE]{FE}{Front End}
+\nomenclature[z-INT]{INT}{Integer Unit}
+\nomenclature[z-FP]{FP}{Floating Point Unit}
+\nomenclature[z-BPU]{BPU}{Branch Predictor Unit}
+\nomenclature[z-L1]{L1}{L1 Cache Memory}
+\nomenclature[z-L2]{L2}{L2 Cache Memory}
+
+%Training generalised for hetcmp. state that we show for intel only. 
+\newpage
+
+\subsection{Modelling Power}
+\label{subsec: model power}
+
+Power can be modelled based on the PMCs~\citep{Bellosa:2000:BED:566726.566736,
+Lewis:2010:CAP:1924920.1924929,Isci:2003:RPM:956417.956567,
+Bertran:2013:CPM:2479391.2479401, Bertran:2012:SEC:2457472.2457499,
+Bertran:2012:EAS:2039447.2039649}.  Multi linear regression models allow for power
+prediction with high accuracy (less than \SI{5}{\percent} error rate). 
+
+%To the best of our knowledge, prior works have proposed a modelling methodology to
+%predict power consumption in the current hardware configuration. 
+
+%all the models previously proposed only predict the 
+ 
+\paragraph{Predicting power in the current configuration.} We build on the technique
+proposed by Bertran \etal~\citep{10.1109/TC.2012.97} to predict power at the current
+configuration ($\rho_\mathit{c}$), and is computed based on the activity recorded in
+FP, FE, BPU, L1 cache, L2 cache, LLC cache and MEM.
+
+\begin{equation}
+\label{eq: Predict Power}
+    \rho_{\mathit{c}} = \sum_{i=0}^{comps}(\Delta_{\mathit{i}} \times AR_{\mathit{i}}) + constant
+\end{equation} 
+
+\nomenclature[g-delta]{$\Delta,\beta$}{Coefficients in the multi linear regression model}
+
+
+\looseness -1 Equation~\ref{eq: Predict Power} represents the multi linear regression model for
+predicting $\rho_\mathit{c}$,  where $\Delta_\mathit{i}$ and \textit{constant}
+represents the coefficients to be learned and \textit{$AR_\mathit{i}$} represents
+the activity ratio of the individual components. We build one model for each available
+DVFS state with Cl-State zero.%no idle cycles. 
+
+\paragraph{Predicting power across DVFS states.} Intuitively, one of the biggest
+challenges to predict performance or power across DVFS states, while keeping the Cl-States
+fixed, is the need to interpolate the component activity ratios with the higher or lower
+DVFS state.  Contrary to our intuition, our findings show that the changes in activity ratio
+of the microarchitectural components are minimal. 
+
+\begin{table}[htb]
+    \centering
+    %\caption{test}
+    \caption[Microarchitectural component activity range for SPEC benchmarks]{\captitle{Microarchitectural component activity range for SPEC CPU 2006.} The activity computed over 100 million instructions at minimum and maximum DVFS states}
+
+        \begin{tabular}{@{}llrrr@{}}
+            \toprule
+            Benchmark & INT/FP & INT & LLC (\e{-2}) & \textbf{FP (\e{-1})} \\
+            \midrule
+            Xalancbmk & INT &0.6835-0.5124&2.1426-1.7193&0.0021-0.0012 \\
+            Calculix  & FP &1.7852-1.8618&0.2043-0.2074&0.0139-0.0127  \\
+            GemsFDTD  & FP &1.3728-1.2165&2.9210-2.6255&0.0156-0.0168  \\
+            Wrf       & FP &1.0714-1.0526&0.3263-0.2859&0.1673-0.0941  \\
+            Tonto     & FP &1.2196-1.2258&0.1295-0.4179&0.0957-0.2169  \\
+            Povray    & FP &1.0132-1.0290&0.0808-0.0764&0.4823-0.4958  \\
+            \bottomrule
+        \end{tabular}
+        
+        \vspace{3mm}        
+        
+        \begin{tabular}{@{}llrrr@{}}
+            \toprule
+            Benchmark & INT/FP & INT & LLC (\e{-2}) & \textbf{FP (\e{-5})} \\
+            \midrule
+            CactusADM& FP & 1.0972-0.8945&0.5738-0.4455&1.6002-0.5251 \\
+            Lbm      & FP & 1.0231-1.0199&1.1000-1.7063&1.6121-0.5255\\
+            Hmmer   & INT &1.3572-1.3945&0.1099-0.0862&3.1287-1.6042\\
+            H264ref  & INT &1.2756-1.3068&0.2752-0.2565&0.0344-0.0353\\
+            Gobmk    & INT  &0.6718-0.6745&0.3105-0.2924&0.0502-0.0446\\
+            Bzip2    &INT   &0.9543-0.9525&0.9027-0.9270&1.6428-0.5573\\
+            Astar    & INT   &0.8335-0.7726&2.1482-1.5707&1.8260-0.7140\\
+            Mcf       &INT  &0.3398-0.2619&2.6239-2.8608&1.6472-0.5575\\
+           \bottomrule
+        \end{tabular}
+
+    \label{tab: activity ratio}
+\end{table}
+
+For example, Table~\ref{tab: activity ratio} shows the average activity ratio at the
+minimum and maximum DVFS state for the microarchitectural components INT, LLC, and FP for
+16 SPEC benchmarks~\citep{2006core2} for the first 100 million instructions of execution.
+We represent the data into parts as the activity ratio in FP varies in three orders of
+magnitude depending on the benchmark type (integer benchmark or floating point benchmark),
+with a few exceptions.  We focus on the memory intensive floating point benchmark
+\emph{Lbm} and a visual representation of the activity in FP, INT, LLC and FE at each DVFS
+state are shown in Figure~\ref{fig: activity ratio}. Observe, albeit having a
+\SI{67.4}{\percent} change in activity ratio for FP from \SI{0.8}{\giga\hertz} to
+\SI{2.4}{\giga\hertz} (Figure~\ref{fig: lbmfp}), the absolute change in activity is
+negligible. To ensure the statistical significance of this finding, we ran the workloads
+multiple times and had a \SI{95}{\percent} confidence with a low error margin (less than
+\SI{2}{\percent}). This behaviour is consistently observed across any benchmark for any
+microarchitectural component, as it is a microarchitectural
+property~\citep{Su:2014:POP:2742155.2742200}.
+
+On the contrary, having negligible absolute difference in activity ratio across DVFS states
+does not imply that the power across DVFS states for a given Cl-State is constant, but
+instead the difference in the real activity ratio across DVFS state is reflected using the
+coefficients derived in Equation~\ref{eq: Predict Power}.
+
+Therefore, the PMCs read at the current configuration can be used to predict power or
+performance at future DVFS state ($P_\mathit{f}$) while the Cl-State remains constant. 
+
+
+\begin{figure}[htb]
+   \centering
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/activity/FP.pdf}
+        \caption{Floating Point Unit}
+        \label{fig: lbmfp}
+    \end{subfigure}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/activity/INT.pdf}
+        \caption{Integer Unit}
+        \label{fig: lbmINT}
+    \end{subfigure}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/activity/L3.pdf}
+       \caption{LLC Cache}
+        \label{fig: lbml3}
+    \end{subfigure}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/activity/FE.pdf}
+        \caption{Front End}
+        \label{fig: lbmfe}
+    \end{subfigure}
+    \caption[Microarchitectural component activity ratio for a SPEC CPU 2006 benchmark]{\captitle{Microarchitectural component activity ratio for a SPEC CPU 2006 benchmark.} The activity measured over 100 million instructions at all DVFS states for \textit{lbm} from the SPEC CPU 2006 benchmark suite.}
+    \label{fig: activity ratio}
+\end{figure}
+
+\paragraph{Predicting power across Cl-States.} To predict power ($\rho_\mathit{f}$)
+across Cl-States, moving from current Cl-State ($Cl_\mathit{c}$) to future Cl-State
+($Cl_\mathit{f}$), we build a multi linear regression model based on the ratio of the
+Cl-States and predicted power at the current DVFS state ($\rho_\mathit{c}$).
+
+\begin{equation}%\tag{Equation 2}
+    \label{eq: predictpoweracrosscl-state}
+    \rho_{\mathit{f}} = (\Delta \times \rho_{\mathit{c}} + (\beta \times \frac{Cl_{\mathit{f}}}{Cl_{\mathit{c}}})) + constant
+\end{equation}
+
+Equation \ref{eq: predictpoweracrosscl-state} represents the multi linear regression model
+for predicting $\rho_\mathit{f}$, where $\Delta$, $\beta$ and {\it constant} represent the
+multi linear regression coefficients. We build one model at each DVFS state.
+
+%To build the models for predicting performance or power at every Cl-State for a fixed
+%P-State, we take all possible combinations of the subset of Cl-States for a given
+%P-State. 
+
+\subsection{Modelling Performance}
+\label{subsec: model performance}
+
+Modelling performance is based on three major constraints which are: {\small
+\circled{1}} the inherent instruction-level parallelism of the execution flow;
+{\small \circled{2}} number of stall cycles caused by misses in the cache hierarchy;
+{\small \circled{3}} the number and latency of functional units such as INT and FP.
+The relationship between these constraints is tough to predict.  Therefore, the
+most accurate way to estimate performance is by implementing a full-scale
+simulator~\citep{6114398,Miftakhutdinov:2012:PPI:2457472.2457493}. However, this increases
+the complexity of predicting performance in runtime and suffers a higher latency. On the
+other hand, linear regression techniques allow faster predictions and are easier to
+implement although they suffer from a relatively high error rate compared with simulation
+techniques.% but do %offer a trade-off over prediction latency.  
+
+\paragraph{Reporting performance at current configuration.} The PMCs available in the
+current hardware subsystems allow precise measurement of the number of instructions
+retired (\texttt{instructions}). We take advantage of this counter and report the number
+of instructions retired (in millions) per second (MIPS), that is, $\eta_\mathit{c}$. 
+
+\nomenclature[z-IPC]{IPC}{Instructions Per Cycle}
+
+\nomenclature[z-MIPS]{MIPS}{IPS in millions}
+
+\paragraph{Predicting performance across DVFS states.} We predict the performance in MIPS
+($\eta_\mathit{f}$) of a thread using multi linear regression models. The components
+modelled are MIPS, IPC, private L1, private L2 and LLC and
+the ratio of change of DVFS state moving from $P_\mathit{c}$ to $P_\mathit{f}$.
+
+\begin{equation}%\tag{Equation 3}
+    \label{eq: predictperformnceacrossp-state}
+    \eta_{\mathit{f}} = \sum_{i=0}^{comps}(\Delta_{\mathit{i}} \times AR_{\mathit{i}}) + (\beta \times \frac{P_{\mathit{f}}}{P_{\mathit{c}}}) + constant
+\end{equation}
+
+Equation \ref{eq: predictperformnceacrossp-state} represents the multi linear regression
+model for predicting $\eta_\mathit{f}$, where $\Delta_\mathit{i}$, $\beta$ and
+\textit{constant} represent the coefficients to be learned and {\it $AR_\mathit{i}$}
+represents the activity ratio of the individual components. We build one model for each
+available DVFS state with no idle cycles.
+
+
+\looseness -1 \paragraph{Predicting performance across Cl-States.} To predict 
+performance ($\eta_\mathit{f}$) across Cl-States, moving from $Cl_\mathit{c}$
+to $Cl_\mathit{f}$, we build multi linear regression models while keeping the DVFS state
+fixed and moving across the Cl-States. The components modelled are MIPS, IPC, private L1,
+private L2 and LLC cache and the ratio of change of Cl-State.
+
+\begin{equation}%\tag{Equation 4}
+    \label{eq: predictperformnceacrosscl-state}
+    \eta_{\mathit{f}} = \sum_{i=0}^{comps}(\Delta_{\mathit{i}} \times AR_{\mathit{i}}) + (\beta \times \frac{Cl_{\mathit{f}}}{Cl_{\mathit{c}}}) + constant
+\end{equation}
+
+\looseness -1 Equation \ref{eq: predictperformnceacrosscl-state} represents the multi linear regression
+model for predicting $\eta_\mathit{f}$, where $\Delta_\mathit{i}$, $\beta$ and
+\textit{constant} represent the coefficients to be modelled and \textit{$AR_\mathit{i}$}
+represents the activity ratio of the individual components. We build one model for every
+DVFS state available. 
+
+\nomenclature[z-CFS]{CFS}{Completely Fair Scheduler}
+
+\subsection{Single-Core Algorithm}
+\label{subsec: algo}
+
+The single-core algorithm predicts performance and power for a given DVFS State and Cl-State
+in a single thread using multi linear regression models. 
+
+\begin{itemize}
+
+    \item[{\small \circled{1}}] Read the PMCs at current configuration and compute the activity ratios.
+
+    \item[{\small \circled{2}}] Predict power and report performance at current configuration.
+
+    \item[{\small \circled{3}}] Predict power and performance for current Cl-State and future DVFS state. 
+
+    \item[{\small \circled{4}}] Predict power and performance for current DVFS state and future Cl-State. 
+
+\end{itemize}
+
+\subsection{Training the Models} 
+\label{subsec: training} 
+
+\looseness -1 Our performance and power models for a single-core are built using a random
+training set from representative benchmark suites (training data set).\footnote{The models
+built are exclusive to a given architecture and are rebuilt for each architecture.} These
+benchmarks are executed to gather the PMCs values during a period of 100 seconds with a
+sampling period of \SI{250}{\milli\second}, at all DVFS states and a subset of the
+Cl-States.
+
+\looseness -1 The models are trained using a data set which consists of three floating
+point and three integer benchmarks, which are chosen at random, and run at all DVFS states
+and five Cl-States.\footnote{The training workloads are consistent across architectures.}
+This results in 270 experiments on Intel, 24 experiments on AMD, and 18 experiments on
+ARM.  Recollect that AMD and ARM do not have Cl-States; moreover only the Cortex A57
+processor provides performance statistics on the ARM processor. The Cl-States are chosen
+such that there is at least \SI{10}{\percent} variation (specifically the Cl-States are
+10, 20, 30, 40, 50).  The models were validated in two steps: offline and online. The
+\textit{offline validation} of the models was carried extensively on the Intel processor
+as a proof of concept using the SPEC CPU 2006 benchmark suite (Section~\ref{subsubsection:
+offlinesinglecore evaluation}).  Next, to validate the resulting single-core models
+\textit{online}, we use the remainder of the benchmarks from SPEC CPU 2006, PARSEC 3.0,
+NAS, and SPLASH2x (validation set). 
+
+%Nevertheless, the models built have demonstrated high performance and power prediction
+%accuracy over three different architectures (as will be shown in Section~\ref{subsection:
+%evaluation repp-h}).
+
+%\looseness -1 We have also conducted a study with varying number of training benchmarks
+%with all possible combinations, that is with two floating point and two integer; one
+%floating point and three integer; etc., and the prediction error was not
+%acceptable~\citep{Bellosa:2000:BED:566726.566736, Lewis:2010:CAP:1924920.1924929,
+%Isci:2003:RPM:956417.956567}.
+
+To build models offline, we collect traces containing PMCs samples of individual
+components per application. The traces, obtained at different DVFS states, need to be
+realigned to compare the activity ratios at similar points of execution
+(Section~\ref{subsubsec: trace}). This realigning is done with respect to the total
+instruction and exclude the trace points for which the difference in total instructions
+retired between two trace points for a given application exceeds ten million instructions.
+This process of realigning is to ensure that the trace points are at the same point of
+execution and makes the activity ratio comparable.
+
+\looseness -1 We empirically select a sampling period of \SI{250}{\milli\second} to
+collect PMCs and power using the RAPL register to build offline models as it increases the
+total number of trace points for a given application without exceeding ten million
+instructions.  We have explored mapping intervals of \SI{50}{\milli\second},
+\SI{100}{\milli\second}, and up to \SI{950}{\milli\second}, and \SI{1000}{\milli\second},
+but \SI{250}{\milli\second} was chosen empirically as most SPEC benchmarks have less than
+\SI{1}{\percent} change in performance or power at a particular DVFS state and allowed us
+to predict in the same phase.
+
+\subsection{Trace Files} 
+\label{subsubsec: trace}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/trace-files/new/power_orig.eps}
+      \caption{Power variation with time.}
+      \label{fig: powerastartime}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/trace-files/new/perf_orig.eps}
+      \caption{IPS variation with time.}
+      \label{fig: perfastartime}
+    \end{subfigure} 
+    \begin{subfigure}{0.48\textwidth} 
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/trace-files/new/power_realign.eps}
+        \caption{Power traces realigned with IPS.} 
+        \label{fig: astarpowerrealign}
+    \end{subfigure} 
+    \begin{subfigure}{0.48\textwidth} 
+        \centering
+        \includegraphics[width=\textwidth]{Chapter3/Figs/trace-files/new/perf_realign.eps}
+        \caption{IPS traces realigned with IPS.} 
+        \label{fig: astarmipsrealign} 
+    \end{subfigure}
+    \caption[Traces to build multi linear regression models]{\captitle{Traces to build multi linear regression models.} From
+left-to-right, power and performance \textit{recorded} using the power meter and PMCs
+(on top), and traces \textit{realigned} based on IPS (on bottom) for the SPEC benchmark
+astar.} \label{fig: tracefile-astar} \end{figure} 
+
+
+The models are built offline using the statistical information gathered and stored in
+trace files. The trace files contain activity ratio for individual components for each
+benchmark. The traces, obtained at different DVFS states, Cl-States need to be realigned
+such that the activity ratios are comparable at similar points of execution. 
+
+\looseness -1 The performance statistics for each benchmark in the training dataset are
+gathered by setting a thread affinity to a core using the Linux system call
+\texttt{sched\_setaffinity}.  Assigning an affinity~\citep{LinuxKernel} for a thread
+bypasses the Linux Completely Fair Scheduler (CFS) and helps avoid excessive thread
+migration and provides a more controlled environment.
+
+\looseness -1 Realigning traces gathered at DVFS state, Cl-State to model offline provides
+a unique challenge as the correlation between throughput, DVFS state, and  time is
+non-linear. For instance, Figures~\ref{fig: powerastartime} and~\ref{fig: perfastartime}
+show power consumption (in \SI{}{\milli\watt}) and throughput (in MIPS), respectively, for
+SPEC benchmark \emph{astar} at \SI{0.8}{\giga\hertz} (in black) and \SI{2.4}{\giga\hertz}
+(in red) with Cl-State zero for the first 400 seconds of execution. For e.g., observe that
+the throughput obtained over the first 300 seconds at \SI{0.8}{\giga\hertz}, and first
+100-seconds at \SI{2.4}{\giga\hertz} is approximately same. This shows that DVFS state and
+throughput do not have a one-to-one mapping.  For this reason, prediction models can not
+be built using traces gathered based on a time varying demand of workloads.  This raises
+the need to realign traces with respect to performance, thereby allowing (some)
+correlation between two different core frequency and performance.
+
+\looseness -1 As indicated before, a buffer of ten million instructions is used to compare
+traces for each benchmark, as most SPEC benchmarks exhibit less then \SI{2}{\percent}
+difference and to ensure that the boundary of error is fixed (!).  Figures~\ref{fig:
+astarpowerrealign} and~\ref{fig: astarmipsrealign} shows the traces realigned with
+respect to total performance for \emph{astar} at \SI{0.8}{\giga\hertz} and
+\SI{2.4}{\giga\hertz}. Each trace gathered refers to (approximately) similar points of
+thread execution. This methodology is followed for every DVFS state and Cl-State
+combination, and such traces here-forth are referred to as \emph{\textbf{realigned
+traces}}.
+
+\section{Multicore Modelling}
+\label{subsec: mult model}
+
+To predict total performance or power in multicore architectures, we \textit{aggregate}
+the results from each of the \textit{single-core} models (Section~\ref{subsec: algo}). 
+
+Single-core models when exposed to multicore prediction techniques are bound to suffer
+from an error due to the contention for shared
+resources~\citep{Blagodurov:2010:CSM:1880018.1880019, Nishtala:2013:ETC:2555754.2555775,
+Lefurgy:2008:PCP:1355774.1355779, McCullough:2011:EEM:2002181.2002193,6974701,
+Becchi:2006:DTA:1128022.1128029, Gandhi:2010:OAE:1869138.1869264,
+Brooks:2000:WFA:339647.339657, Gandhi:2009:OPA:1555349.1555368,6604487}.  
+To model the contention when predicting performance and power, we use four different
+types of multiprogrammed workloads with variations in memory footprint and validate the
+models, by switching between combinations of DVFS states and Cl-States.   
+
+\looseness -1 It impossible to be at two DVFS states or Cl-States at the same time.
+Therefore for training and validating the models, we generate multiple (one thousand)
+random tuples of DVFS state, Cl-State combinations per core within the minimum and maximum
+DVFS state and Cl-State ranges.
+
+The estimated increase in power consumption and degradation in performance due to the
+shared resource contention is modelled offline using multi linear regression techniques.
+We build one model for performance and another model for power. We demonstrate the process
+of building models for one core. This process is replicated across all cores
+simultaneously. 
+
+\begin{itemize}
+
+    \item[{\small \circled{1}}] Read the 1000 random tuples of DVFS state and Cl-State per
+        core.
+
+    \item[{\small \circled{2}}] Set current configuration for core to the current tuple
+        and future configuration for the same core to next tuples.
+
+\item[{\small\circled{3}}] Spawn training workloads consecutively.
+
+\item[{\small\circled{4}}] Apply the single-core algorithm (Section~\ref{subsec: algo})
+    for the thread running on the core to predict power and performance in the future
+        configuration.
+
+\item[{\small\circled{5}}] Switch to future configuration after \SI{250}{\milli\second}.
+
+\item[{\small\circled{6}}] Report power and performance at future configuration using RAPL
+    and PMCs respectively. 
+
+\item[{\small\circled{7}}] Using the PMCs read at current configuration, compute activity
+    ratios for private L1, private L2, LLC and MEM for the thread.
+
+\item[{\small\circled{8}}] Compute difference between the PMCs read (or RAPL register) and
+    prediction (using REPP) for performance (or power) per thread in the workload models
+        the error due to shared resource contention.  
+
+\end{itemize}
+
+
+The aforementioned method is followed for all random tuples generated for all cores for a
+period of 300 seconds. 
+
+\begin{equation}%\tag{Equation 5}
+    \label{eq: critical error}
+     Error = \sum_{i=0}^{comps}(\Delta_{\mathit{i}} \times AR_{\mathit{i}}) + constant
+\end{equation}
+
+Equation~\ref{eq: critical error} represents the multi linear regression model to predict
+the error due to shared resource contention. Where $\Delta_{\mathit{i}}$ represents the
+coefficient to be learnt and $AR_{\mathit{i}}$ represents the activity ratio of the
+individual components. 
+
+Intuitively, in a multicore architecture as the number of threads increases, the
+performance per thread decreases and the total power consumption increases. Since the
+single-core models do not include contention in shared environments, the total power
+consumed will be lower and the performance higher. Therefore, the modelled error for power
+and performance is added and subtracted for every prediction on a per thread level
+respectively.
+
+    
+Then, we evaluate REPP across a wide range of performance and power constraints.  Contrary
+to prior works~\citep{Su:2014:POP:2742155.2742200, Cochran:2011:PCA:2155620.2155641,
+Singh:2009:RTP:1577129.1577137, Miftakhutdinov:2012:PPI:2457472.2457493, 
+Srinivasan:2011:EIO:1945023.1945032}, which predict power and performance at a system
+level, our work predicts at a system level on a per core basis.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[scale=0.7]{Chapter3/Figs/repp-arch/REPP.pdf}
+    \caption{High-level view of REPP runtime system} 
+    \label{fig: archrepp} 
+\end{figure}
+
+
+With the inclusion of the shared resource contention model (Equation~\ref{eq: critical
+error}), the architecture of REPP for multicore systems is complete. Figure~\ref{fig:
+archrepp} shows a high-level view of REPP. REPP is a technique that can be implemented
+across any multicore server system running an operating system that allows to gather
+performance statistics of workloads (e.g., \textsf{perf}, on all our multicore machines).
+Such performance statistics from each thread are fed to REPP to compute the activity
+ratio's which are fed to the single-core models to estimate the power and performance
+across a wide range of DVFS states and Cl-States. Using equation~\ref{eq: critical error},
+we model the shared resource contention  as the single-core models ignore it.  Then, the
+results from each of these single-core models are \textit{aggregated} to estimate the
+power for a multicore system. 
+
+\newpage
+\input{Chapter3/singlecoreeval}
+\input{Chapter3/multicoreeval}
+
+
+\section{Conclusion}
+\label{subsec: conclusion}
+
+This chapter introduced REPP, a procedure to predict performance and power at runtime for
+single-core and \muc architectures using PMCs.  The technique includes a systematic method
+to build multi linear regression models parametrised by hardware settings DVFS states and
+Cl-States. The PMCs chosen to build the models are available across all major
+architectures. 
+
+We have shown that REPP is a scalable power and performance modelling, and prediction
+technique to meet various user-defined criteria. The models have a fast deployment time
+(less than 10 hours), involving a limited number of experiments on each architecture.
+REPP's single-core and \muc models have been validated on each architecture using
+benchmarks from SPEC CPU 2006, PARSEC 3.0, NAS and SPLASH2x. We perform real-machine
+experimentation and use existing hardware support to profile the behaviour of
+application's at runtime.
+
+We validate REPP using several single threaded and multiprogrammed workloads with
+average errors, respectively, on ARM, AMD and Intel architectures of \SI{7.1}{\percent},
+\SI{9.0}{\percent}, \SI{7.1}{\percent} when predicting performance, and
+\SI{6.0}{\percent}, \SI{6.5}{\percent}, \SI{8.1}{\percent} when predicting power
+consumption.  Moreover, the single-step prediction technique provided by REPP is
+3.6$\times$ faster than iterative algorithms. We argue that REPP can enable
+operators to better control power and performance in modern data centres that include
+server architectures with heterogeneous processing capabilities. 

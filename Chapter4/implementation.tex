@@ -1,0 +1,16 @@
+\section{Hipster Implementation}
+\label{sec: implementation}
+
+Hipster is implemented in user space, and it uses minimal hardware support exposed by Linux. It consists of the QoS Monitor and Mapper Module, together with a lookup table, as shown in Figure~\ref{fig:hipsteroverview}. 
+
+\looseness -2 \textbf{[QoS Monitor]:} Hipster uses a separate process to read the power measurements using native energy meters, at the sampling interval of the application. In addition to measuring energy, the QoS Monitor also gathers runtime statistics for the query/request latency of the latency-critical workload, using a logfile interface. In the case of HipsterCo, the  batch workload aggregate IPS per core are measured using the performance monitoring tool,
+\textsf{perf}~\citep{2016Perf:Counters}, specifically using the \textit{perf\_event} \textsf{instructions}~\citep{ARMLimitedARMManual,ARMLimitedARMManualb}. Alternatives to \textsf{perf} include the profiling tools~\citep{Ren2010Google-WideCenters} supported by Docker, Kubernetes and LXC~\citep{Bernstein2014ContainersKubernetes}.  
+
+
+On the ARM Juno platform, there is a known bug that causes \textsf{perf} to generate garbage values for all cores whenever any core enters an idle state. Since performance statistics are only needed for the HipsterCo variant, we overcome this by disabling CPUidle~\citep{ARMLimitedARMManual,ARMLimitedARMManualb}. This prevents Linux from entering the cores in an idle state when changes in the mapping cause idle periods longer than \SI{3500}{\micro\second}.
+
+\textbf{[Mapper Module]:} The workloads are mapped to cores using the Linux \textsf{sched\_setaffinity} call and DVFS is controlled using \textsf{acpi-cpufreq}. In addition, Hipster suspends and resumes the batch workloads using the relevant OS signals ({\small \textsf{SIGSTOP}} and {\small \textsf{SIGCONT}} in Linux).
+
+\textbf{[Lookup table]:} Each iteration of the RL algorithm accesses and modifies several entries in the lookup table. To ensure that these operations take negligible time, the computational complexity to access the table should be at most a few instructions. Therefore, in the prototype implementation of Hipster, the lookup table was implemented using a Python dictionary, which uses open addressing to resolve hash collisions, thereby having a computational complexity of $\mathcal{O}(1)$ irrespective of the operation~\citep{PattisComplexityHttps://www.ics.uci.edu/pattis/ICS-33/lectures/complexitypython.txt}.
+
+%Using a tabular data structure to operate periodically would be very expensive ($\mathcal{O}(n\log{}n)$), but fortunately there are other data structures. For instance, $B-tree$ reduces the computational complexity for accesses, inserts or updates to $\mathcal{O}(\log{}n)$~\cite{GoetzModernTechniques}. In the prototype implementation of Hipster, we have it as a lookup table, but a $B-tree$ implementation is could reduce the complexity.

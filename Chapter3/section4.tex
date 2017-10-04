@@ -1,0 +1,145 @@
+\section{Implementation of the Modelling and Prediction Technique}%REPP, REPP-H, and REPP-C} 
+\label{subsec: implementation-REPPC}
+
+%{\small \circled{a}} Gather offline traces and generate the power and performance models.  
+
+REPP and REPP-C are user-level processes running on Linux OS that consist of four main
+functions: {\small \circled{a}} Gather performance statistics (Section~\ref{sec: perfmon
+thesis}), power meter readings (Section~\ref{sec: power meters}), and verify core's sleep
+state residency.  {\small \circled{b}} Bind tasks-to-cores.  {\small \circled{c}} Predict
+performance and power at each DVFS state and Cl-State (with and without core
+consolidation).  {\small \circled{d}} Given a constraint, set DVFS state and Cl-State.  
+
+\looseness -1 We set all inactive cores to the lowest DVFS state and facilitate the core to enter the
+deepest sleep state. To verify the C-State residency (at sleep states \textsf{C3},
+\textsf{C5}, and \textsf{C7}) during core consolidation, the MSR registers~\citep{Intel}
+\textsf{MSR\_PKG\_C3\_RESIDENCY}, \textsf{MSR\_PKG\_C6\_RESIDENCY} and
+\textsf{MSR\_PKG\_C7\_RES\-}\textsf{IDENCY} are read every
+\SI{250}{\milli\second} on the Intel processor. The default time quantum to \textsl{enter}
+a C-State is \SI{1024}{\nano\second}.
+
+\looseness -1 In the process of generating the models, we bind tasks to cores via the
+Linux \textsf{sched\_setaffinity} system call. Binding a task to a core ensures that the
+thread runs on the specified core. Assigning the affinity~\citep{LinuxKernel} for a thread
+bypasses Linux CFS and helps avoid excessive thread migration and provides a more controlled
+environment.  The process of model generation is automatised using an R script in order to
+be applicable systematically. This is feasible because no manual training is required,
+showing that with a random set of benchmarks it is possible to generate accurate
+performance and power models. 
+
+The frequency scaling was performed by setting the \textit{CPUFreq governor} to
+\textit{userspace} and scaling the frequency for individual cores (Kasture
+\etal~\citep{Kasture2015Rubik} show that changes in DVFS are in the order of
+microseconds). On the Intel processor, the MSR register
+\textsf{MSR\_IA32\_PERF\_CTL}~\citep{acpikernel, Intel} is used to reduce the latency to a
+single register move. Switching DVFS state using the MSR register overrides the Linux
+kernel driver \textsf{acpi-cpufreq}. Next, the Cl-State are set using the Intel powerclamp
+driver~\citep{powerclamp}.   
+
+
+%\subsection{Algorithm Configuration} 
+
+\paragraph{Algorithm Configuration.} A sampling interval of \SI{250}{\milli\second} was empirically chosen for
+all phases of the algorithm i.e., to generate traces, build models and deploying REPP,
+REPP-C, and FACTS.
+
+
+%\subsection{Scalability}
+%\label{section: scalability}
+
+\paragraph{Scalability.} Scalability of a prediction algorithm is determined by the computational latency to make
+predictions and the prediction accuracy. To visualise the scalability impact, we breakdown
+the computational cost (in cycles) only for the Intel processor\footnote{We do not expect
+the computational cost to have a large deviation across processors, as the technique
+involves only a few mathematical operations and one I/O operation}, using the
+\textsf{RDTSC}~\citep{RDTSC} instruction for the following computations: {\small
+\circled{1}} Cost to read PMCs and compute ARs; {\small \circled{2}} Predicting
+performance and power at all configuration without consolidation (REPP); {\small
+\circled{3}} Predicting performance and power with consolidation (REPP-C); {\small
+\circled{4}} Selecting REPP or REPP-C; {\small \circled{5}} Moving to a given
+configuration. The estimates of computational overheads provided are recorded per
+evaluation, and is the mean over multiple iterations.
+
+The possible number of configuration on a four core system are 80 billion (450
+configuration per core for REPP and REPP-C).  However, the overlap in performance and
+power prediction over these configurations leads to redundancy in computational resources
+and power. Therefore, we compute only 3600 configurations on a four core system running
+both REPP and REPP-C.  Despite predicting only~\SI{0.5}{\percent} of the total number of
+configuration possible, our results have shown that the estimation technique can predict
+performance and power with an accuracy greater than \SI{93}{\percent}.  
+
+
+\begin{figure}[t]
+    \centering
+\begin{tikzpicture}
+[
+    pie chart,
+    slice type={comet}{blu},
+    slice type={legno}{rosso},
+    slice type={yel}{giallo},
+    slice type={sedia}{viola},
+    slice type={caffe}{verde},
+    pie values/.style={font={\small}},
+    %legend style={{font=\normalsize}},
+    scale=3.5
+]
+
+    \pie[xshift=0.5cm,values of coltello/.style={pos=1.1}]%
+        {Computational cost in cycles}{78.49/caffe,8.72/yel,4.36/sedia,7.27/comet,1.16/legno}
+
+    %\legend[shift={(2cm,0.5cm)}]{{FACTS (3000 cycles)}/sedia, {Gathering PMCs (54000 cycles)}/caffe}
+    \legend[shift={(2cm,1.0cm)}]{{FACTS (3000 cycles)}/sedia, {Gathering PMCs (54000 cycles)}/caffe, {Computing AR and predictions (6000 cycles)}/yel, {Consolidation model (5000 cycles)}/comet, {Select REPP or REPP-C (800 cycles)}/legno}
+
+\end{tikzpicture}
+    \caption[Scalability of REPP and REPP-C]{\captitle{Scalability of REPP and REPP-C.} The computational overhead measured in cycles (using \textsf{RDTSC}
+     instruction) on the Intel processors is 68880 cycles.} 
+    \label{fig: scalability} %
+\end{figure}
+
+
+\looseness -1 Figure~\ref{fig: scalability} shows the computational overhead (per
+computation) when predicting performance and power on a four core system running at
+\SI{2.4}{\giga\hertz}.  The total overhead is measured in cycles using the \textsf{RDTSC}
+instruction is 68800 cycles.  The major overhead (54000 cycles) is due to the low level
+operations to gather PMCs using \textsf{perf}. Next, computing the activity ratio and
+predicting performance and power (6000 cycles).  Thereafter, selecting a potential
+corunners using FACTS (3000 cycles), and applying the consolidation model (5000 cycles).
+Finally, to select REPP or REPP-C and applying a given configuration (800 cycles). In
+summary, it takes under 100 cycles per prediction of performance or power.
+
+\begin{table}[t]
+\centering
+    \caption[Time complexity in predictions]{\captitle{Time complexity in predictions.} Number of configurations possible per core given the number of cores and time for modelling}
+\begin{tabular}{@{}lrrrcrrrc@{}}\toprule
+ $DVFS\enspace state$   & \multicolumn{3}{c}{$\SI{2.4}{\giga\hertz}$} & \phantom{abc}& \multicolumn{3}{c}{$\SI{0.8}{\giga\hertz}$} \\
+\cmidrule{2-4} \cmidrule{6-8} 
+    $Time(s)/\#cores $ & $1$ & $2$ & $4$ && $1$ & $2$ & $4$\\
+\midrule
+            \SI{0.500}{\second}   &900&230888&230888 &&900&76964&76964 \\ 
+            \SI{0.250}{\second}   &900&115444&115444 &&900&38482&38482 \\ 
+            \SI{0.125}{\second}   &900&57722&57722   &&900&19241&19241 \\ 
+            \SI{0.063}{\second}   &900&29092&29092   &&900&9697&9697 \\ 
+            \SI{0.031}{\second}   &900&14315&14315   &&900&4772&4772 \\ 
+            \SI{0.016}{\second}   &900&7388&7388     &&900&2463&2463 \\ 
+            \SI{0.008}{\second}   &900&3694&3694     &&900&1231&1231 \\ 
+
+\bottomrule
+\end{tabular}
+
+\label{tab: coretime}
+\end{table}
+
+Table~\ref{tab: coretime} shows number of configurations that can be computed within a
+given time quantum (measured in seconds) at \SI{2.4}{\giga\hertz} and
+\SI{0.8}{\giga\hertz} on a machine with one, two, and four cores. For instance, the number
+of configurations on a two core system are 810000. Nevertheless, given a DVFS state (say
+\SI{2.4}{\giga\hertz}) and a time constraint (\SI{0.125}{\second}), the number of
+predictions that can be computed are 57722, instead of 810000. Also observe that on a
+machine with a single-core at \SI{2.4}{\giga\hertz} and \SI{0.8}{\giga\hertz}, the number
+of configurations are the same because, irrespective of the DVFS state the number of
+configurations are fixed at 450 per core for REPP and REPP-C.
+
+Given the computational overhead, we suggest that our prediction methodology has minimal
+overhead and is fine-grained. This enables REPP to characterise workload at a per thread
+level using existing hardware counters to meet various constraints.
+\newpage

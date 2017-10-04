@@ -1,0 +1,65 @@
+\chapter{Conclusion} 
+\label{chap: finalconc}
+
+\lettrine{T}{his} section summarises what the discussions and accomplishments in this
+thesis are.  We began this thesis by addressing the energy issues with two different
+paradigms in data centre environments.
+
+One of these paradigms, performance and power estimation, is difficult due to shared
+memory and CPU resources in data centre environments.  As our experiments have
+demonstrated, the (thread) performance delivered and power consumed is heavily influenced
+by the contention for CPU resources and shared memory (these amongst other things).
+However, data centre administrators need information to maintain service level agreements
+(like batch throughput) while ensuring power is not over budgeted, and this raises the
+need to understand how applications' demand varies across different hardware settings
+(configurations). The question becomes: \emph{how do we enable performance and power
+trade-offs so that the administrators have control?}
+
+We designed \emph{Runtime Estimation of Performance and Power (\textbf{REPP})} to allow
+fine-grained estimation and control of performance and power. REPP makes use of the
+hardware performance monitoring counters (PMCs) to estimate performance and power across
+numerous configurations: dynamic voltage and frequency state (DVFS), Cl-States
+(intel\_{powerclamp}), and core consolidation. REPP models performance and power for a
+single-core using PMCs to scale across many/\muc processors, but then uses a model to
+estimate the impact of contention for shared memory and CPU. The extent to which such
+sharing can impact performance and power can heavily depend on the workload type and its
+corunners. The system is designed to also detect when to shut down cores and decide which
+workloads to collocate so that the system's energy efficiency is maximised.  The extent to
+which such models can be deployed depends on how much information can be obtained
+regarding the system-application interaction, and how many changes to the hardware can be
+made.  This raises the need for a scientific inquiry into the PMCs, hardware control
+settings, workloads and their system interaction. In Part~\rom{2}, we demonstrated that
+REPP is application agnostic and can be seamlessly integrated into any \muc architecture
+to estimate and control performance and power. 
+
+\looseness -1 The other paradigm we discussed is one which allocates a latency-critical
+workload to cores such that the real-time performance guarantees are met while improving
+resource utilisation.  
+
+\looseness -1 In this context, we proposed \textbf{Hipster}: a hybrid approach to solve
+this problem.  Our system takes as input the performance guarantee, current latency, load,
+for a latency-critical job, and the static ordering of configurations of the system in
+order of power efficiency.  Typically, a latency-critical job is allocated resources in
+response to changes in measured latency, and any remaining resources are allocated to
+batch jobs to maximise resource efficiency.  We make the observation that different
+latency-critical jobs have different orderings of power efficient configurations that
+maximise the energy efficiency while meeting real-time performance guarantees.  The
+question becomes: \emph{how do we detect on-the-fly the best configurations for a
+latency-critical job on any architecture?} We developed a hybrid scheme that combines
+heuristics and reinforcement learning to manage heterogeneous cores with DVFS control for
+improved energy efficiency.  In Part~\rom{3}, we have shown that Hipster performs well
+across workloads and interactively adapts the system by learning from the
+QoS/power/performance history to best map workloads to the heterogeneous cores and adjust
+their DVFS settings. 
+
+The objectives of maximising performance under power control and energy efficient
+computing could be viewed as complementing each other. But we found that they are usually
+tightly coupled, and pursuing one objective requires a trade-off with the other.  We also
+noticed that to improve resource efficiency, we have to manage workloads to cores
+depending on application preferences. We were interested in building a data centre
+management solution one step at a time. First, to maximise performance subjected to a
+power bound. Next, to enable energy efficient computing and thereafter improve resource
+efficiency. We conclude that the aforementioned multi-objective problems do exist, but
+systems like \textbf{REPP} and \textbf{Hipster} can be quintessential for administrators'
+much needed control. The icing on the cake is that such systems can reduce costs by
+either saving power or meeting performance guarantees!

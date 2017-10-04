@@ -1,0 +1,148 @@
+%\chapter{Power and Performance Models} 
+%\label{chap: REPP}
+
+\lettrine{T}{his} part dives into the topic of power and performance management in data
+centre environments. Modern and dynamic data centres continuously update and replace
+commodity servers to deliver a higher throughput (performance) or to reduce the power
+consumption or to improve the Power Usage Effectiveness (PUE)~\citep{4544393, Google:PUE}.
+To ensure these constraints are met, administrators need to understand how the
+applications' phases, external perturbation, current hardware settings, etc., impact the
+(single thread) performance and power. However, operating system scheduling algorithms on
+\muc systems, are often targeted to maximising performance based on average CPU
+utilisation in a sampling interval (typically in the order of \SI{e-6}{\second}) while
+neglecting the system power consumption and the scalability of the
+application~\citep{ondemand}. This is a shortcoming with the OS scheduling strategy, as
+applications that are memory bounded, do not benefit from the high compute performance of
+a high DVFS state as they stall for memory, thus using a lower DVFS state might be
+sufficient to satisfy the performance constraint while saving power.  At the same time,
+the converse is true for compute bounded workloads.   
+
+\nomenclature[z-PUE]{PUE}{Power Usage Effectiveness} 
+
+\looseness -1 In addition, current server systems are intrinsically power inefficient at
+low utilisation~\citep{Petrucci2015Octopus-Man:Computers, Meisner2011PowerServices,
+Lo2015Heracles, Lo2014TowardsWorkloads, Hoelzle2009TheMachinesb} and therefore major
+high-performance computing (HPC) vendors (like Amazon EC2~\citep{ec2pricing} and IBM Soft
+Layer~\citep{IBMTivoli}) offer high-performance computing at a small fraction of the
+server costs. This helps vendors to maximise utilisation, improve power efficiency and
+drive capital investment. While ``renting'' servers maximises utilisation and improves
+power efficiency, it is challenging to estimate server power and performance because
+{\small \circled{a}} Server vendors are agnostic to the users applications, thereby it is
+challenging to profile each application offline to meet the power constraints and
+performance guarantees.  {\small\circled{b}} Since each user has different constraints, it
+is necessary to understand applications' power and performance at runtime and select
+hardware settings that satisfy each users requirement while minimising the server power
+consumption.  In such scenarios, to improve energy efficiency at a low cost, modern data
+centre architectures incidentally or intentionally, have to deal with server architecture
+heterogeneity~\citep{Mars2013Whare-map, Mars2011HeterogeneityOpportunity,
+Nathuji:2007:EPH:1270385.1270764} i.e., different homogeneous processors on a single
+server system.  With server architecture heterogeneity come some exciting challenges:
+{\small \circled{1}} How to map applications across multiple architectures?  {\small
+\circled{2}} How to provide a service that is reliable to meet constraints or
+requirements?  {\small \circled{3}} How to provide a computing service on demand?  {\small
+\circled{4}} How to deliver computing service at an attractive cost to end-users?
+
+\nomenclature[z-DPM]{DPM}{Dynamic Power Management}
+
+Given such interesting challenges in current data centres, a service that can be provided
+using native hardware capabilities across architectures -- making a service uniform -- may
+be represented in various forms. For instance, minimising energy consumption subject to a
+performance target and peak power constraint, or maximising performance subject to a peak
+power constraint or to provide energy efficient cluster management in data centres.
+Irrespective of the how the service is formulated, any solution, whether optimal or
+heuristic-based, requires a fast and accurate model to predict how a potential change in a
+DPM feature~\citep{acpikernel} or other low-level power features will translate into thread
+performance and power demand. 
+
+\looseness -1 A modelling solution with currently available DPM features on modern
+operating systems makes it difficult to understand the combinatorial complexity they bring
+regarding service comprehension.  Generally, administrators of large-scale data centres
+deal with metrics such as performance (IPS), power and efficiency levels (e.g.,
+performance per watt or PUE), which do not directly correspond to DVFS state, Cl-States or
+core shutdown. With an increase in the number of DPM features, a unique combination of
+these features generates a different power and performance level, thereby making the
+combinatorial complexity of these parameters polynomial.
+
+%why current hardware works at a given mapping interval 
+
+\looseness -1 This complexity in hardware explains why current solutions (like Intel
+Intelligent Power Node Manager~\citep{IntelNode}, the OpenStack
+framework~\citep{Openstack} or the IBM Tivoli framework~\citep{IBMTivoli}) operate at a
+coarse granularity, at the node level, while the hardware features work at a core level,
+with low overheads.  Understanding the behaviour at per core or per thread level allows
+for precise control over performance and power contribution and their corresponding
+effects.  What is necessary is an application agnostic prediction approach for
+heterogeneous data centres to meet a constraint, irrespective of how it is formulated. 
+
+%This is precisely what our methodology provides.  constraintTraditional services
+
+Traditionally such complexity has been met with iterative algorithms which are DVFS state
+based: they monitor the application behaviour history
+periodically~\citep{Blagodurov:2010:CSM:1880018.1880019} and set the DVFS configuration
+for the next quantum. However, these approaches require multiple iterations before power
+and performance criteria are satisfied and can incur massive violations in power and
+performance budgets for data centres~\citep{Mars2011HeterogeneityOpportunity,
+Singh:2009:RTP:1577129.1577137}.   
+
+
+In contrast to traditional iterative algorithms, what is crucial is a fast and reactive
+prediction based algorithm that can provide a quick response and reaction for a small
+fraction of the computational costs. Reactive based algorithms determine phase changes in
+behaviour, i.e., from compute-bound to memory-bound and vice-versa, using existing PMCs to
+select the appropriate DVFS state based on the external constraints.   
+
+
+
+Using PMCs, we demonstrate that our prediction algorithm can determine if the application
+is scalable with a combination of DPM features at runtime and can select the most
+appropriate configuration given a constraint.
+
+The remainder of Part \rom{2} is organised as follows.
+
+%REPP + multicore + all architectures
+
+\looseness +1 Chapter~\ref{chap: REPP} introduces \textit{Runtime Estimation of Performance
+and Power}, \textbf{REPP}, a methodology to build \textsl{models} and estimate performance
+and power for a \emph{single-core}~\citep{Nishtala:ICPP} and \emph{\muc}
+processors~\citep{Nishtala:SBACPAD} parametrised by DVFS states and Cl-States. REPP is a
+method to generate fast, and accurate performance and power predictions. Our real-machine
+experimental evaluation shows that the models are accurate enough to capture the workload
+behaviour and are driven by existing performance counters.  Since the computational
+complexity at runtime is low, it can be used for fine-grain power and performance
+management.  
+
+%REPP + multicore + consolidation 
+
+\looseness -1 Chapter~\ref{section: REPP-C} extends REPP to predict power and performance
+with core consolidation (\textbf{REPP-C}). REPP-C (\textit{Runtime Estimation of
+Performance and Power with core consolidation})~\citep{Nishtala:IGSC} estimates and
+controls power and performance on server architecture with core consolidation.
+
+%How REPP-H, and REPP-C were evaluated
+
+\looseness -1 The evaluation of REPP and REPP-C, on each architecture, was carried out
+with numerous single threaded and multiprogrammed applications. We demonstrate the
+effectiveness of the modelling technique by ensuring that the power constraints and
+performance guarantees are satisfied with multiple constraints on three different
+architectures.
+
+\nomenclature[z-REPP]{REPP}{Runtime Estimation of Performance and Power}
+
+\nomenclature[z-REPP-C]{REPP-C}{Runtime Estimation of Performance and Power with workload
+consolidation}
+
+
+\newpage
+%REPP
+\input{Chapter3/section1} 
+
+%\newpage
+%REPP-H
+%\input{Chapter3/section2} 
+
+\newpage
+%REPP-C
+\input{Chapter3/section3} 
+
+%\newpage % Scalability & Implementation %\input{Chapter3/section4}
+

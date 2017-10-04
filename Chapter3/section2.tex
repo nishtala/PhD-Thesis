@@ -1,0 +1,48 @@
+\chapter{Power and Performance Models for Server Systems} 
+
+\label{section: REPP-H} 
+
+
+\lettrine{I}{ncreasing} visibility of server architecture heterogeneity in data centres
+raises a demand for a scheduling/modelling approach that allocates precise amount of
+resources to workloads based on their power and performance
+requirements~\citep{Mars2013Whare-map, Nishtala:HPCA, Petrucci2015Octopus-Man:Computers,
+Kasture2015Rubik, Lo2015Heracles}. In order to exploit the heterogeneity, there is a need
+for a simple, application agnostic framework to estimate application demands
+\emph{on-the-fly}. Such an approach can be deployed to adapt and control the resource
+allocation to optimise performance and power on each architecture. In this chapter, we
+demonstrate a method to control and adapt systems power consumption and performance demand
+based on external constraints by modelling the performance and power at multiple hardware
+control settings in a \muc environment.
+
+%and adapting them at runtime based on applications behaviour. 
+
+
+%These SLA agreements can be defined as PUE of the data centre, maximum power consumption,
+%and delivering a minimum throughput.  For instance, PUE is an extensively used metric in
+%Google data centres~\citep{4544393, Google:PUE}.  Nevertheless such architectures raise
+%interesting challenges on cluster-level scheduling in meeting any of the aforementioned
+%SLA agreements. 
+
+%In the previous section, we introduced procedure to build performance and power models
+%offline for a single-core. Then, we evaluated the single-core models offline and online
+%on three different architectures, and have shown that our methodology predicts
+%performance and power with less than \SI{10}{\percent} error. 
+
+Specifically, we extend the single-core models built (Section~\ref{sec: REPP}) for a
+\emph{single-core} to \emph{multicore} environments and validate with multiple
+multiprogrammed workloads in heterogeneous architectures (REPP- Heterogeneous:
+\textbf{REPP-H}). REPP-H can be deployed across architectures as the PMCs selected are
+basic and available on most commercial platforms.  REPP-H also provides a methodology to
+meet performance and power constraints in \muc environments with high accuracy.  
+
+%The subsequent sections of this chapter introduce the multicore modelling technique, the
+%evaluation of multicore models without constraints and with constraints.  
+
+
+
+
+\section{Conclusion} 
+\label{subsection: conclusion}
+
+

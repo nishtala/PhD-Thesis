@@ -1,0 +1,88 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: blankpage2.aux
+A level-1 auxiliary file: acta/actaform.aux
+A level-1 auxiliary file: blankpage3.aux
+A level-1 auxiliary file: advisors/advisors.aux
+A level-1 auxiliary file: blankpage4.aux
+A level-1 auxiliary file: copyright/copyright.aux
+Already encountered file blankpage4.aux
+---line 27 of file thesis.aux
+ : \@input{blankpage4.aux
+ :                       }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: Abstract/abstract.aux
+A level-1 auxiliary file: blankpage5.aux
+A level-1 auxiliary file: Dedication/dedication.aux
+A level-1 auxiliary file: Acknowledgement/acknowledgement.aux
+A level-1 auxiliary file: Chapter0/chapter0.aux
+A level-1 auxiliary file: Chapter2/chapter2.aux
+Already encountered file blankpage3.aux
+---line 38 of file thesis.aux
+ : \@input{blankpage3.aux
+ :                       }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: Chapter3/chapter3.aux
+Already encountered file blankpage3.aux
+---line 41 of file thesis.aux
+ : \@input{blankpage3.aux
+ :                       }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: Chapter4/chapter4.aux
+A level-1 auxiliary file: Chapter5/chapter5.aux
+A level-1 auxiliary file: Chapter6/chapter6.aux
+A level-1 auxiliary file: papers/paper.aux
+A level-1 auxiliary file: Chapter7/chapter7.aux
+A level-1 auxiliary file: Appendix2/appendix2.aux
+The style file: unsrt.bst
+Reallocated field_info (elt_size=4) to 10106 items from 5000.
+Database file #1: References/workloads.bib
+Database file #2: References/repp.bib
+Database file #3: References/hipster.bib
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Database file #4: References/mypubs.bib
+Warning--empty journal in 5751940
+Warning--empty journal in 7029183
+You've used 222 entries,
+            1791 wiz_defined-function locations,
+            1761 strings with 68829 characters,
+and the built_in function-call counts, 62449 in all, are:
+= -- 5770
+> -- 2802
+< -- 102
++ -- 1029
+- -- 807
+* -- 4147
+:= -- 9120
+add.period$ -- 748
+call.type$ -- 222
+change.case$ -- 217
+chr.to.int$ -- 0
+cite$ -- 224
+duplicate$ -- 2915
+empty$ -- 6019
+format.name$ -- 807
+if$ -- 14627
+int.to.chr$ -- 0
+int.to.str$ -- 222
+missing$ -- 170
+newline$ -- 1111
+num.names$ -- 222
+pop$ -- 904
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1766
+stack$ -- 0
+substring$ -- 3909
+swap$ -- 1076
+text.length$ -- 102
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 599
+width$ -- 225
+write$ -- 2584
+(There were 3 error messages)

@@ -1,0 +1,77 @@
+\section{Multicore Model Evaluation}
+\label{subsection: evaluation repp-h}
+
+The multicore evaluation of REPP is carried out in three parts. At first, we validate the
+error introduced by the single-core models on multicore architectures, that is, without
+considering shared resource contention (Equation~\ref{eq: critical error} and
+Section~\ref{subsubsection: no-contention}).  Thereafter, we introduce the model for
+shared resource contention and validate REPP without any performance or power constraint
+(Section~\ref{subsubsection: technical approach}).  Finally, we validate REPP (with the
+contention model) by limiting the power usage or delivering a minimum performance for a
+wide spectrum of workloads on three different architectures (Section~\ref{subsubsection:
+multicore evaluation with constraints}). The multiprogrammed workloads in all three cases
+are generated based on the methodology described in section~\ref{subsection: batch
+workloads}.  Irrespective of the how REPP is evaluated, the algorithm is invoked every
+\SI{250}{\milli\second} and each experiment was run multiple times. The standard deviation
+over multiple runs for each workload was low ($<$ \SI{2}{\percent}).
+
+\looseness -1 In the first two parts (sections~\ref{subsubsection: no-contention}
+and~\ref{subsubsection: technical approach}), we validate REPP by switching across all
+combinations of DVFS states and Cl-States only on Intel processor.  Since the total number
+of DVFS state and Cl-State combinations are 41 billion (450 per core and 4 cores).  It is
+infeasible to validate for the entire spectrum.  Therefore we generate 1000 random tuples
+of DVFS state, Cl-State combinations per core within the minimum and maximum DVFS state
+and Cl-State ranges.  These random combinations are fixed across workloads. The
+randomisation was done using the \textsf{rand()} function.  Moreover, the multiprogrammed
+workloads generated are taken from SPEC CPU 2006 and PARSEC 3.0 benchmark suites. 
+
+\looseness -1 In the third part (section~\ref{subsubsection: multicore evaluation with
+constraints}), we validate REPP on three different architectures with multiprogrammed
+workloads built from SPEC CPU 2006, PARSEC 3.0, NAS, and SPLASH2x.  The process of
+delivering a minimum performance or limiting the power usage of the workload is done by
+selecting a configuration from the predicted values that satisfy the configuration. 
+
+The \textit{training workloads} selected for building the contention model (refer section
+\ref{subsec: mult model}) in our case study are \textbf{SSSS}, \textbf{NNNN},
+\textbf{TTTT}, and \textbf{FFFF} as they have a huge variation in memory footprint and CPU
+requirements. 
+
+
+\subsection{Multicore Models ignoring Contention} 
+\label{subsubsection: no-contention}
+
+\begin{figure}[tb!]
+   \centering
+    \includegraphics[width=\textwidth]{Chapter3/Figs/no-contention/without-contention-paae.eps}
+    \caption[PAAE ignoring contention for shared resources]{\captitle{PAAE ignoring contention for shared resources.} PAAE when predicting \textbf{power} and \textbf{performance} across 1000 combinations of DVFS states and Cl-States per core in multicore architectures for training workloads.} 
+    \label{fig: power perf prediction multicore paae}
+\end{figure}
+
+
+Figure~\ref{fig: power perf prediction multicore paae} shows PAAE in predicting power and
+performance across 1000 combinations of DVFS states and Cl-States per core in multicore
+architecture. We highlight two key points from this graph. First, observe that workloads
+\textbf{SSSS} (a memory intensive workload) and \textbf{NNNN} (a compute intensive
+workload) have the highest PAAE when predicting performance and power, respectively, this
+is because the activity is predominant in the memory subsystem and processor,
+respectively. Second, observe that the error in predicting power increases as the compute
+intensiveness of the workloads increases, this is because the single-core models aggregate
+the results obtained from each core and do not account for the contention due to shared
+resources, thereby the compute intensive workloads which have lower activity in memory
+subsystem -- compared to memory intensive workloads -- are accounted for higher activity.
+Whereas the error when predicting performance increases as the memory boundedness of the
+workloads increase, this can be attributed to the fact that the activity generated per
+cycle in the components decreases, thereof the performance per thread. The PAAE and
+Absolute Average Error (AAE) when predicting power and performance across the training
+workloads are \SI{20.93}{\percent} (\SI{430}{\milli\watt}) and \SI{23.8}{\percent} (3316
+MIPS).
+
+\nomenclature[z-AAE]{AAE}{Absolute Average Error}
+
+
+
+%start from subsubsections...
+\input{Chapter3/without_constraints} 
+%start from subsubsections...  
+\input{Chapter3/with_constraints}
+

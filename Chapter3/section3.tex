@@ -1,0 +1,224 @@
+\chapter{Power and Performance Models with Consolidation}
+\label{section: REPP-C} 
+
+
+\looseness -1 \lettrine{D}{ynamic} power management features available in modern operating
+systems do not allow the current hardware to reduce the power below a minimum operating
+power consumption. One measure widely deployed across data centres to minimise energy
+consumption is to collocate workloads on a subset of cores such that the contention for
+shared resources is minimised~\citep{Blagodurov:2010:CSM:1880018.1880019,
+Mars2013Whare-map, Zhuravlev:2012:SST:2379776.2379780, Mars:2011:BIU:2155620.2155650,
+Yang2013Bubble-flux, Cochran:2011:PCA:2155620.2155641, Olsen:2006:PEP:1137248.1137532,
+Singh:2009:RTP:1577129.1577137, Gandhi:2010:OAE:1869138.1869264}. To further minimise the
+energy consumption, data centres typically shutdown any unused cores that are inactive.
+This method of shutting down cores is referred to as core consolidation.
+
+\looseness -1 In Chapter~\ref{chap: REPP} we presented REPP, a technique that used basic
+PMCs to estimate and control performance and power at control settings parametrised by
+DVFS states and Cl-States.  The runtime of REPP is based on single-core models and a
+simple model to estimate the impact of shared resource contention in multicore
+environments. This makes REPP dynamic and scalable across multiple nodes quickly.
+Although REPP can ensure strict performance and power requirements are met, the hardware
+mechanisms deployed do not permit power to drop below a certain threshold when all cores
+are used. This is the case even in idle periods. To combat this problem, we introduce
+\textbf{REPP-C}: an estimator to predict performance and power parametrised by core
+consolidation, DVFS states and Cl-States. REPP-C allocates workloads from under-utilised
+cores to remaining cores using a scheduling technique to improve energy efficiency.  
+
+For example, existing contention-aware algorithms have shown significant improvements in
+power efficiency by  spreading the thread contention across different shared resource
+levels/domains (e.g., core cache or memory
+controller~\citep{Zhuravlev:2012:SST:2379776.2379780}).  Nevertheless, we observe that
+taking into account both memory demands and core's DVFS state improves energy efficiency
+of collocated threads significantly. To this end, we propose an algorithm for online
+thread assignment for homogeneous multicore systems called Frequency and Contention-Aware
+Thread Collocation Schema (FACTS).  
+
+\looseness -1 The rest of the chapter is as follows: Section~\ref{sec: facts} introduces
+the scheduling algorithm, FACTS and Section~\ref{sec: repp-c} introduces the modelling and
+prediction technique REPP-C. Next, Section~\ref{subsec: facts} evaluates FACTS against
+state-of-the-art schemes Distributed Intensity Online
+(DIO)~\citep{Blagodurov:2010:CSM:1880018.1880019} and CFS.  Thereafter,
+Section~\ref{subsec: evalREPP-C} evaluates REPP-C by validating numerous performance and
+power constraints. Next, Section~\ref{subsec: implementation-REPPC} and
+Section~\ref{subsec: implementation-REPPC} demonstrate the implementation and scalability of REPP
+and REPP-C, respectively. Finally, Section~\ref{sec: reppcconclusion} discusses the
+evaluation.
+
+\input{Chapter3/FACTS}
+
+
+\section{Multicore Modelling with Consolidation} 
+\label{sec: repp-c}
+
+\looseness -1 In this section, we introduce REPP-C, a power and performance modelling and
+prediction technique parametrised by DVFS states, Cl-States and core consolidation.  In
+building such models, we have identified four important research challenges: {\small
+\circled{1}} How to consolidate cores? {\small \circled{2}} Which thread should be
+collocated to minimise shared resource interference? {\small \circled{3}} Determine the impact on power
+consumption, and performance degradation?  {\small \circled{4}} What is the prediction
+computational latency? We address the following issues separately.  
+
+\paragraph{Core consolidation.} Traditionally core consolidation has been implemented by
+turning off a core~\citep{sysfstool}. Turning off or on a core can be accessed using the
+ACPI module in Linux, and these operation take a few microseconds to complete.
+Unfortunately, on our Intel architecture, invoking a function to restart cores at frequent
+intervals (\SI{250}{\milli\second}) froze our system due to \textsf{mce\_restart()} race with CPU hotplug
+operation~\citep{lkmlerror}. Therefore, we implemented core consolidation by allowing a
+core to enter a deep sleep state mode (C-State). More information on C-States is given in
+Section~\ref{section: Background}.  We verify a core's C-State residency by probing the
+\texttt{MSR} registers (Section~\ref{subsec: implementation-REPPC}) to ensure power
+measurements are accurate.
+
+
+\paragraph{Impact on performance and power.} 
+
+We understand the impact of core consolidation on performance and power by running two
+experiments on an Intel architecture.  First, we run four instances (let's call them
+App-0, App-1, App-2, and App-3) of the SPEC workload \emph{astar} on four cores, where
+each instance is pinned to a separate core (that is, no time sharing).  Next, we run four
+instances of the same workload on three cores, where the first two instances (let them be
+App-0 and App-1) are run on the first two cores (that is, no time sharing), and the
+remaining two threads timeshare the third core. The fourth core is idle, that is, without
+any external workload.
+
+Intuitively, it is expected that core consolidation should impact of performance and power
+of the entire system. Contrary to our intuition, Figure~\ref{fig: impactperfpower} shows
+the impact on performance (the first four bars) and power (the last bar) due to core
+consolidation; This figure demonstrates that the influence of core consolidation on
+performance and power is only on the collocated threads, whereas the remainder of the
+threads show minimal changes. %This is a key finding to build our models.
+
+
+\begin{figure}
+    \centering
+    \scalebox{1}{
+        \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={App-0 on Core 0, App-1 on Core 1, App-2 on Core 2, App-3 on Core 2, System Power},
+            xtick=data,
+            %x tick label style={text width=1.1cm,align=center},
+            x tick label style={font=\small,text width=1.2cm,align=center},
+            ymin=-30,ymax=10,
+            ylabel={\% age impact due to consolidation} ] \addplot[ybar,fill=blue]
+        coordinates { (App-0 on Core 0,   -0.23) (App-1 on Core 1,  0) (App-2 on Core 2,
+        -25.33) (App-3 on Core 2,   -25.33) (System Power,   7.41) }; \end{axis}
+        \end{tikzpicture} } \caption[Impact on performance and power due to core
+    consolidation]{\captitle{Impact on performance and power due to core consolidation.}
+    The first four bars show the performance loss and the latter shows the power gain when
+    running four instances of the SPEC benchmark \emph{astar} on four cores and three
+    cores on an Intel architecture.} \label{fig: impactperfpower} \end{figure}
+
+
+\paragraph{Modelling methodology.}
+
+\looseness -1 We model the impact of core consolidation as follows. At first, we deploy
+\textsf{REPP} to meet user-defined performance and power constraints for the training
+workloads, assuming there exists a inactive core. The workloads are scheduled using FACTS
+assuming there exists an inactive core, to mimic the impact of core consolidation for
+REPP.  During this procedure, we gather performance statistics, power measurements and
+user-defined constraints every interval into a log-file.
+
+To build the models, we use the traces collected in the log-file to compute the difference
+between the constraint at a given time and value obtained through PMCs (for performance)
+or power meter (for power). This difference in power or performance, is subtracted for
+each prediction on a per thread level for the pair of collocated threads.  Finally, we
+build one model for performance and another for power.  
+
+
+\begin{itemize}
+
+    \item[{\small \circled{1}}] Set performance and power constraints exclusively for each
+        workload, consecutively (Section~\ref{subsubsec: experiments repph}). 
+
+    \item[{\small \circled{2}}] Spawn the training workloads consecutively using the
+        scheduling policy FACTS (Section \ref{subsec: reppc workloads}).
+
+    \item[{\small \circled{3}}] Ensure there exists at least one inactive core. The core
+        with the highest number of LLC misses is the inactive core.
+
+    \item[{\small \circled{4}}] REPP selects a DVFS state and Cl-State per core to satisfy
+        the constraint (Section~\ref{subsubsec: config selec}).  %tion, P-State
+
+    \item[{\small \circled{5}}] Using PMCs read at current configuration, compute activity
+        ratios for private L1, private L2, LLC, and MEM for each thread.
+
+    \item[{\small \circled{6}}] Compute difference between the PMCs read (or RAPL
+register) and per thread performance (or power) limit for each thread that is collocated
+in the workload. This models the impact due to core consolidation on the co-runners.
+
+\end{itemize}
+
+The aforementioned method is followed for each workload for a period of 300 seconds.
+
+\begin{equation}%\tag{Eq. 1}
+    \label{eq: consolidation}
+     core\_consolidation = \sum_{i=0}^{comps}(\Delta_{\mathit{i}} \times AC_{\mathit{i}}) + constant
+\end{equation}
+
+Equation~\ref{eq: consolidation} represents the multi linear regression model to predict
+the reduction in performance or power consumed due to core consolidation, where
+$\Delta_{\mathit{i}}$ represents the coefficient to be learnt and
+\textit{$AC_{\mathit{i}}$} represents the activity ratio of the individual components
+(specifically L1, L2, LLC, and MEM).
+
+
+\looseness -1 The initial thread-to-core assignment is carried out statically, and the
+cores are set to the lowest DVFS state. Then, given the constraint, REPP predicts
+performance and power, and determines the potential configuration that satisfies the
+constraint.  Thereafter, FACTS selects the potential threads to be collocated on the
+system, assuming there exists at least one inactive core. In our case study, the core with
+the highest number of LLC misses is the potential inactive core.  As shown
+in~\citep{Blagodurov:2010:CSM:1880018.1880019}, collocating a thrashing workload with a
+non-thrashing workload reduces the impact on shared memory footprint/cache pollution.
+This is because, a thrashing workload has higher memory stalls cycles compared to
+non-thrashing workloads. Consequently, REPP-C predicts performance or power for each of
+the collocated threads by subtracting the value obtained in Equation~\ref{eq:
+consolidation} from the original prediction (REPP).  Similar to REPP, REPP-C also selects
+a potential configuration.  In section~\ref{subsec: repporreppc}, we describe the rules to
+determine which configuration (REPP or REPP-C) to select.
+
+
+\subsection{Is consolidation worth it?}
+\label{subsec: repporreppc}
+
+To ensure that the user-defined power or performance constraint is satisfied at runtime, a
+potential configuration is selected from either REPP or REPP-C periodically
+(\SI{250}{\milli\second}). As a precursor to not violating performance guarantees and
+power budgets, we select a configuration based on {\small \circled{a}} Satisfying the
+system level constraint target; {\small \circled{b}} Fulfilling the per thread constraint.
+
+To determine if consolidation is worth it, we predefine two conditions, and the mechanism,
+that is used in the system is as follows:
+
+
+\textsf{Condition (\textbf{C1}):} Compute the error between total
+        predicted output and constraint for REPP and REPP-C.
+
+\textsf{Condition (\textbf{C2}):} Compute the error between the per
+        thread predicted output and the per thread constraint.
+
+\begin{itemize}
+
+
+    \item[{\small \circled{1}}] Select the configuration that satisfies performance and
+        power per thread for REPP and REPP-C.
+
+    %\item[{\small \circled{2}}]
+
+    %\item[{\small \circled{3}}] Condition (\textsf{C2}): 
+
+    \item[{\small \circled{2}}] If both conditions (\textsf{C1}, and \textsf{C2}) are
+        (approximately) zero for both REPP and REPP-C, then select the configuration as
+        given by REPP. This is because it delivers a higher energy efficiency than REPP-C.
+        
+    \item[{\small \circled{3}}] If the constraint is met (approximately) with \textsf{C1}
+        for REPP, but \textsf{C2} for REPP-C or otherwise. Then, select a configuration
+        from either REPP-C or REPP for which the \textsf{C2} has lesser error.
+
+    \item[{\small \circled{4}}] Select DVFS state, Cl-State per core as given by REPP or
+        REPP-C.
+        
+\end{itemize}
+
+\input{Chapter3/reppceval}

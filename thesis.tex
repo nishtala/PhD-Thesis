@@ -1,0 +1,136 @@
+\documentclass[oneside, a4paper, numbered, print, index]{Classes/PhDThesisPSnPDF}
+
+\usepackage[T1]{fontenc}
+
+\input{Preamble/preamble}
+
+\input{thesis-info}
+
+
+\ifdefineAbstract
+ \pagestyle{empty}
+ \includeonly{Declaration/declaration, Abstract/abstract}
+\fi
+
+\ifdefineChapter
+ \includeonly{Chapter3/chapter3}
+\fi
+
+\begin{document}
+
+\frontmatter
+\microtypesetup{protrusion=true}
+
+\maketitle
+
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listtablename}{List of Tables}
+
+\include{blankpage2}
+\include{acta/actaform}
+\include{blankpage3}
+\include{advisors/advisors}
+\include{blankpage4}
+\include{copyright/copyright}
+\include{blankpage4}
+
+\include{Abstract/abstract}
+%\include{Abstract/abstract_catalan}
+
+
+
+{
+\hypersetup{linkcolor=Blue}
+\begin{singlespace}
+\tableofcontents
+\end{singlespace}
+
+\include{blankpage5}
+\listoffigures
+\listoftables
+%\listoftodos
+}
+
+\include{Dedication/dedication}
+
+\markboth{Acknowledgements}{Acknowledgements} 
+\include{Acknowledgement/acknowledgement}
+%\include{papers/paper}
+
+\printnomenclature[1.7in]
+
+%\printglossaries 
+
+\mainmatter
+
+
+\epigraphhead[600]{\vspace{-8em}\hspace{-2em}\includegraphics[width=1.2\textwidth]{word.eps}
+\par\hfill\textsc{This graph shows the number of words/week I wrote during the course of this thesis.}
+}
+
+\part{Prologue}
+\include{Chapter0/chapter0}
+%Background 
+%\include{Chapter1/chapter1} 
+
+%Architecture and benchmarks
+\include{Chapter2/chapter2}
+
+
+\include{blankpage3}
+\epigraphhead[600]{Survival of the Fittest.
+\par\hfill\textsc{This quote is often associated with Charles Darwin as he gave us the evolutionary theory, but it was Herbert Spencer who phrased it first.}}
+
+\part{Modelling and Prediction Technique}
+\include{Chapter3/chapter3}
+
+
+%\epigraphhead[450]{Errors using foo barbazinadequate data are much less than those using no data at all.
+%\par\hfill\textsc{Charles Babbage}}
+
+\include{blankpage3}
+\epigraphhead[600]{There are other Annapurnas in the lives of men.
+\par\hfill\textsc{Maurice Herzog}}
+
+\part{Addressing scheduling of interactive and batch workloads}
+%HIPSTER
+\include{Chapter4/chapter4}  
+
+\epigraphhead[600]{The questions are always more important than the answers.
+\par\hfill\textsc{Randy Pausch}}
+\part{Epilogue}
+%Related Work
+\include{Chapter5/chapter5}  
+
+%Conclusion
+\include{Chapter6/chapter6}
+
+\include{papers/paper}
+
+%Future Work
+\include{Chapter7/chapter7}
+
+\begin{appendices} 
+\include{Appendix2/appendix2} 
+\end{appendices}
+
+\epigraphhead[600]{There are no passengers on spaceship earth. We are all crew.
+\par\hfill\textsc{Marshall McLuhan}}
+\part{Bibliography}
+\begin{singlespace}
+\bibliographystyle{unsrt}%acm}
+%\newcommand{\maybebackrefprint}{ \backrefprint}
+\cleardoublepage 
+\bibliography{References/workloads,References/repp,References/hipster,References/mypubs} 
+\end{singlespace}
+
+%\printbibliography[heading=bibintoc, title={References}]
+
+\newpage
+\markboth{Biographical Sketch}{Biographical Sketch}
+\input{vita}
+\printthesisindex % If index is present
+
+
+\end{document}

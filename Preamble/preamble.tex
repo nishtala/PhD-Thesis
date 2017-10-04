@@ -1,0 +1,438 @@
+\ifsetCustomMargin
+  \RequirePackage[left=37mm,right=30mm,top=35mm,bottom=30mm]{geometry}
+  \setFancyHdr % To apply fancy header after geometry package is loaded
+\fi
+
+\raggedbottom
+
+\ifsetCustomFont
+\fi
+
+\usepackage{varwidth}
+
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+\usepackage{wrapfig}
+%\usepackage{algpseudocode}
+\newcommand{\Break}{\State \textbf{break} }
+\algblockdefx[Loop]{Loop}{EndLoop}[1][]{\textbf{Loop} #1}{\textbf{End Loop}}
+
+
+\usepackage{varioref} %force table position http://tex.stackexchange.com/questions/9485/how-to-fix-table-position
+
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+\newcommand{\vars}{\texttt}
+\newcommand{\func}{\textrm}
+
+\algrenewcommand\alglinenumber[1]{\footnotesize #1}
+
+\usepackage[font={small},labelfont={bf},margin=15pt, labelsep=space, tableposition=top]{caption} % load after babel. also replaces hypcap.
+
+
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[percent]{overpic}
+
+\usepackage{colortbl,array,booktabs} % For professional looking tables
+\usepackage{multirow}
+
+\setlength\heavyrulewidth{1.5pt} %toprule width
+
+% *********************************** SI Units *********************************
+\usepackage{siunitx} % use this package module for SI units
+\sisetup{per-mode=symbol}
+\sisetup{binary-units=true}
+\DeclareBinaryPrefix\Kilo{K}{10}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\newcommand{\sn}[2]{\ensuremath{{#1}\times 10^{#2}}}
+\newcommand{\SIadj}[2]{\SI[number-unit-product={\text{-}}]{#1}{#2}}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=True,
+  citecolor=Green,
+  linkcolor=Red,
+  urlcolor=Blue,
+  linktoc=all,
+  }
+
+\ifuseCustomBib
+   \RequirePackage[square, sort, numbers, authoryear, backref=true,backrefstyle=none]{biblatex} % CustomBib
+\fi
+
+\renewcommand{\bibname}{References}
+
+\newenvironment{romanpages}{
+  \setcounter{page}{1}
+  \renewcommand{\thepage}{\roman{page}}}
+{\newpage\renewcommand{\thepage}{\arabic{page}}}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{collectbox}
+
+\makeatletter
+\newcommand{\mybox}{%
+    \collectbox{%
+        \setlength{\fboxsep}{1pt}%
+        \fbox{\BOXCONTENT}%
+    }%
+}
+\makeatother
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
+\usepackage[autostyle]{csquotes} 
+
+\usepackage{titlesec}  % used to setup the titleformat %Bug in titleformat
+\usepackage{epigraph}  % for using parts
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+\newcommand{\lofchap}[1]{%
+    \addtocontents{lof}{\protect\addvspace{-10pt}}% Undo the unconditional 10pt skip from latex
+    \addcontentsline{lof}{lofchapter}{\protect\numberline{\thechapter}#1}%
+}
+\iffalse
+\makeatletter
+\ifthenelse{\boolean{@linedheaders}}%
+    {% lines above and below, number right
+    \titleformat{\chapter}[display]%             
+        {\relax}
+        {\raggedleft{\color{halfgray}\chapterNumber\thechapter} \\ }
+        {0pt}%
+        {\color{green!70!black}\huge\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}% change color and size here 
+        [\normalcolor\normalsize\vspace*{.8\baselineskip}\titlerule]%
+    }
+    {% something like Bringhurst  
+    \titleformat{\chapter}[display]%
+        {\relax}
+        {\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{halfgray}\chapterNumber\thechapter}}
+        {0pt}%
+        {\color{green!70!black}\huge\raggedright\spacedallcaps}% change color and size here
+        [\normalcolor\normalsize\vspace*{.8\baselineskip}\titlerule]% 
+    }
+\makeatother  
+\fi
+
+\titleformat{\chapter}[display]
+    {\bfseries\Large}
+    {\filleft\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+    %{\filright\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+    {1ex}
+    {\titlerule\vspace{1.5ex}\filleft}
+    [\vspace{1.5ex}\titlerule] 
+
+
+%\usepackage{hyperref}
+
+
+%%CIRLCED
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+%ADDED THIS
+\usetikzlibrary{tikzmark,fit, arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathreplacing}
+
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\usepackage{pgf}
+
+\usepackage{pgfplots}
+        
+
+
+%% TODONOTES
+\usepackage{todonotes}
+%\usepackage[disable]{todonotes} % TO DISABLE
+
+\newcommand{\rnline}[1]{\todo[author=nishtala,size=\small,inline,color=green!40]{#1}}
+\newcommand{\rn}[1]{\todo[color=blue!40]{#1}}
+
+
+\usepackage{cite}
+
+\usepackage{rotating}  %Used for rotating tables \begin{sidewaystable}\end{sidewaystable}
+%\usepackage{makecell}
+
+\setcounter{secnumdepth}{3} % to ensure subsub sections have numbering
+
+\usepackage{physics} % For abs
+\usepackage{relsize}
+
+\usepackage{amsmath}
+
+%\usepackage[percent]{overpic} %for adding annotations on the side
+\usepackage{stackengine,graphicx}
+
+%%%LETTRINE
+
+\usepackage{lettrine}  % dropped capitals. doesn't work so well with doublespacing?
+    \renewcommand{\DefaultLhang}{0.1}
+%    \renewcommand{\DefaultOptionsFile}{\lettrineconffile}
+%    \renewcommand{\LettrineTextFont}{\rmfamily}
+
+
+%TEXT formatting for figures
+
+\newcommand{\captitle}[1]{\textbf{#1}}
+% Use extra bold for caption letters, for easier spotting...
+\newcommand{\capl}[1]{{\fontseries{eb}\selectfont{#1}}}
+
+%\usepackage[babel,final]{microtype} % must come after babel. uses draft/final. [selected]?
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{fancyhdr}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@} %necessary to write AMD Opteron II
+\makeatother
+
+\usepackage{microtype}
+
+%Custom itemize style
+\usepackage{bbding}
+
+%FANCY text figures
+\renewcommand{\thefigure}{%
+\ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\fi\oldstylenums{\arabic{figure}}}
+
+\renewcommand{\thetable}{%
+\ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\fi\oldstylenums{\arabic{table}}}
+
+\renewcommand{\oldstylenums}[1]{{\fontfamily{pplj}\selectfont #1}}
+
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}} % to change widtth between rows in booktabs
+
+%FOR EACH
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+%Function call
+\iffalse
+\makeatletter
+\renewcommand{\Function}[2]{%
+  \csname ALG@cmd@\ALG@L @Function\endcsname{#1}{#2}%
+  \def\jayden@currentfunction{#1}%
+}
+\newcommand{\funclabel}[1]{%
+  \@bsphack
+  \protected@write\@auxout{}{%
+    \string\newlabel{#1}{{\jayden@currentfunction}{\thepage}}%
+  }%
+  \@esphack
+}
+\makeatother
+\fi
+
+\algdef{SE}[PROCEDURE]{Procedure}{EndProcedure}%
+   [2]{\algorithmicprocedure\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+   {\algorithmicend\ \algorithmicprocedure}%
+\algdef{SE}[FUNCTION]{Function}{EndFunction}%
+   [2]{\algorithmicfunction\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+   {\algorithmicend\ \algorithmicfunction}%
+
+\algtext*{EndFunction}% Remove "end function" text
+
+
+
+%Approximately equal
+\usepackage{scalerel}
+\def\apeqA{\SavedStyle\sim}
+\def\apeq{\setstackgap{L}{\dimexpr.5pt+1.5\LMpt}\ensurestackMath{%
+  \ThisStyle{\mathrel{\Centerstack{{\apeqA} {\apeqA} {\apeqA}}}}}}
+
+%PARTS
+\makeatletter
+\titleformat{\part}[display]
+  {\Huge\scshape\filright}
+  {\partname~\thepart:}
+  {20pt}
+  {\thispagestyle{epigraph}}
+\makeatother
+\setlength\epigraphwidth{.6\textwidth}
+
+%PIE CHART BEGIN
+\usepackage{calc}
+\usepackage{ifthen}
+
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
+
+  % slice
+  \draw[thick,fill=black!10] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+
+  % outer label
+  \node[label=\midangle:#4] at (\midangle:1) {};
+
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {#3};
+}
+
+\DeclareCaptionLabelFormat{andtable}{#1~#2  \&  \tablename~\thetable} % having table and figure with same caption for "scalability of repp-h"
+
+
+%\DeclareDividedList{lof}
+%\DeclareDividedList{lot}
+
+%\printbibliography[heading=bibnumbered]  
+\usepackage{tocbibind} % put things in the table of contents.
+
+\usepackage{scrextend} 
+
+\addtokomafont{labelinglabel}{\sffamily}
+
+\usepackage{enumitem}
+
+\usepackage{gensymb} % to write degree symbol
+
+\usepackage{arydshln} % for vertical and horizontal dash lines
+
+\usepackage[version=3]{mhchem} % to write co2 in intro
+
+%for eurosign
+
+\usepackage{eurosym}
+%\font\titlerm=lmr12 
+\usepackage{lmodern}
+%\usepackage{mathpazo} % add possibly `sc` and `osf` options
+%\usepackage{eulervm}
+\usepackage{newpxmath}
+\usepackage[scaled=0.95]{inconsolata}
+
+%\linepenalty=50
+
+%PIE CHART
+\definecolor{rosso}{RGB}{220,57,18}
+\definecolor{giallo}{RGB}{255,153,0}
+\definecolor{blu}{RGB}{102,140,217}
+\definecolor{verde}{RGB}{16,150,24}
+\definecolor{viola}{RGB}{153,0,153}
+
+\makeatletter
+
+\tikzstyle{chart}=[
+    legend label/.style={font={\scriptsize},anchor=west,align=left},
+    legend box/.style={rectangle, draw, minimum size=5pt},
+    axis/.style={black,semithick,->},
+    axis label/.style={anchor=east,font={\tiny}},
+]
+
+\tikzstyle{bar chart}=[
+    chart,
+    bar width/.code={
+        \pgfmathparse{##1/2}
+        \global\let\bar@w\pgfmathresult
+    },
+    bar/.style={very thick, draw=white},
+    bar label/.style={font={\bf\small},anchor=north},
+    bar value/.style={font={\footnotesize}},
+    bar width=.75,
+]
+
+\tikzstyle{pie chart}=[
+    chart,
+    slice/.style={line cap=round, line join=round, very thick,draw=white},
+    pie title/.style={font={\bf}},
+    slice type/.style 2 args={
+        ##1/.style={fill=##2},
+        values of ##1/.style={}
+    }
+]
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\newcommand{\pie}[3][]{
+    \begin{scope}[#1]
+    \pgfmathsetmacro{\curA}{90}
+    \pgfmathsetmacro{\r}{1}
+    \def\c{(0,0)}
+    \node[pie title] at (90:1.3) {#2};
+    \foreach \v/\s in{#3}{
+        \pgfmathsetmacro{\deltaA}{\v/100*360}
+        \pgfmathsetmacro{\nextA}{\curA + \deltaA}
+        \pgfmathsetmacro{\midA}{(\curA+\nextA)/2}
+
+        \path[slice,\s] \c
+            -- +(\curA:\r)
+            arc (\curA:\nextA:\r)
+            -- cycle;
+        \pgfmathsetmacro{\d}{max((\deltaA * -(.5/50) + 1) , .5)}
+
+        \begin{pgfonlayer}{foreground}
+        \path \c -- node[pos=\d,pie values,values of \s]{$\v\%$} +(\midA:\r);
+        \end{pgfonlayer}
+
+        \global\let\curA\nextA
+    }
+    \end{scope}
+}
+
+
+
+\newcommand{\legend}[2][]{
+    \begin{scope}[#1]
+    \path
+        \foreach \n/\s in {#2}
+            {
+                  ++(0,-10pt) node[\s,legend box] {} +(5pt,0) node[legend label] {\n}
+            }
+    ;
+    \end{scope}
+}
+
+%%%END PIE CHART
+
+%MACROS
+\newcommand*{\het}{heterogeneous } 
+
+\newcommand*{\muc}{multicore }
+
+\newcommand*{\etal}{\textit{et al.}} % "et. al. should be et al. morons!"
+
+\newcommand*{\archs}{architectures }
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+
+\newcommand*{\ninefive}{\textrm{95\textsuperscript{$\mathit{th}$}} }
+\newcommand*{\ninezero}{\textrm{90\textsuperscript{$\mathit{th}$}} }
+
+\newcommand*{\ninenine}{\textrm{99\textsuperscript{$\mathit{th}$}} }
+
+\newcommand*{\mathcalS}{$\mathcal S$ }
+
+\newcommand*{\mathcalP}{$\mathcal P$ }
+
+\newcommand*{\dcs}{data centres}

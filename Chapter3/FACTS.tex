@@ -1,0 +1,95 @@
+\section{Energy Efficient Scheduler}
+\label{sec: facts} 
+
+\nomenclature[z-facts]{FACTS}{Frequency and Contention-Aware Thread Collocation Schema}
+
+\looseness -1 FACTS (Frequency and Contention-Aware Collocation Schema) is a thread
+scheduler that uses basic PMCs available on most hardware and core's current DVFS state to
+optimise energy efficiency in \muc \archs by minimising contention for shared resource.
+The most important research problem to address when scheduling workloads (albeit
+challenging) at runtime is which threads to collocate and when (workload balancing). Such
+assignment of threads should take into account that threads could potentially be harmful
+to each other in the usage of shared resources (e.g., cache, memory). 
+
+The aforementioned challenges have been exhaustively addressed in prior works in terms of
+inter-core~\citep{Blagodurov:2010:CSM:1880018.1880019, Mars2013Whare-map, Mars:2011:BIU:2155620.2155650, Yang2013Bubble-flux} and intra-core~\citep{yingxin,
+Nishtala:2013:ETC:2555754.2555775} contention-aware scheduling.  Despite prior efforts,
+our research has shown that considering heterogeneous DVFS states and shared resources
+contention can improve energy efficiency even in homogeneous \muc processors. This is
+similar to operating with heterogeneous multicore platforms where threads with low
+performance demand and high memory access are mapped to the big cores, and high
+performance demand and few memory access are mapped to the small
+cores~\citep{Nishtala:2013:ETC:2555754.2555775, Petrucci:2012:LSE:2387869.2387876, Petrucci:2012:TAO:2224483.2225012}.
+
+\looseness -1 To optimise \muc systems for energy efficiency, the mapping of threads to
+core(s) is carried out periodically (reassignment interval) to cope with thread execution
+phases. The mapping of threads is determined by taking into account the memory bandwidth
+requirements and the current DVFS state of the core in a \muc system.  
+
+Specifically, we aim to minimise the difference in the total number of LLC misses per
+second in a given memory domain. A memory domain is defined as a set of cores sharing an
+LLC.  To distribute the contention uniformly across memory domains, we assign the thread
+with the least number of LLC misses (high IPS and low stall cycles), with the thread
+with the highest number of cache misses (low IPS and high stall cycles).  These two threads are collocated to maximise core
+utilisation, and therefore are allocated to the core with highest operating DVFS state.
+
+\subsection{Algorithm Description}
+\label{subsec: FACTS algo}
+
+\nomenclature[g-mathcal]{$\mathcal S$}{Number of cores in a \muc architecture}
+\nomenclature[g-mathcal]{$\mathcal P$}{Number of DVFS states in a \muc architecture}
+
+\looseness -1 We introduce the following notation. Let \mathcalS be the total number of cores and
+\mathcalP be total number of available DVFS states. $\mathcal S_{j}$ be the total number
+of cores running at $\mathcal P\textsubscript{i}$, $j$ $\in$ $\mathcal S$ and $i$ $\in$
+$\mathcal P$. $M$ be the set of all cores at different DVFS states M =
+\mathcalS\textsubscript{1} $\cup$ \mathcalS\textsubscript{2} $\cup$ \ldots
+\mathcalS\textsubscript{n-1} $\cup$ \mathcalS\textsubscript{n}. 
+
+\looseness -1 Let $K$ be the total number of benchmark threads running in the system. Each
+thread $k$ running on core with DVFS state  $i$ has a memory bandwidth requirement of
+$LLC\_Misses\textsubscript{i, k}$, where $i$ is the core allocated to the thread at a
+reassignment interval $S$.
+
+
+\looseness -1 The pseudo code of FACTS is shown in Algorithm~\ref{alg:algopseudo}. Note that FACTS runs
+periodically, with a period determined by the reassignment interval of 1 second
+(empirically determined). The initial thread mappings are assigned by the Linux scheduler,
+which allocates threads to cores to balance the workload among all available cores in the
+system \citep{LinuxKernel}. After a reassignment interval, read the DVFS state ofeach
+core and
+FACTS has collected enough performance counter data (line 1-4) to determine the memory
+requirements of the thread.\footnote{The core's DVFS state was fixed using the scaling governor userspace}
+Thereafter, sort the threads in the descending order of last
+level cache misses (line 5) and sort active core
+IDs based on the descending order of current DVFS
+state of the cores (line 6).\footnote{An active core is defined as a core with a benchmark thread running.} 
+In lines 7-8, FACTS maps threads to cores at runtime (low cache
+misses to cores with higher DVFS state). Thereafter, the remaining threads, if any, are
+mapped to the cores in reverse order to the cores, that is, high cache misses to the core
+with high DVFS state and low cache misses (line 10-12). This mapping given by FACTS
+ensures that the total contention is spread uniformly amongst all cores. 
+
+
+\begin{algorithm}[h!]
+\caption{FACTS for K threads}
+\label{alg:algopseudo}
+\begin{algorithmic}[1]
+    \While{n $<$ $\mathcal S$} \Comment{Where $\mathcal S$ is total number of cores and n $\in \mathcal S$}
+        \State{Read the DVFS state}
+        \ForAll{threads mapped to that core}
+            \State \text{Read performance counter} \Comment{LLC misses}
+        \EndFor
+    \EndWhile
+    \State \text{Sort threads in descending order of cache misses} \Comment{LLC\_{Misses} array}
+    \State \text{Sort cores in the descending order of DVFS state} \Comment{COREID array}
+    \While{n $<$ $\mathcal S$}
+        \State \text{Assign thread with LLC\_{Misses}[n] to core with COREID[n]}
+    \EndWhile
+    \State \text{Set a = 0, c = 0;}
+    \ForAll{thread not assigned to any core} \Comment{that is, (K $>$ $\mathcal S$)}
+        \State \text{Assign thread with LLC\_{Misses}[$\mathcal S$-c] to core with COREID[a]} 
+        \State \text{a = a+1; c = c+1;}
+    \EndFor
+\end{algorithmic}
+\end{algorithm}

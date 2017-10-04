@@ -1,0 +1,13 @@
+\section{Conclusion}
+\label{sec: conclusion-hipster}
+
+\looseness -1 We propose Hipster, a hybrid scheme that combines heuristics and
+reinforcement learning to manage heterogeneous cores with DVFS control for improved energy
+efficiency. We show that Hipster performs well across workloads and interactively adapts
+the system by learning from the QoS/power/performance history to best map workloads to the
+heterogeneous cores and adjust their DVFS settings.  When only latency-critical workloads
+are running in the system, Hipster reduces energy consumption by \SI{13}{\percent} in
+comparison to prior work. In addition, to improve resource efficiency in shared data
+centres by running both latency-critical and batch workloads on the same system, Hipster
+improves batch workload throughput by $2.3\times$ compared to a static and conservative
+policy, while meeting the QoS targets for the latency-critical workloads.

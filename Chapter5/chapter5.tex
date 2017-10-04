@@ -1,0 +1,81 @@
+\chapter{Related Work}
+\label{chap: relatedwork}
+
+
+\looseness +1 \lettrine{I}{n} this chapter, we discuss the work related to this
+dissertation.  We begin the chapter by discussing the topic of generating performance and
+power models for \muc systems (section~\ref{sec: powerperfawaremodels}). Prior work
+primarily focused on the problem of building statistical models to detect applications
+compute and memory phases to determine the power consumption and the scalability of the
+application. In this context, statistical modelling refers to generating time series,
+linear regressions, multivariate models, etc., using PMCs
+available~\citep{Petrucci:2012:LSE:2387869.2387876, Su:2014:POP:2742155.2742200,
+Bellosa:2000:BED:566726.566736, Lewis:2010:CAP:1924920.1924929,
+Srinivasan:2011:EIO:1945023.1945032, Rethinagiri:2014:SPE:2555486.2555491, 1598119,
+4838819, Patki:2013:EHO:2464996.2465009} on most commercially processors.  It has been
+documented in previous studies that a thread's power consumption, performance and energy
+consumption can vastly depend on the DVFS of the core/socket and contention for shared
+resource (amongst others).  The use of such statistics to determine the causal effect of
+performance and power is crucial in data centres to deploy a power cap or to ensure
+performance guarantees are met.  For instance, the Intel RAPL~\citep{6270741} module was
+designed based on such models to provide the end-users with the capability to control
+systems power consumption. 
+
+\looseness +1 Section~\ref{sec: ef technique} discusses the topic of contention-aware
+scheduling aimed at maximising energy efficiency in \muc systems.  Prior
+work~\citep{Nishtala:2013:ETC:2555754.2555775, Zhuravlev:2013:SES:2498743.2498946,
+Blagodurov:2010:CSM:1880018.1880019, Zhuravlev:2012:SST:2379776.2379780,
+Fedorova:2007:IPI:1299042.1299108, Knauerhase:2008:UOO:1435611.1436101,
+Tam:2007:TCS:1272996.1273004, Tam:2009:RAL:1508284.1508259} has focused predominantly on
+the problem of cache contention since this was assumed to the primary, if not the only
+source of performance degradation.  In this context, the aforementioned research works
+propose using either statistical modelling or heuristics to deal with inter-core or
+intra-core contention, and to determine thread's behaviour (compute bound or memory bound)
+at runtime, thereby minimising contention for shared resources.
+
+\looseness +1 In our work, we proposed a unified framework to generate models that
+estimate the performance and power consumption of workloads at multiple hardware settings.
+These models are deployed at runtime to ensure power constraints or performance guarantees
+are met.  After extensive experimentation, we suggest that the proposed models can 
+estimate performance and power with minimal hardware support for any batch application and
+can be deployed on an architecture as they use basic PMCs.  None of the works cited in
+Sections~\ref{sec: powerperfawaremodels} and~\ref{sec: ef technique} investigated an
+architecture and application-agnostic approach. 
+
+Nevertheless, as the nature of the workloads executing on data centres moving towards
+user-centric jobs (i.e., jobs requiring fast response times, typically in the order of
+milliseconds measured as tail latency) rather than throughput-oriented (i.e., where
+response time of the application does not impact user experience), the plethora of work
+addressing scheduling of batch workloads are ineffective as they tend to violate tail
+latency requirements~\citep{Lo:2016:IRE:2912575.2882783}. This is because, the metrics to
+schedule batch workloads are often focused on instructions per cycle, whereas the
+latency-critical workloads are dependent on the interactiveness. In this
+context, we introduced an energy efficient (and resource efficient) scheduler for \muc
+systems to meet tail latency requirements of interactive workloads. The proposed approach
+used a hybrid reinforcement learning approach making it application and architecture
+agnostic.  Precisely, our work has shown that we can allocate ``just enough'' resources
+for a latency-critical job while meeting their performance targets and the remaining
+resources for the batch jobs to maximise throughput.  Section~\ref{sec: hipster-related}
+details solutions in the area of cluster-level data centre scheduling of interactive
+workloads. 
+
+
+\section{Performance and Power Modelling} 
+\label{sec: powerperfawaremodels}
+
+%Exploring machine learning techniques to predict performance and power (in
+%real-environments) at runtime is a well researched area. 
+
+\input{Chapter5/models}
+
+\section{Energy Efficient Scheduling} 
+\label{sec: ef technique}
+
+\input{Chapter5/efsched}
+
+\section{QoS Guarantees for Interactive Workloads} 
+\label{sec: hipster-related}
+
+\input{Chapter5/lcrelated}
+
+

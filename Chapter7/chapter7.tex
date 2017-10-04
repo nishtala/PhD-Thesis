@@ -1,0 +1,113 @@
+\chapter{Future Directions} 
+\label{chap: futurework}
+
+
+%\looseness -1 \lettrine{W}{ith} the rise in high-performance computing requirements and
+%big data explosion there is a need to investigate in multiple directions.
+
+\looseness -1 \lettrine{W}{ith} big data explosion, there is a rise in data centre
+requirements to manage workload processing time. To manage big-data workloads, data
+centres often require management solutions that revolve around performance guarantees,
+energy efficiency and QoS (these amongst other things). The solutions described in my
+thesis will become increasingly important as long as big-data explosion will continue, and
+thereby the need for better/smarter and faster computing services to process them.  The
+remainder of this chapter describes some of the ideas that I would have liked to develop
+as a part of my thesis, but could not due to lack of time.
+
+\looseness -1 Part~\rom{2} of the thesis has mainly focused on performance and power
+prediction for sequential workloads (single thread and multiprogrammed workloads) using
+statistical models.  These predictors have been used to maintain power and (or)
+performance targets in \muc processors.  However, multithreaded workloads have been out of
+the scope of the evaluation, and the following ideas could not be tested: 
+
+%\vspace{-0.3cm}
+
+\looseness -1 \paragraph{Multithreaded workloads for REPP.} It could be interesting to
+consider multithreaded workloads and improve the prediction model to adapt to such
+workloads. However, to understand where the bottlenecks for performance are, one could
+potentially look at some of the well-known challenges: {\small\circled{1}} Highly scalable
+programs which offer additional performance often have threads which are independent and
+have less communication between each other.  {\small\circled{2}} Programs that do not
+scale well often are bound by threads that are dependent on each other with communication
+and synchronisations. This implies CPU time may be wasted waiting for other threads to
+respond. One of the avenues to determine if a thread is scalable or not could be the
+processor utilisation. 
+
+\looseness -1 Part~\rom{3} of the thesis has mainly focused on maintaining QoS for
+latency-critical workloads on a (relatively) small infrastructure using a hybrid
+reinforcement learning mechanism. With our approach, we could determine on-the-fly the
+best configuration to satisfy the QoS for latency-critical jobs while minimising power
+consumption or maximising utilisation of the server. There are potential improvements for
+Hipster, and here are some of the ideas that could be tested:
+
+%\vspace{-0.3cm}
+
+\looseness -1 \paragraph{Scaling Hipster on larger infrastructures.} It could be
+interesting to run Hipster on a multi-node data centres in a master-slave scheduling
+architecture, where an instance of Hipster could be initiated on each node. In contrast to
+the current implementation of Hipster, the master scheduler may be responsible for
+allocating a specified set of workloads to a given node, whereas the slave scheduler could
+be used to allocate resources for a job on a node.  The master-slave scheduling
+architecture could function in tandem to ensure the workload and (or) resource allocation
+is distributed uniformly across nodes in a cluster environment. 
+
+\iffalse
+
+\rnline{citation missing .. need not mention about neural networks..}
+
+\looseness -1 \paragraph{Hipster with neural networks.} The current implementation of
+Hipster is scalable on current and near-future systems. However, the scalability of our
+proposed approach is limited by the lookup table size and the scale of the infrastructure
+(see section~\ref{subsec: implementation}). Our work-in-progress focuses precisely on
+extending the approach using neural networks on a larger infrastructure with Cavium
+ThunderX (a two socket machine with each socket containing 48 cores) and NVidia Jetson TX1
+(4 Cortex A53 cores and 256 GPU cores)~\textbf{CITE}. Each node in the input layer of the
+neural network can be a vector of application parameters such as QoS, power, load, QoS
+target, etc., We believe neural networks may improve our current implementation as it can
+scale well on large datasets (thereby infrastructures) with multiple parameters and
+provide a solution quickly using the GPU infrastructure available on the NVidia Jetson
+TX1. 
+
+\fi
+
+%\rnline{ask vinicius if we can already show that graph here??}
+
+%\vspace{-0.3cm}
+
+\looseness -1 \paragraph{Request-level QoS guarantee.} Traditionally, interactive workload
+scheduling algorithms allocate the workload (with multiple threads) to a given set of
+hardware resources to ensure application-level QoS metrics are satisfied. This implies
+that current algorithms are agnostic to the load on each thread (query length, the number
+of requests, etc.) and allocate (same) resources without knowledge of thread requirements.
+Our research has shown that query length (amongst other factors) influences the time taken
+to process each query for each thread.
+
+\looseness -1 In this context, we could identify functions where the thread spends a large
+chunk of the query processing time, and we refer to such functions as hot functions.
+These hot functions assist the scheduling algorithm in determining how long the
+thread/query has been in the pipeline. With this timing information, our scheduling
+algorithm would provide an initial allocation of resources to the thread, depending on the
+query length, number of queries, etc., in order to minimise energy consumption while
+generally satisfying the latency bound. The scheduler will monitor thread progress and, if
+necessary, allocate additional resources to ensure that the latency bound is satisfied.
+
+
+\looseness -1 \paragraph{Distributed workloads for REPP and Hipster.} The current
+implementation of REPP and Hipster were conducted on stand-alone servers. It could be
+interesting to extend the research to distributed servers, where each server needs to
+communicate to exchange data. Distributed workloads such as Memcached and Elasticsearch
+are typical examples of fan-out applications, wherein a query is processed on multiple
+servers and the query tail latency is not just dependent on the resource contention for a
+given server but on multiple servers. One way to approach this problem is by
+allocating each request to a specified set of resources and the feedback from the PMCs could be used to
+    understand the intensity of the request and thereby satisfy thread level QoS requirements. 
+
+
+\vspace{0.2cm}
+
+\looseness -1 In summary, this thesis has demonstrated a methodology to build models and
+predict performance and power for single-threaded and multiprogrammed workloads in \muc
+processors, and an algorithm to maintain QoS for latency-critical workloads.  Our results
+have shown substantial improvements beyond the prior state-of-the-art, and further
+improvements to our current algorithms can be achieved by following the ideas for future
+work outlined in this section.

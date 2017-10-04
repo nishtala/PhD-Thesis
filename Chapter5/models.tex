@@ -1,0 +1,82 @@
+\looseness -1 \textbf{Performance and Power Modelling.} Bellosa~\citep{Bellosa:2000:BED:566726.566736} use PMCs at runtime to build an OS
+power-aware policy. Lewis \etal~\citep{Lewis:2010:CAP:1924920.1924929} use a
+traditional regression-based methodology and multivariate adaptive regression splines
+(MARS) model to present a chaotic time series power activity.  Isci \etal~\citep{1598119}
+study compares power phase classifications based on PMCs and proves that PMCs
+detect more power phases. Singh \etal~\citep{Singh:2009:RTP:1577129.1577137} propose a
+power model using PMCs for an AMD processor. Isci
+\etal~\citep{Isci:2003:RPM:956417.956567} show the program behaviour in terms of power
+phases. Floyd \etal~\citep{5751940} describe a power and temperature framework for IBM
+POWER7 processor using PMCs. Rountree \etal~\citep{6008553} estimate performance
+(quantified as IPC) across DVFS states by predicting the total number of leading load
+cycles.  Miftakhutdinov \etal~\citep{Miftakhutdinov:2012:PPI:2457472.2457493} predict
+performance on simulated architectures based on prefetch and variable memory access
+latencies. Spiliopoulos \etal~\citep{6008552} estimate the total time for each LLC miss,
+and sums these times to estimate the total time spent in memory, to predict performance at
+DVFS states.  Torres \etal~\citep{4536219} propose a memory compression and request
+discrimination technique to consolidate workload on minimal number of servers to reduce
+wastage of energy. 
+
+Dhiman and Rosing \citep{4838819} build on two of their previous works for DVFS-based
+power management algorithm \citep{5514319} and purely
+DPM~\citep{Dhiman:2006:DPM:1233501.1233656}. Such methods are now accessible through
+Ring-1 of the Linux kernel as C-States. 
+
+%Power limiting techniques are also a well studied area. 
+\textbf{Power capping.} Reda \etal~\citep{6266671} introduce a technique to improve
+performance by dynamically changing power caps and thread allocations using DVFS. 
+Rountree \etal~\citep{6270741} explore the idea of power limits in HPC environments using
+RAPL instead of DVFS.  Patki \etal~\citep{Patki:2013:EHO:2464996.2465009} propose an
+idea for over-provisioning compute nodes in power-constrained HPC data centres.
+
+\looseness -1 Das \etal~\citep{Das09powercapping}  show a technique to enforce power limits via
+forced idleness. Brooks \etal~\citep{Brooks:2000:WFA:339647.339657} shows a power analysis
+at a per cycle level for an architecture. Deng \etal~\citep{Deng:2012:CCC:2457472.2457494} propose a simulated system-level
+framework with performance and power predictions. Sasaki et
+al.~\citep{Sasaki:2013:CPO:2523721.2523732} propose C-3PO, a power manager to maximise
+energy efficiency under power constraints. The hardware actuators used to allocate
+resources are the DVFS states and number of cores.  
+
+\looseness -1 Cochran~\etal~\citep{Cochran:2011:PCA:2155620.2155641} predict performance with an offline
+analysis trained using multi-nomial logistic regression classifier. When a change in
+configuration is required at runtime, this classifier returns the best candidate operating
+configuration. Petrucci \etal~\citep{Petrucci:2012:LSE:2387869.2387876}, predict
+performance in heterogeneous DVFS states on a homogeneous architecture. The work proposes
+to build one linear model for every combination of DVFS states using only LLC misses and IPS.  However, prior
+works~\citep{Su:2014:POP:2742155.2742200, 10.1109/TC.2012.97, 6008552} have shown that
+considering only the LLC misses and MIPS is not a good metric to predict performance at a
+very high accuracy. Srinivasan \etal~\citep{Srinivasan:2011:EIO:1945023.1945032}
+predict the performance of threads running on heterogeneous cores, that is from one core
+type to another, using closed expressions. These expressions, however, do not suffice for
+a generic approach. Su \etal~\citep{Su:2014:POP:2742155.2742200} proposes a system-level
+performance~\citep{Su:2014:ILL:2643634.2643656} and power model by taking advantage of the
+PMCs available in commodity AMD processors to estimate the total
+number of leading loads, and in turn, predicts performance and power across DVFS states.  
+
+By contrast to all prior works, Mccullough \etal~\citep{McCullough:2011:EEM:2002181.2002193} state that
+linear regression based power models tend to work only in restrictive scenarios and
+over-fit based on application types. Our results in prior chapters show that linear
+regression models built using a small training dataset do estimate power and performance
+for a broad range of workloads with relatively high accuracy and small computational cost. 
+    Similar observations were carried out in~\citep{Singh:2009:RTP:1577129.1577137,
+    Lewis:2010:CAP:1924920.1924929, Isci:2003:RPM:956417.956567, 10.1109/TC.2012.97}.
+
+
+In contrast to the aforementioned works, our modelling approach improves in at least three
+ways: 
+
+{\small {\circled{1}}} The models are built using basic PMCs available across
+all architectures (Intel, AMD and ARM), making it a more generic approach with low
+complexity.  
+
+{\small {\circled{2}}} Since our modelling approach is bottom-up, that
+is, based on single-core models to predict in \muc environments, it can facilitate for per
+core performance and power management.  This is especially useful in multi-node, \muc data
+centre consisting of numerous applications with different performance and power
+constraints.  
+
+{\small {\circled{3}}} Since our modelling approach can make predictions
+at different hardware settings simultaneously.  The prediction approach is an excellent
+black-box approach for a single step fine-grained per core power or performance
+optimisation problem solver without external power meters or using application
+signatures~\citep{Blagodurov:2010:CSM:1880018.1880019}.

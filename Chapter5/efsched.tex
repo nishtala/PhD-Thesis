@@ -1,0 +1,63 @@
+%Most IPC-driven algorithms, and some heuristics based algorithms make thread scheduling
+%decisions based on based on a quantifiable relative gain metric with regard to running a
+%thread on a particular core type.
+
+While SMT-based \muc systems are emerging as the norm for achieving the computing power
+necessary~\citep{7029183, 7459368}, it is equally important to map these application to
+maximise energy efficiency~\citep{Petrucci:2015:ETA:2724585.2566618,
+Porter:2015:MMS:2695583.2687651}. With energy efficient computing emerging as an important
+paradigm, recent approaches adopted to using linear programming or heuristics to map
+threads-to-cores based on a quantifiable relative gain metric.
+
+
+Gandhi~\etal~\citep{Gandhi:2010:OAE:1869138.1869264} show a technique to minimise the
+product of response time and power costs.
+Articles~\citep{Nishtala:2013:ETC:2555754.2555775, Blagodurov:2010:CSM:1880018.1880019, 
+Petrucci:2012:LSE:2387869.2387876} describe techniques to schedule workloads to improve
+energy efficiency based on the contention for shared resources. 
+
+Becchi~\etal~\citep{Becchi:2006:DTA:1128022.1128029} show a technique for dynamic
+thread assignment based on IPC-driven technique on heterogeneous cores by computing speed
+up factor based on IPC ratios.  Similarly,
+Kumar~\etal~\citep{Kumar:2003:SHM:956417.956569} presented a power aware technique that
+dynamically schedules workloads to cores by predicting resource requirements of the
+program. For instance, a big core is given to program with high ILP and a small core a
+program with low ILP. The approach proposed by Kumar~\etal~allow optimising for different
+objectives such as performance and energy.
+
+Sawalha~\etal~\citep{Cong:2012:ESH:2333660.2333737} present a thread scheduling technique
+to improve energy efficiency in heterogeneous \muc systems. For each instruction window,
+the approach estimates its working set signature based on the instructions executed in a
+given phase. By comparing consecutive windows, phases are identified. For the unmarked
+phases, the EDP on each core type is determined~\citep{Petrucci:2012:LSE:2387869.2387876}.
+For a marked phase, the EDP is assumed to the same as the prior occurrences. The lowest
+EDP values from the stored values is chosen for the thread-to-core mapping.
+
+Zhuravlev~\etal~\citep{Zhuravlev:2012:SST:2379776.2379780} and Padmanabha
+\etal~\citep{Padmanabha:2013:TBP:2540708.2540746} demonstrate that application signatures
+are an effective way to determine applications program context and execution history for
+each phase. These signatures are deployed in mappers to schedule workloads to cores can
+lead to higher energy efficiency. For instance,
+~\citep{Padmanabha:2013:TBP:2540708.2540746} use for scheduling workloads on suitable core
+type, whereas~\citep{Zhuravlev:2012:SST:2379776.2379780} identify memory intensive
+sections to distribute memory intensity uniformly across domains.
+Saez~\etal~\citep{Saez:2010:CSA:1755913.1755929} propose a scheduler to maximise
+performance of both single threaded and parallel workloads using the memory intensity of
+threads to guide thread assignment decisions.
+Koufaty~\etal~\citep{Koufaty:2010:BSH:1755913.1755928} change thread-to-core affinity
+measure based thread's memory intensity (LLC misses per committed instruction).
+
+Goiri \etal~\citep{6114408} proposed a method to estimate the amount of solar energy
+that might be available and schedule jobs such that the green energy consumption can be
+maximised while meeting batch jobs' deadlines.  Similarly, Le \etal~\citep{5598305}
+propose algorithms that minimises fossil fuel-based energy consumptions.
+Kontorinis \etal~\citep{Kontorinis:2012:MDU:2366231.2337216} have studied the effectiveness of using batteries in data centers. This study shows that using batteries as a primary energy source can lower the capital cost power delivery and the operating costs.
+
+
+By contrast to the prior approaches, the following
+works~\citep{Kumar:2006:CAO:1152154.1152162, Gupta:2011:ASP:1945023.1945026,
+Fedorova:2009:MPE:1610252.1610270} analyse microarchitectural characteristics of the
+heterogeneous platform to optimise the design area and power or performance efficiency to
+help design future \muc systems. Although these works do not provide a scheduling
+approach, these works are insightful to enhance capabilities of future \muc and
+heterogeneous \muc systems.

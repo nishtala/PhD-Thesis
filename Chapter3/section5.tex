@@ -1,0 +1,149 @@
+%\section{Summary}
+%\label{sec:summary}
+
+
+%Algorithm 1: Multicore algorithm with consolidation
+\begin{algorithm}%[t]
+    \caption{Runtime Estimation of Performance and Power (REPP)}
+  \label{pseudo:multi}
+  \begin{algorithmic}[1]
+       % \Require Integers $a >0$ and $b$
+       % \Ensure $a\cdot b$
+      \Statex \Comment{Single core algorithm}
+        \Function{REPP}{} %\funclabel{alg:multi} \label{alg:multi-line}
+        \State Let $\chi(\kappa)$ be the user-defined power or performance constraint for time $T$
+        \State Let $\omega$ $=$ ($\omega_{\mathit{0}}$ \ldots $\omega_{\mathit{\mathcal S-1}}$, $\omega_{\mathit{\mathcal S}}$) be the distribution of $\chi(\kappa)$ for cores (0 \ldots $\mathcal S-1$, $\mathcal S$)
+      \State Gather PMCs (Table~\ref{tab: tableactivity}), and power trace \Comment{Sampling interval: \SI{250}{\milli\second}}
+      %\State Let Power[DVFS][Cl] be predicted system power
+      %\State Let Performance[DVFS][Cl] be the predicted system performance
+      \State Let REPP\_Pow(n, DVFS, Cl) be power prediction at DVFS, and Cl-States per core 
+      \Statex \Comment{n is core ID}
+      \State Let REPP\_Perf(n, DVFS, Cl) be perf. prediction at DVFS, and Cl-States per core
+      \State Predict power at current configuration (Eq~\ref{eq: Predict Power})
+      \State Gather performance statistic at current configuration \Comment{IPS}
+      \State Predict power, and performance at $Cl_{\mathit{c}}$ and $P_{\mathit{f}}$ (Eq~\ref{eq: Predict Power},~\ref{eq: predictperformnceacrossp-state})
+      \State Predict power, and performance at $P_{\mathit{c}}$ and $Cl_{\mathit{f}}$ (Eq~\ref{eq: predictpoweracrosscl-state},~\ref{eq: predictperformnceacrosscl-state})
+      \Statex \Comment{Shared resource contention}
+
+    \ForEach{\texttt{$n \in \mathcal S$}} \Comment{$\mathcal S$ is the total number of cores}
+         \ForEach{\texttt{$P_{\mathit{c}} \in $DVFS State}}
+            \ForEach{\texttt{$Cl_{\mathit{c}} \in $ Cl-State}}
+                \State REPP\_Pow(n, DVFS, Cl) = REPP\_Pow(n, DVFS, Cl) + (Eq~\ref{eq: critical error})
+                \State REPP\_Perf(n, DVFS, Cl) = REPP\_Perf(n, DVFS, Cl) - (Eq~\ref{eq: critical error})
+              \EndFor 
+          \EndFor
+      \EndFor
+      \State \textbf{return} $REPP\_Pow$, $REPP\_Perf$
+\EndFunction
+    
+  \end{algorithmic}
+\end{algorithm}
+
+
+%Algorithm 2
+\begin{algorithm}[h!]
+    \caption{Prediction with REPP and REPP-C}
+    \label{pseudo:models}
+    \begin{algorithmic}[1]
+        \State $REPP\_Pow$, $REPP\_Perf$ = \Call{\textsf{REPP}}{}
+        \State Let REPP-C\_Pow(n, DVFS, Cl) be power prediction with consolidation
+        \State Let REPP-C\_Perf(n, DVFS, Cl) be perf. prediction with consolidation
+        \State Let $\Upsilon$ be (potential) inactive core \Comment{Core with highest LLC misses}
+        \State TID, COREID, COREID\_C = \Call{\textsf{FACTS}}{$\Upsilon$} \Comment{Algorithm~\ref{alg:algopseudo}} 
+        \ForEach{\texttt{$COREID\_C \in \mathcal S$}} 
+             \ForEach{\texttt{$P_{\mathit{c}} \in $ DVFS state}}
+                \ForEach{\texttt{$Cl_{\mathit{c}} \in $ Cl-State}}
+                    \State REPP-C\_Pow($n_{c}$, DVFS, Cl)  = REPP-C\_Pow($n_{c}$, DVFS, Cl)  + (Eq~\ref{eq: consolidation})
+                    \State REPP-C\_Perf($n_{c}$,DVFS,Cl) = REPP-C\_Perf($n_{c}$,DVFS,Cl) - (Eq~\ref{eq: consolidation})
+                  \EndFor 
+              \EndFor
+          \EndFor
+        %\State Determine potential REPP-C configuration -- $\alpha_{\mathit{f}}$ (Algorithm~\ref{pseudo:constraints})
+        \State REPP($\varpi_{\mathit{f}}$) = \Call{\textsf{SelectConfig}}{$\omega$, $REPP\_Pow$, $REPP\_Perf$} 
+        %\Statex 
+        \Comment{$\varpi_{\mathit{f}}$ = ($\rho_{\mathit{f}}$, $\eta_{\mathit{f}}$) for $\omega$}
+        \State REPP-C($\varpi_{\mathit{f}}$) = \Call{\textsf{SelectConfig}}{$omega$, $REPP-C\_Pow$, $REPP-C\_Perf$} 
+        %\State Determine potential REPP-C configurations for $REPP-C(\varpi_{\mathit{f}})$ \Comment{$\rho_{\mathit{f}}$, and $\eta_{\mathit{f}}$}
+        %\State REPP-C\_Pow(DVFS, Cl), REPP-C\_Perf(DVFS,Cl) = $REPP-C(\varpi_{\mathit{f}})$
+        \State Select REPP or REPP-C (Algorithm~\ref{pseudo:conditions})
+    \end{algorithmic}
+\end{algorithm}
+
+
+%Algorithm 4
+\begin{algorithm}[h!]
+\caption{FACTS for K threads}
+\label{alg:algopseudo}
+\begin{algorithmic}[1]
+\Function{FACTS}{$\Upsilon$} %\funclabel{alg:a} \label{alg:a-line}
+    \While{n $<$ ($\mathcal S - \Upsilon)$} \Comment{Where $\mathcal S$ is total number of cores and n $\in \mathcal S$}
+        \State{Read the DVFS state}
+        \ForAll{threads mapped to that core}
+            \State \text{Read performance counter} \Comment{cache misses}
+        \EndFor
+    \EndWhile
+    \State \text{Sort threads in descending order of cache misses} \Comment{LLCM array}
+    \State \text{Sort cores in the descending order of DVFS state} \Comment{COREID array}
+    %\State \text{Sort COREID array in descending order}
+    \State \text{Let COREID\_C[] be cores with collocation}
+    \While{n $<$ ($\mathcal S - \Upsilon$) } 
+        \State \text{Assign thread with LLCM[n] to core with COREID[n]}
+    \EndWhile
+    \State \text{Set a = 0, c = 0;}
+    \ForAll{thread not assigned to any core} \Comment{that is, (K $>$ $\mathcal S - \Upsilon$)}
+        \State \text{Assign thread with LLCM[$\mathcal S - \Upsilon$-c] to core with COREID[a]} 
+        \State \text{COREID\_C[a] = COREID[a]}
+        \State \text{a = a+1; c = c+1;}
+    \EndFor
+    \State \textbf{return} $LLCM, COREID, COREID\_C$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+%Algorithm 3: select configuration
+\begin{algorithm}[h!]
+    \caption{REPP and REPP-C Select configuration}
+    \label{pseudo:constraints}
+  \begin{algorithmic}[1]
+      \Function{SelectConfig}{$\omega$, $Pow$, $Perf$} %\funclabel{alg:a1} \label{alg:a-line1}
+          \State Perform a linear search on $Pow$ and $Perf$ to determine the nearest $\omega$ per core
+          %\State Select DVFS State for $Pow$ and $Perf$ to the nearest $\omega$ per core through  a linear search.
+          \State Select Cl-State for the given DVFS State that satisfies $\omega$ per core.
+          \State Configuration $\alpha_{\mathit{f}}$ is DVFS, Cl-State
+          \State \textbf{return} $\rho_{\mathit{f}}$, $\eta_{\mathit{f}}$
+      \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+
+
+\nomenclature[g-varpi]{$\varpi_{\mathit{f}}$}{Future configuration for predicted performance and power to satisfy $\omega$}
+%Algorithm 5: Selecting REPP/REPP-C
+\begin{algorithm}[h!]
+    \caption{Selecting REPP or REPP-C}
+    \label{pseudo:conditions}
+  \begin{algorithmic}[1]
+        \State $REPP(\varpi_{\mathit{f}})[n]$       \Comment{n is the thread ID}
+        \State $REPP-C(\varpi_{\mathit{f}})[n]$
+%        \State $Total\textsubscript{\textsf{constraint}} = \sum_{n=0}^{n=\mathcal S} \omega_{n}$ \Comment{$\mathcal S$ total number of threads}
+        \vspace{1mm}
+        \State $REPP_{C1}[n] = (\omega - \sum_{n=0}^{n=\mathcal S} REPP(\varpi_{\mathit{f}}))$
+        \State $REPP-C_{C1}[n] = (\omega - \sum_{n=0}^{n=\mathcal S} REPP-C(\varpi_{\mathit{f}}))$
+        \ForEach {$n \in \mathcal S $} 
+            \State $REPP_{C2}[n]   = (\omega_{n} - REPP(\varpi_{\mathit{f}})[n])$
+            \State $REPP-C_{C2}[n]   = (\omega_{n} - REPP-C(\varpi_{\mathit{f}})[n])$
+        \EndFor
+        \If{$REPP_{C1}\apeq REPP-C_{C1} \apeq REPP_{C2} \apeq REPP-C_{C2} \apeq 0$}
+            \State Select REPP[n]% \Comment{REPP has better throughput-per-watt}
+        \ElsIf{\\
+            ($REPP_{C1} \apeq 0 $ \textsf{and} $\sum_{n=0}^{n=\mathcal S}REPP-C_{C2}[n] \apeq 0$) \textsf{or} ($\sum_{n=0}^{n=\mathcal S} REPP_{C2}[n] \apeq 0 $ \textsf{and} $REPP-C_{C1} \apeq 0 $)}
+            \If{$\sum_{n=0}^{n=\mathcal S}REPP_{C2}[n]$ > $\sum_{n=0}^{n=\mathcal S}REPP-C_{C2}[n]$}
+            \State Allocate threads-to-cores as given by FACTS
+            \State Select REPP-C
+            \Else
+            \State Select REPP
+            \EndIf
+        \EndIf
+        \State Select DVFS state, Cl-State per core as given by REPP/REPP-C
+  \end{algorithmic}
+\end{algorithm}
+

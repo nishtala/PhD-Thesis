@@ -1,0 +1,62 @@
+\section{Dynamic Power and Performance Management} 
+\label{section: Background} 
+
+Currently available modern operating systems control the power dissipated by dynamically
+controlling the power state in which the processor is at runtime.  Most operating systems,
+provide an interface to monitor the processor's power state to communicate and control
+with the hardware subsystem. For instance, on \textsf{Linux}, Advanced Configuration and
+Power Interface (ACPI) defines a protocol to control these power states. In this section,
+we give a background of the hardware settings used in this thesis.
+
+\paragraph*{Dynamic Power Management (DPM).} DPM schemes are ingrained as an important
+means to reduce power consumption in data centres having hundreds or thousands of cores,
+each of them with multiple power management features. We focus on the primary DPM features
+available our architectures: processor performance states (DVFS states), processor power states
+(C-States), clamp states (Cl-States) and core consolidation.
+DVFS states~\citep{Eric2009TheSearch, Su:2014:POP:2742155.2742200, Cochran:2011:PCA:2155620.2155641, Huang2000AManagement,Isci2006AnBudget, 6008553,  Singh2009RealCounters} and
+Cl-States~\citep{Olsen:2006:PEP:1137248.1137532} have been used in numerous previous works
+to provide fine-grained low-level support for a reasonable performance-power trade-off.  
+
+\paragraph*{Processor performance states (P-States/DVFS).} Each DVFS state represents a
+specified voltage and clock frequency of the cores~\citep{acpikernel} and is controlled by
+the ACPI.  The frequency and voltage for
+each state is described in the Differentiated System Description Table (DSDT).  The higher
+numbered DVFS states correspond to higher clock frequency and higher voltage, thereby
+delivering a higher performance subjected to the scalability of the workload.
+
+The changes in DVFS state are governed using the ACPI \textsf{CPUFreq} governor using the
+\textsf{acpi\_cpufreq} driver.  The default governor available using the driver as
+mentioned above is \textsf{ondemand}~\citep{ondemand}, which allows the kernel to control
+the core's DVFS state based on the ``load'' on the processor. However, the governor
+\textit{userspace} lets users to control the core's DVFS state, via the \textsf{sysfs}
+file system, manually irrespective of the ``load''.
+
+\looseness -1 \paragraph*{Processor power states (C-States).} Modern \muc processors
+support multiple C-States, also known as ``Sleep States''. These states allow various
+internal modules to be turned off. Higher-numbered C-States indicate a ``deeper'' sleep
+state with more internal modules disabled resulting in a lower power consumption, but
+entails a longer wake up period (up to \SI{1024}{\nano\second} on an Intel machine).  At
+a given C-State, all DVFS states have same power consumption when
+idle~\citep{Olsen:2006:PEP:1137248.1137532}.  The choice of C-States is architecture and
+processor dependent. For example, Intel Sandy Bridge supports C0, C1, C3, C6 and C7 states
+and they are accessible through the \textsf{sysfs} file system, similar to the DVFS states.
+
+\looseness -1  This technology on Intel and AMD processors is coined as
+``C-States''~\citep{Intel, Schone:2015:WLP:2766527.2766547}, and on ARM processors as
+``CPUidleness''~\citep{maillistperfmon}. For instance, most Intel processors support C0,
+C1, C3, C6 and C7 states.  The residency period indicates the duration of time a given
+core is present at a given C-State and can be controlled using the model-specific
+registers (MSR).  The default time quantum for \textit{entering} a C-State is
+\SI{1024}{\nano\second}.  
+
+\paragraph*{Clamp States (Cl-States).} Although C-States are a effective power reduction
+mechanisms, they are used to reduce power consumption only when the system is idle.
+On the other hand, \textit{Cl-States} introduce synchronised idle injections across online
+CPU threads to enable forced and controllable C-State residency.  The changes in Cl-States
+are governed by ACPI using the \textsf{intel\_powerclamp} driver~\citep{powerclamp}. 
+
+
+\nomenclature[z-ACPI]{ACPI}{Advanced Configuration and Power Interface}
+\nomenclature[z-DSDT]{DSDT}{Differentiated State Description Table} 
+
+

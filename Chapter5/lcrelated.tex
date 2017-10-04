@@ -1,0 +1,82 @@
+Energy efficient cluster computing is focused on meeting deadlines for latency-critical
+jobs~\citep{Barroso2003WebArchitecture, 199376, Nishtala2013ScalingFacebook, Atikoglu2012WorkloadStore, villebonnet:hal-01355452} while utilising as little as energy
+as possible. This is a major problem in today's data
+centres~\citep{Prekas:2015:EPW:2806777.2806848, Kasture2015Rubik, Hoelzle2009TheMachinesb, Wong:2016:PEA:3007787.3001188} and below we summarise the most relevant and
+related research.
+
+Mars \etal~\citep{Mars:2011:BIU:2155620.2155650, Yang2013Bubble-flux} detect
+at runtime the memory pressure and find the best collocation to avoid negative
+interference with latency-critical workloads. They also have a mechanism to detect
+negative interference allocations via execution modulation. However such fall-back
+mechanism would not adhere to applications like Memcached, as modulations have to be done
+at a finer granularity.
+
+\looseness -1 Novakovi\'{c} \etal~\citep{Novakovic2013DeepDive:Environments} identifies and manages performance
+interference between VM systems collocated on the same system.
+Nathuji \etal~\citep{Nathuji2010Q-clouds} develop a feedback based mechanism to tune resource
+assignment to avoid negative interference to collocated VMs systems.
+Zhang \etal~\citep{Zhang2013CPI2} enables race-to-finish for low-priority workloads to not have a
+deadlock with high priority services.  
+
+%\textbf{Approaches which use latency as performance metric:} 
+
+Petrucci \etal~\citep{Petrucci2015Octopus-Man:Computers} was designed for big.LITTLE
+architectures to map workloads on big and small cores at highest DVFS using a feedback
+controller in response to changes in measured latency. Lo \etal~\citep{Lo2015Heracles}
+uses a feedback controller that exploits collocation of latency-critical and batch
+workloads while increasing the resource efficiency of CPU, memory and network as long as
+QoS target is met. However, this work is limited to modern Intel architectures due to its
+extensive use of cache allocation technology (CAT) and DRAM bandwidth monitor, which are
+available from Broadwell processors released after 2015.
+Lo \etal~\citep{Lo2014TowardsWorkloads} achieves high CPU energy proportionality for low
+latency workloads using fine-grained DVFS techniques.
+Vamanan \etal~\citep{Vamanan2015TimeTrader:Search} and Kasture \etal~\citep{Kasture2015Rubik} exploit
+request queuing latency variation and apply any available slack from queuing delay to
+throughput-oriented workloads to improve energy efficiency.
+Delimitrou \etal~\citep{Delimitrou2014Quasar} use runtime classification to predict interference and
+collocate workloads to minimise interference. 
+
+Carvalha \etal~\citep{43017} introduce an approach to allocate a subset of the unused
+resources for long-term availability SLOs. This methodology deploys time series
+forecasting under the premise that availability of resource usage patterns in short jobs.
+Nevertheless, this approach does not handle resource allocation effectively as short jobs
+do not have certain resource patterns. Furthermore, the approach ignores the unused and
+    underused resources caused by time-varying demands in data centre environments.  
+ 
+Tarcil~\citep{Delimitrou:2015:TRS:2806777.2806779} and Firmament~\citep{199390} use
+information on the type of resources applications need in a sampling interval to deploy in
+distributed scheduler using an analytically-derived sampling framework that provides high
+quality resources within a few milliseconds. 
+
+
+\looseness -1 Wong \etal~\citep{Wong2012KnightShift:Heterogeneity} introduces a server architecture
+that couples commercial available compute nodes to adapt the changes in system load and
+improve energy proportionality.  Wu \etal~\citep{QiangWuMakingHttps://goo.gl/vJi1kf} (Autoscale) is
+for load-balancing a single workload, whereas Hipster could be used for multi-tenant data
+centres (different workloads on different nodes). Also, Autoscale cannot exploit
+heterogeneity properly. In contrast, at low utilisation, Hipster can use the small cores
+for the latency-critical workloads and leave the big cores for batch workloads.
+    
+Zhou~\etal~\citep{Zhou:2016:GLM:2925426.2926272} proposed a heterogeneous platform-aware
+power provisioning system for data centres. The management framework distributes power
+from either renewable and non-renewable sources between small and big cores to achieve a
+higher energy efficiency while meeting SLO targets.
+
+Violaine~\etal~\citep{villebonnet:hal-01355452} develop a dynamic resource allocation
+algorithm which considers each the architectural characteristics of the infrastructure
+such as performance, energy consumption, and their turn on/off latency. Using such
+information, the framework makes decisions of resource reallocation to ensure that there
+exist as little as possible QoS violations for latency-critical workloads while having
+potential energy gains.
+
+
+\looseness -1 Tesauro \etal~\citep{TesauroAAllocation} use an \emph{offline model} based on heuristics
+for autonomous resource allocation, which may be limited to specific architectures or
+applications. Building a lookup table at runtime is important because applications have
+diverse power and performance characteristics which need to be learnt individually (as
+shown in Section~\ref{sec:Motivation}). Prior work has previously introduced optimisations
+for lookup tables, which include building a priority queue for each load bucket, and
+eliminating configurations that seldom occur, and controlling the table size using
+function approximations as in~\citep{Vamanan2015TimeTrader:Search,Ipek:2008:SMC:1381306.1382172}.
+
+

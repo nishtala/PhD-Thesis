@@ -1,0 +1,76 @@
+\nomenclatureentry{z-ISAISA@[{ISA}]\begingroup Instruction Set Architecture\nomeqref {1.0}|nompageref}{6}
+\nomenclatureentry{z-ILPILP@[{ILP}]\begingroup Instruction Level Parallelism\nomeqref {2.0}|nompageref}{10}
+\nomenclatureentry{z-ACPIACPI@[{ACPI}]\begingroup Advanced Configuration and Power Interface\nomeqref {2.0}|nompageref}{12}
+\nomenclatureentry{z-DSDTDSDT@[{DSDT}]\begingroup Differentiated State Description Table\nomeqref {2.0}|nompageref}{12}
+\nomenclatureentry{z-bigBig Core@[{Big Core}]\begingroup ARM Cortex-A57\nomeqref {2.0}|nompageref}{13}
+\nomenclatureentry{z-smallSmall Core@[{Small Core}]\begingroup ARM Cortex-A53\nomeqref {2.0}|nompageref}{13}
+\nomenclatureentry{z-RPSRPS@[{RPS}]\begingroup Requests per Second\nomeqref {2.0}|nompageref}{14}
+\nomenclatureentry{z-QPSQPS@[{QPS}]\begingroup Queries  per Second\nomeqref {2.0}|nompageref}{14}
+\nomenclatureentry{z-DVFSDVFS@[{DVFS}]\begingroup Dynamic Voltage and Frequency Scaling\nomeqref {2.0}|nompageref}{15}
+\nomenclatureentry{z-ClCl-States@[{Cl-States}]\begingroup Idle states\nomeqref {2.0}|nompageref}{15}
+\nomenclatureentry{z-RAPLRAPL@[{RAPL}]\begingroup Running Average Power Limit\nomeqref {2.0}|nompageref}{15}
+\nomenclatureentry{z-MSRMSR@[{MSR}]\begingroup Machine Specific Registers\nomeqref {2.0}|nompageref}{15}
+\nomenclatureentry{a-N$N$@[{$N$}]\begingroup Insensitive batch workload\nomeqref {2.0}|nompageref}{19}
+\nomenclatureentry{a-F$F$@[{$F$}]\begingroup Cache Friendly batch workload\nomeqref {2.0}|nompageref}{19}
+\nomenclatureentry{a-T$T$@[{$T$}]\begingroup Cache Fitting batch workload\nomeqref {2.0}|nompageref}{19}
+\nomenclatureentry{a-S$S$@[{$S$}]\begingroup Thrashing batch workload\nomeqref {2.0}|nompageref}{19}
+\nomenclatureentry{z-QoSQoS@[{QoS}]\begingroup Quality of Service\nomeqref {2.0}|nompageref}{20}
+\nomenclatureentry{z-IPSIPS@[{IPS}]\begingroup Instructions Per Second\nomeqref {2.0}|nompageref}{20}
+\nomenclatureentry{z-LLCLLC@[{LLC}]\begingroup Last Level Cache\nomeqref {2.0}|nompageref}{20}
+\nomenclatureentry{z-PUEPUE@[{PUE}]\begingroup Power Usage Effectiveness\nomeqref {2.0}|nompageref}{24}
+\nomenclatureentry{z-DPMDPM@[{DPM}]\begingroup Dynamic Power Management\nomeqref {2.0}|nompageref}{24}
+\nomenclatureentry{z-REPPREPP@[{REPP}]\begingroup Runtime Estimation of Performance and Power\nomeqref {2.0}|nompageref}{26}
+\nomenclatureentry{z-REPP-CREPP-C@[{REPP-C}]\begingroup Runtime Estimation of Performance and Power with workload consolidation\nomeqref {2.0}|nompageref}{26}
+\nomenclatureentry{g-pc$P_\mathit{c}$@[{$P_\mathit{c}$}]\begingroup Current frequency for DVFS state\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-pi$P_\mathit{i}$@[{$P_\mathit{i}$}]\begingroup Intermediate frequency for DVFS state\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-pf$P_\mathit{f}$@[{$P_\mathit{f}$}]\begingroup Future frequency for DVFS state\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-clc$Cl_\mathit{c}$@[{$Cl_\mathit{c}$}]\begingroup Current Cl-State\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-cli$Cl_\mathit{i}$@[{$Cl_\mathit{i}$}]\begingroup Intermediate Cl-State\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-clf$Cl_\mathit{f}$@[{$Cl_\mathit{f}$}]\begingroup Future Cl-State\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-ac$\alpha_\mathit{c}$@[{$\alpha_\mathit{c}$}]\begingroup Current configuration, that is, ($P_\mathit{c}$, $Cl_\mathit{c}$)\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-af$\alpha_\mathit{f}$@[{$\alpha_\mathit{f}$}]\begingroup Future configuration, that is, ($P_\mathit{f}$, $Cl_\mathit{f}$)\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-ec$\eta_\mathit{c}$@[{$\eta_\mathit{c}$}]\begingroup Performance (IPS) at current configuration\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-ef$\eta_\mathit{f}$@[{$\eta_\mathit{f}$}]\begingroup Performance (IPS) at future configuration\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-rc$\rho_\mathit{c}$@[{$\rho_\mathit{c}$}]\begingroup Power at current configuration\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{g-rf$\rho_\mathit{f}$@[{$\rho_\mathit{f}$}]\begingroup Power at future configuration\nomeqref {3.0}|nompageref}{27}
+\nomenclatureentry{z-ARAR@[{AR}]\begingroup Activity Ratio\nomeqref {3.0}|nompageref}{28}
+\nomenclatureentry{z-FEFE@[{FE}]\begingroup Front End\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{z-INTINT@[{INT}]\begingroup Integer Unit\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{z-FPFP@[{FP}]\begingroup Floating Point Unit\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{z-BPUBPU@[{BPU}]\begingroup Branch Predictor Unit\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{z-L1L1@[{L1}]\begingroup L1 Cache Memory\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{z-L2L2@[{L2}]\begingroup L2 Cache Memory\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{g-delta$\Delta,\beta$@[{$\Delta,\beta$}]\begingroup Coefficients in the multi linear regression model\nomeqref {3.1}|nompageref}{31}
+\nomenclatureentry{z-IPCIPC@[{IPC}]\begingroup Instructions Per Cycle\nomeqref {3.2}|nompageref}{33}
+\nomenclatureentry{z-MIPSMIPS@[{MIPS}]\begingroup IPS in millions\nomeqref {3.2}|nompageref}{33}
+\nomenclatureentry{z-CFSCFS@[{CFS}]\begingroup Completely Fair Scheduler\nomeqref {3.4}|nompageref}{34}
+\nomenclatureentry{z-PAAEPAAE@[{PAAE}]\begingroup Percentage Absolute Average Error\nomeqref {3.5}|nompageref}{40}
+\nomenclatureentry{z-STDEVSTDEV@[{STDEV}]\begingroup Standard Deviation\nomeqref {3.5}|nompageref}{40}
+\nomenclatureentry{z-AAEAAE@[{AAE}]\begingroup Absolute Average Error\nomeqref {3.6}|nompageref}{52}
+\nomenclatureentry{g-omega$\omega$@[{$\omega$}]\begingroup The performance or power constraint per core\nomeqref {3.6}|nompageref}{55}
+\nomenclatureentry{g-psi$\psi$@[{$\psi$}]\begingroup Number of datapoints before the peak in a step-wise monotonic function\nomeqref {3.8}|nompageref}{57}
+\nomenclatureentry{g-tau$\tau$@[{$\tau$}]\begingroup Change\_factor for the step-wise monotonic function\nomeqref {3.8}|nompageref}{57}
+\nomenclatureentry{g-chi$\chi$@[{$\chi$}]\begingroup Load (IPS) or power in a step-wise monotonic function\nomeqref {3.8}|nompageref}{57}
+\nomenclatureentry{g-chi$\chi(\kappa)$@[{$\chi(\kappa)$}]\begingroup $\kappa^{th}$ element in the data sequence for either load or power\nomeqref {3.8}|nompageref}{57}
+\nomenclatureentry{g-chi$\chi(min), \chi(max)$@[{$\chi(min), \chi(max)$}]\begingroup The minimum, maximum value of load or power\nomeqref {3.8}|nompageref}{57}
+\nomenclatureentry{z-factsFACTS@[{FACTS}]\begingroup Frequency and Contention-Aware Thread Collocation Schema\nomeqref {4.0}|nompageref}{64}
+\nomenclatureentry{g-mathcal$\mathcal S$@[{$\mathcal S$}]\begingroup Number of cores in a \muc architecture\nomeqref {4.0}|nompageref}{65}
+\nomenclatureentry{g-mathcal$\mathcal P$@[{$\mathcal P$}]\begingroup Number of DVFS states in a \muc architecture\nomeqref {4.0}|nompageref}{65}
+\nomenclatureentry{z-RL$RL$@[{$RL$}]\begingroup Reinforcement learning\nomeqref {5.0}|nompageref}{83}
+\nomenclatureentry{a-wn$w_n$@[{$w_n$}]\begingroup The current \emph{``state''} in MDP refers to load of the latency-critical workload measured during time interval $t_{n-1}$ to $t_n$\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{a-cn$c_n$@[{$c_n$}]\begingroup The action chosen from a finite set of alternatives for the current state, $w_n$, in time interval $t_{n}$ to $t_{n+1}$\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{a-wn1$w_{n+1}$@[{$w_{n+1}$}]\begingroup The next \emph{``state''} in MDP based on the current action, $c_n$\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{g-tdr$\sum_{n=0}^{\infty} \gamma^n \lambda_n$@[{$\sum_{n=0}^{\infty} \gamma^n \lambda_n$}]\begingroup The aim of MDP is to maximise this function, total discounted reward\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{z-MDPMDP@[{MDP}]\begingroup Markov Decision Process\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{g-lambda$\lambda_{n}$@[{$\lambda_{n}$}]\begingroup Positive or negative reward in MDP for the chosen action, $c_n$ is updated at $t_{n+1}$ \nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{g-gamma$\gamma$@[{$\gamma$}]\begingroup Discounting factor in MDP\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{g-xi$\xi$@[{$\xi$}]\begingroup Learning factor in MDP\nomeqref {5.0}|nompageref}{88}
+\nomenclatureentry{a-rwc$R(w,c)$@[{$R(w,c)$}]\begingroup A lookup table of rewards for state $w$ and action $c$\nomeqref {5.0}|nompageref}{89}
+\nomenclatureentry{a-ba$c_n = \arg\max_c R(w_n, c)$@[{$c_n = \arg\max_c R(w_n, c)$}]\begingroup The action with the highest reward, $c_n$ among the possible set of actions, $c$, for the current state, $w_n$\nomeqref {5.0}|nompageref}{89}
+\nomenclatureentry{a-qoscurr$QoS_{\mathit{curr}}$@[{$QoS_{\mathit{curr}}$}]\begingroup Currently measured tail latency at the \ninefive or \ninenine percentile for the latency-critical workload\nomeqref {5.0}|nompageref}{91}
+\nomenclatureentry{a-qostarget$QoS_{\mathit{target}}$@[{$QoS_{\mathit{target}}$}]\begingroup The target tail latency for the latency-critical workload\nomeqref {5.0}|nompageref}{91}
+\nomenclatureentry{a-qosD$QoS_{\mathit{D}}$@[{$QoS_{\mathit{D}}$}]\begingroup QoS as a factor of a co-efficient between 0 and 1\nomeqref {5.0}|nompageref}{91}
+\nomenclatureentry{a-qosS$QoS_{\mathit{S}}$@[{$QoS_{\mathit{S}}$}]\begingroup QoS as a factor of a co-efficient between 0 and $QoS_{\mathit{D}}$\nomeqref {5.0}|nompageref}{91}
+\nomenclatureentry{a-qosr$QoS_{\mathit{reward}}$@[{$QoS_{\mathit{reward}}$}]\begingroup The ratio of $QoS_{\mathit{current}}$ to $QoS_{\mathit{target}}$\nomeqref {5.0}|nompageref}{93}
+\nomenclatureentry{z-tdpTDP@[{TDP}]\begingroup Thermal Design Power\nomeqref {5.0}|nompageref}{93}
+\nomenclatureentry{a-powerr$Power_{\mathit{reward}}$@[{$Power_{\mathit{reward}}$}]\begingroup The ratio of $TDP$ to $Power$\nomeqref {5.0}|nompageref}{93}

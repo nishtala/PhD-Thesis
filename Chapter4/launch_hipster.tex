@@ -1,0 +1,57 @@
+\section{Deployment Methodology for New Workloads} 
+\label{sec: set hipster} 
+
+\looseness -1 Hipster is a user-level daemon written in Python that is designed to
+implement a hybrid reinforcement learning approach under Linux running on multicore
+machines. It is released under General Public License (GPL) v3 and its source is available
+for download.\footnote{https://bitbucket.org/rnishtala/hipster.git} To deploy Hipster at
+runtime, we initiate a one-time system profiling to have minimal hardware understanding (similar
+to Octopus-Man~\citep{Petrucci2015Octopus-Man:Computers}), and then the Hipster runtime is
+responsible to manage a given workload on a physical machine. 
+
+\subsection{System profiling} We profile the system by running the
+stress microbenchmark (with no memory access) at different core mappings and DVFS settings
+to gather the performance (such as IPS) and power statistics.\footnote{The stress
+microbenchmark is executed on each of the available cores simultaneously and is given by ''stress\_cpu.c'' in the source code.} The performance and power
+statistics can be obtained using performance monitoring tools (see section~\ref{subsec:
+implementation}) and power meters (see section~\ref{sec: power meters}), respectively.
+Then, sort the configurations in the increasing order of the system's mean power
+efficiency (performance per watt of power consumed) and only the order is of interest to
+us. The system's TDP is obtained by running the microbenchmark on all cores at the highest
+DVFS setting. 
+
+For each (new) latency-critical workload, we quantify the maximum load (measured in terms
+of queries/requests per second or similar) the system can manage on the most
+power efficient configuration while satisfying the QoS target (measured in
+\SI{}{\milli\second} or \SI{}{\second}).
+
+\vspace{1mm}
+
+\subsection{Hipster runtime} Hipster is invoked periodically, with the period determined by
+the sampling interval of the latency-critical workload. Hipster takes as input the
+\textit{system power consumption}, \textit{QoS target}, \textit{load}, \textit{maximum
+load} and \textit{latency} (measured in \SI{}{\milli\second} or \SI{}{\second}) of the
+latency-critical workload and finally, the \textit{performance} (measured in IPS) of the
+throughput-oriented workload (if any). The performance metrics such as QoS target, load and
+latency can be obtained either from the application directly (as in our case) or an external profiling tool
+such as Google Wide Profiler (GWP)~\citep{Ren2010Google-WideCenters}.
+
+\looseness -1 To make the best use of Hipster, we suggest tuning the upper
+ threshold ($QoS_{\mathit{D}}$) and lower  threshold ($QoS_{\mathit{S}}$), learning factor
+($\xi$), discounting factor ($\gamma$) empirically. Nevertheless, in the current
+implementation, we predefine the upper threshold and lower threshold to  80\% and 20\% of the QoS
+target, respectively; and the learning factor and discounting factor are set to 0.6 and
+0.9, respectively. 
+
+Our implementation assumes that there exists an ACPI governor~\citep{ondemand} that allows external changes to DVFS state. The governor selected
+on our ARM processor is \textsf{userspace}. The deployment stage of Hipster needs
+permission to access \textsf{Ring 0} or \textsf{root} as the ACPI module writes
+changes in DVFS state to the \textsf{sysfs}. We provide an example of Hipster's deployment method. 
+
+\vspace{1mm}
+
+Hipster schedules the workloads using Hipster's heuristic algorithm and reinforcement
+learning mechanism. For a multicore server, we use Hipster to dynamically select the core
+mapping and DVFS state to ``just meet'' the QoS based on the load for an interactive
+workload and any remaining resources are allocated to throughput-oriented workloads (if
+any).

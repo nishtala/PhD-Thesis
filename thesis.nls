@@ -1,0 +1,159 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$c_n = \arg\max_c R(w_n, c)$}]\begingroup The action with the highest reward, $c_n$ among the possible set of actions, $c$, for the current state, $w_n$\nomeqref {5.0}
+		\nompageref{89}
+  \item [{$c_n$}]\begingroup The action chosen from a finite set of alternatives for the current state, $w_n$, in time interval $t_{n}$ to $t_{n+1}$\nomeqref {5.0}
+		\nompageref{88}
+  \item [{$F$}]\begingroup Cache Friendly batch workload\nomeqref {2.0}
+		\nompageref{19}
+  \item [{$N$}]\begingroup Insensitive batch workload\nomeqref {2.0}
+		\nompageref{19}
+  \item [{$Power_{\mathit{reward}}$}]\begingroup The ratio of $TDP$ to $Power$\nomeqref {5.0}
+		\nompageref{93}
+  \item [{$QoS_{\mathit{curr}}$}]\begingroup Currently measured tail latency at the \ninefive or \ninenine percentile for the latency-critical workload\nomeqref {5.0}
+		\nompageref{91}
+  \item [{$QoS_{\mathit{D}}$}]\begingroup QoS as a factor of a co-efficient between 0 and 1\nomeqref {5.0}
+		\nompageref{91}
+  \item [{$QoS_{\mathit{reward}}$}]\begingroup The ratio of $QoS_{\mathit{current}}$ to $QoS_{\mathit{target}}$\nomeqref {5.0}
+		\nompageref{93}
+  \item [{$QoS_{\mathit{S}}$}]\begingroup QoS as a factor of a co-efficient between 0 and $QoS_{\mathit{D}}$\nomeqref {5.0}
+		\nompageref{91}
+  \item [{$QoS_{\mathit{target}}$}]\begingroup The target tail latency for the latency-critical workload\nomeqref {5.0}
+		\nompageref{91}
+  \item [{$R(w,c)$}]\begingroup A lookup table of rewards for state $w$ and action $c$\nomeqref {5.0}
+		\nompageref{89}
+  \item [{$S$}]\begingroup Thrashing batch workload\nomeqref {2.0}
+		\nompageref{19}
+  \item [{$T$}]\begingroup Cache Fitting batch workload\nomeqref {2.0}
+		\nompageref{19}
+  \item [{$w_n$}]\begingroup The current \emph{``state''} in MDP refers to load of the latency-critical workload measured during time interval $t_{n-1}$ to $t_n$\nomeqref {5.0}
+		\nompageref{88}
+  \item [{$w_{n+1}$}]\begingroup The next \emph{``state''} in MDP based on the current action, $c_n$\nomeqref {5.0}
+		\nompageref{88}
+
+ \nomgroup{G}
+
+  \item [{$\alpha_\mathit{c}$}]\begingroup Current configuration, that is, ($P_\mathit{c}$, $Cl_\mathit{c}$)\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\alpha_\mathit{f}$}]\begingroup Future configuration, that is, ($P_\mathit{f}$, $Cl_\mathit{f}$)\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\chi$}]\begingroup Load (IPS) or power in a step-wise monotonic function\nomeqref {3.8}
+		\nompageref{57}
+  \item [{$\chi(\kappa)$}]\begingroup $\kappa^{th}$ element in the data sequence for either load or power\nomeqref {3.8}
+		\nompageref{57}
+  \item [{$\chi(min), \chi(max)$}]\begingroup The minimum, maximum value of load or power\nomeqref {3.8}
+		\nompageref{57}
+  \item [{$Cl_\mathit{c}$}]\begingroup Current Cl-State\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$Cl_\mathit{f}$}]\begingroup Future Cl-State\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$Cl_\mathit{i}$}]\begingroup Intermediate Cl-State\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\Delta,\beta$}]\begingroup Coefficients in the multi linear regression model\nomeqref {3.1}
+		\nompageref{31}
+  \item [{$\eta_\mathit{c}$}]\begingroup Performance (IPS) at current configuration\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\eta_\mathit{f}$}]\begingroup Performance (IPS) at future configuration\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\gamma$}]\begingroup Discounting factor in MDP\nomeqref {5.0}
+		\nompageref{88}
+  \item [{$\lambda_{n}$}]\begingroup Positive or negative reward in MDP for the chosen action, $c_n$ is updated at $t_{n+1}$ \nomeqref {5.0}
+		\nompageref{88}
+  \item [{$\mathcal P$}]\begingroup Number of DVFS states in a \muc architecture\nomeqref {4.0}
+		\nompageref{65}
+  \item [{$\mathcal S$}]\begingroup Number of cores in a \muc architecture\nomeqref {4.0}
+		\nompageref{65}
+  \item [{$\omega$}]\begingroup The performance or power constraint per core\nomeqref {3.6}
+		\nompageref{55}
+  \item [{$P_\mathit{c}$}]\begingroup Current frequency for DVFS state\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$P_\mathit{f}$}]\begingroup Future frequency for DVFS state\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$P_\mathit{i}$}]\begingroup Intermediate frequency for DVFS state\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\psi$}]\begingroup Number of datapoints before the peak in a step-wise monotonic function\nomeqref {3.8}
+		\nompageref{57}
+  \item [{$\rho_\mathit{c}$}]\begingroup Power at current configuration\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\rho_\mathit{f}$}]\begingroup Power at future configuration\nomeqref {3.0}
+		\nompageref{27}
+  \item [{$\tau$}]\begingroup Change\_factor for the step-wise monotonic function\nomeqref {3.8}
+		\nompageref{57}
+  \item [{$\sum_{n=0}^{\infty} \gamma^n \lambda_n$}]\begingroup The aim of MDP is to maximise this function, total discounted reward\nomeqref {5.0}
+		\nompageref{88}
+  \item [{$\xi$}]\begingroup Learning factor in MDP\nomeqref {5.0}
+		\nompageref{88}
+
+ \nomgroup{Z}
+
+  \item [{AAE}]\begingroup Absolute Average Error\nomeqref {3.6}
+		\nompageref{52}
+  \item [{ACPI}]\begingroup Advanced Configuration and Power Interface\nomeqref {2.0}
+		\nompageref{12}
+  \item [{AR}]\begingroup Activity Ratio\nomeqref {3.0}\nompageref{28}
+  \item [{Big Core}]\begingroup ARM Cortex-A57\nomeqref {2.0}
+		\nompageref{13}
+  \item [{BPU}]\begingroup Branch Predictor Unit\nomeqref {3.0}
+		\nompageref{29}
+  \item [{CFS}]\begingroup Completely Fair Scheduler\nomeqref {3.4}
+		\nompageref{34}
+  \item [{Cl-States}]\begingroup Idle states\nomeqref {2.0}
+		\nompageref{15}
+  \item [{DPM}]\begingroup Dynamic Power Management\nomeqref {2.0}
+		\nompageref{24}
+  \item [{DSDT}]\begingroup Differentiated State Description Table\nomeqref {2.0}
+		\nompageref{12}
+  \item [{DVFS}]\begingroup Dynamic Voltage and Frequency Scaling\nomeqref {2.0}
+		\nompageref{15}
+  \item [{FACTS}]\begingroup Frequency and Contention-Aware Thread Collocation Schema\nomeqref {4.0}
+		\nompageref{64}
+  \item [{FE}]\begingroup Front End\nomeqref {3.0}\nompageref{29}
+  \item [{FP}]\begingroup Floating Point Unit\nomeqref {3.0}
+		\nompageref{29}
+  \item [{ILP}]\begingroup Instruction Level Parallelism\nomeqref {2.0}
+		\nompageref{10}
+  \item [{INT}]\begingroup Integer Unit\nomeqref {3.0}\nompageref{29}
+  \item [{IPC}]\begingroup Instructions Per Cycle\nomeqref {3.2}
+		\nompageref{33}
+  \item [{IPS}]\begingroup Instructions Per Second\nomeqref {2.0}
+		\nompageref{20}
+  \item [{ISA}]\begingroup Instruction Set Architecture\nomeqref {1.0}
+		\nompageref{6}
+  \item [{L1}]\begingroup L1 Cache Memory\nomeqref {3.0}\nompageref{29}
+  \item [{L2}]\begingroup L2 Cache Memory\nomeqref {3.0}\nompageref{29}
+  \item [{LLC}]\begingroup Last Level Cache\nomeqref {2.0}
+		\nompageref{20}
+  \item [{MDP}]\begingroup Markov Decision Process\nomeqref {5.0}
+		\nompageref{88}
+  \item [{MIPS}]\begingroup IPS in millions\nomeqref {3.2}
+		\nompageref{33}
+  \item [{MSR}]\begingroup Machine Specific Registers\nomeqref {2.0}
+		\nompageref{15}
+  \item [{PAAE}]\begingroup Percentage Absolute Average Error\nomeqref {3.5}
+		\nompageref{40}
+  \item [{PUE}]\begingroup Power Usage Effectiveness\nomeqref {2.0}
+		\nompageref{24}
+  \item [{QoS}]\begingroup Quality of Service\nomeqref {2.0}
+		\nompageref{20}
+  \item [{QPS}]\begingroup Queries  per Second\nomeqref {2.0}
+		\nompageref{14}
+  \item [{RAPL}]\begingroup Running Average Power Limit\nomeqref {2.0}
+		\nompageref{15}
+  \item [{REPP-C}]\begingroup Runtime Estimation of Performance and Power with workload consolidation\nomeqref {2.0}
+		\nompageref{26}
+  \item [{REPP}]\begingroup Runtime Estimation of Performance and Power\nomeqref {2.0}
+		\nompageref{26}
+  \item [{$RL$}]\begingroup Reinforcement learning\nomeqref {5.0}
+		\nompageref{83}
+  \item [{RPS}]\begingroup Requests per Second\nomeqref {2.0}
+		\nompageref{14}
+  \item [{Small Core}]\begingroup ARM Cortex-A53\nomeqref {2.0}
+		\nompageref{13}
+  \item [{STDEV}]\begingroup Standard Deviation\nomeqref {3.5}
+		\nompageref{40}
+  \item [{TDP}]\begingroup Thermal Design Power\nomeqref {5.0}
+		\nompageref{93}
+
+\end{thenomenclature}

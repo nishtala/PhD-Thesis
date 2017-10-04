@@ -1,0 +1,9 @@
+\contentsline {section}{Example for thumbs}{1}{section*.1}
+\contentsline {section}{Thumb marks overview}{5}{section*.4}
+\contentsline {section}{\numberline {1}The first section}{11}{section.1}
+\contentsline {section}{\numberline {2}The second section}{15}{section.2}
+\contentsline {section}{\numberline {3}The third section}{16}{section.3}
+\contentsline {section}{\numberline {4}xcolor}{28}{section.4}
+\contentsline {section}{Table of Thumbs, verso mode}{35}{section*.18}
+\contentsline {section}{Table of Thumbs, double mode}{42}{section*.19}
+\contentsline {section}{Table of Thumbs, back mode}{56}{section*.31}

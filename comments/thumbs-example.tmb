@@ -1,0 +1,24 @@
+\thumbcontents {Frontmatter}{0}{white}{gray}{1}{pagesLTS.0}{0}
+\thumbcontents {First section}{ \relax \fontsize {24.88}{30}\selectfont {\textbf {$1^ \textrm {st}$}}}{yellow}{green}{11}{thumbs.2}{0}
+\thumbcontents {Second section}{\relax \fontsize {24.88}{30}\selectfont {\textbf {2}}}{green}{yellow}{15}{thumbs.3}{0}
+\thumbcontents {Third section}{\relax \fontsize {24.88}{30}\selectfont {\textbf {3}}}{blue}{red}{16}{thumbs.4}{0}
+\thumbcontents {Still third section}{\relax \fontsize {24.88}{30}\selectfont {\textbf {3b}}}{red}{blue}{17}{thumbs.5}{0}
+\thumbcontents {Another heading}{Small text}{white}{black}{24}{thumbs.6}{0}
+\thumbcontents {Huge Text paragraph}{\relax \fontsize {24.88}{30}\selectfont {Huge\\ \ Text}}{yellow}{green}{24}{thumbs.7}{0}
+\thumbcontents {Huge Text}{\relax \fontsize {24.88}{30}\selectfont {Huge\nobreakspace {}Text}}{red}{blue}{24}{thumbs.8}{0}
+\thumbcontents {Huge Bold Text}{\relax \fontsize {24.88}{30}\selectfont {\textbf {HBT}}}{black}{yellow}{24}{thumbs.9}{0}
+\thumbcontents {xcolor}{\relax \fontsize {24.88}{30}\selectfont {\textbf {xcolor}}}{magenta}{cyan}{28}{thumbs.10}{0}
+\thumbcontents {A mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {A}}}{lime}{darkgray}{29}{thumbs.11}{0}
+\thumbcontents {B mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {B}}}{brown}{pink}{30}{thumbs.12}{0}
+\thumbcontents {C mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {C}}}{brown}{pink}{31}{thumbs.13}{0}
+\thumbcontents {$1/1.\,955\,83$\, EUR}{\relax \fontsize {24.88}{30}\selectfont {\textbf {D}}}{orange}{violet}{32}{thumbs.14}{0}
+\thumbcontents {E mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {E}}}{lightgray}{black}{48}{thumbs.15}{0}
+\thumbcontents {F mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {F}}}{magenta}{black}{49}{thumbs.16}{0}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.17}{1}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.18}{1}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.19}{1}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.20}{1}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.21}{1}
+\thumbcontents {}{}{\thepagecolor }{\thepagecolor }{50}{thumbs.22}{1}
+\thumbcontents {New thumb marks column}{\relax \fontsize {24.88}{30}\selectfont {\textit {NC}}}{magenta}{black}{50}{thumbs.23}{2}
+\thumbcontents {G mark}{\relax \fontsize {24.88}{30}\selectfont {\textbf {G}}}{orange}{violet}{52}{thumbs.24}{0}

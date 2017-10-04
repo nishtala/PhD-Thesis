@@ -1,0 +1,142 @@
+\iffalse
+\begin{landscape}
+
+\begin{table}[htb]
+    \centering
+%\setlength{\tabcolsep}{1pt}
+    \caption[Categorisation of workload]{\captitle{Categorisation of workloads based on methodology described in~\citep{Sanchez:2011:VSE:2000064.2000073}.} The label, and description for each benchmark from SPEC, NAS, PARSEC, and SPLASH2x. The labels are read as follows: N as Insensitive, F as Cache-Friendly, T as Cache-Fitting, and S as Streaming/Thrashing}    
+    \scalebox{0.95}{
+    \begin{tabular}{@{}ll ccc  
+                       ll ccc c@{}}
+        \toprule 
+        & & \multicolumn{3}{c}{$Platform$} & & & \multicolumn{3}{c}{$Platform$} \\
+        \cmidrule{3-5} \cmidrule{8-10} 
+        $Benchmark$ & $Suite$ & $Intel$ & $AMD$ & $ARM$ & $Benchmark$ & $Suite$ & $Intel$ & $AMD$ & $ARM$ \\
+        \midrule
+        Bzip2       & SPEC    & N       & N     & -  & Barnes      & SPLASH2x& F       & T     & T \\
+        Calculix    & SPEC    & N       & N     & -  & Fft         & SPLASH2x& N       & N     & N \\
+        Gobmk       & SPEC    & N       & N     & -  & Fmm         & SPLASH2x& F       & F     & S \\
+        Gromacs     & SPEC    & N       & N     & -  & lu\_cb      & SPLASH2x& N       & N     & N \\
+        H264ref     & SPEC    & N       & N     & -  & lu\_ncb     & SPLASH2x& F       & F     & N \\
+        Hmmer       & SPEC    & N       & N     & -  & ocean\_cp   & SPLASH2x& F       & F     & T \\
+
+        Namd        & SPEC    & N       & N     & -  & Radix       & SPLASH2x& T       & T     & T \\
+        Omnetpp     & SPEC    & N       & N     & -  & Volrend     & SPLASH2x& N       & N     & F \\
+        Povray      & SPEC    & N       & N     & -  &Water\_nsquared& SPLASH2x& N       & N     & F \\
+        Tonto       & SPEC    & N       & N     & -  & Blackscholes& PARSEC  & N       & N     & N \\
+        CactusADM   & SPEC    & F       & F     & -  & Bodytrack   & PARSEC  & N       & F     & S \\
+        Lbm         & SPEC    & F       & S     & -  & Dedup       & PARSEC  & N       & T     & S \\
+        Libquantum  & SPEC    & F       & S     & -  & Canneal     & PARSEC  & T       & F     & T \\
+                                                     
+        Sjeng       & SPEC    & F       & N     & -  & Facesim     & PARSEC  & N       & N     & F \\
+        Zeusmp      & SPEC    & F       & F     & -  & Fluidanimate& PARSEC  & N       & N     & N \\
+        Wrf         & SPEC    & F       & F     & -  & Freqmine    & PARSEC  & N       & N     & N \\                                                  
+        Astar       & SPEC    & T       & T     & -  & Raytrace    & PARSEC  & N       & N     & T \\
+        Bwaves      & SPEC    & T       & T     & -  & Streamcluster& PARSEC  & S       & S     & F \\
+        Soplex      & SPEC    & T       & T     & -  & Vips        & PARSEC  & N       & F     & T \\
+        GemsFDTD    & SPEC    & T       & S     & -  & x264        & PARSEC  & F       & F     & T \\
+        Mcf         & SPEC    & S       & S     & -  & ep.C        & NAS     & N       & N     & N \\
+        Milc        & SPEC    & S       & S     & -  & is.C        & NAS     & N       & N     & N \\
+        Xalancbmk   & SPEC    & S       & S     & -  & cg.C        & NAS     & F       & F     & S \\
+        Radiosity   & SPLASH2x& N       & N     & F  & lu.C        & NAS     & S       & S     & S \\  
+        Raytrace    & SPLASH2x& N       & N     & T  & mg.C        & NAS     & S       & S     & S \\  
+        Water\_spatial& SPLASH2x& F       & N     & T& sp.C        & NAS     & S       & S     & S \\  
+
+        \bottomrule
+        \end{tabular}
+    }
+    \label{tab: classes}
+\end{table}
+
+\end{landscape} 
+\fi
+
+
+
+\begin{landscape}
+
+\begin{table}[htb]
+    \centering
+%\setlength{\tabcolsep}{1pt}
+    \caption[Categorisation of workload]{\captitle{Categorisation of workloads based on methodology described in~\citep{Sanchez:2011:VSE:2000064.2000073}.} The label, and description for each benchmark from SPEC, NAS, PARSEC, and SPLASH2x. The labels are read as follows: N as Insensitive, F as Cache-Friendly, T as Cache-Fitting, and S as Streaming/Thrashing}    
+    \scalebox{0.90}{
+        \begin{tabular}{@{}ll ccc c@{}}  
+        \toprule 
+        & & \multicolumn{3}{c}{$Platform$}  \\
+                \cmidrule{3-5}             
+        $Benchmark$ & $Suite$ & $Intel$ & $AMD$ & $ARM$ \\
+        \midrule
+        Bzip2       & SPEC    & N       & N     & -  \\   
+        Calculix    & SPEC    & N       & N     & -  \\   
+        Gobmk       & SPEC    & N       & N     & -  \\   
+        Gromacs     & SPEC    & N       & N     & -  \\   
+        H264ref     & SPEC    & N       & N     & -  \\   
+        Hmmer       & SPEC    & N       & N     & -  \\   
+                                                       
+        Namd        & SPEC    & N       & N     & -  \\   
+        Omnetpp     & SPEC    & N       & N     & -  \\   
+        Povray      & SPEC    & N       & N     & -  \\   
+        Tonto       & SPEC    & N       & N     & -  \\   
+        CactusADM   & SPEC    & F       & F     & -  \\   
+        Lbm         & SPEC    & F       & S     & -  \\   
+        Libquantum  & SPEC    & F       & S     & -  \\   
+                                                       
+        Sjeng       & SPEC    & F       & N     & -  \\   
+        Zeusmp      & SPEC    & F       & F     & -  \\   
+        Wrf         & SPEC    & F       & F     & -  \\   
+        Astar       & SPEC    & T       & T     & -  \\   
+        Bwaves      & SPEC    & T       & T     & -  \\   
+        Soplex      & SPEC    & T       & T     & -  \\   
+        GemsFDTD    & SPEC    & T       & S     & -  \\   
+        Mcf         & SPEC    & S       & S     & -  \\   
+        Milc        & SPEC    & S       & S     & -  \\   
+        Xalancbmk   & SPEC    & S       & S     & -  \\   
+        Radiosity   & SPLASH2x& N       & N     & F  \\   
+        Raytrace    & SPLASH2x& N       & N     & T  \\   
+        Water\_spatial& SPLASH2x& F       & N     & T\\   
+
+        \bottomrule
+        \end{tabular}
+        \hspace{1em}
+        \begin{tabular}{@{}ll ccc c@{}}  
+        \toprule 
+        & & \multicolumn{3}{c}{$Platform$}  \\
+                \cmidrule{3-5}             
+            $Benchmark$ & $Suite$ & $Intel$ & $AMD$ & $ARM$  \\
+            \midrule
+                                                                                                       
+             Barnes      & SPLASH2x& F       & T     & T \\
+             Fft         & SPLASH2x& N       & N     & N \\                                                 
+             Fmm         & SPLASH2x& F       & F     & S \\                                                  
+             lu\_cb      & SPLASH2x& N       & N     & N \\
+             lu\_ncb     & SPLASH2x& F       & F     & N \\                                                  
+             ocean\_cp   & SPLASH2x& F       & F     & T \\
+                                                                                                              
+             Radix       & SPLASH2x& T       & T     & T \\
+             Volrend     & SPLASH2x& N       & N     & F \\
+            Water\_nsquared& SPLASH2x& N     & N     & F \\
+             Blackscholes& PARSEC  & N       & N     & N \\
+             Bodytrack   & PARSEC  & N       & F     & S \\
+             Dedup       & PARSEC  & N       & T     & S \\
+             Canneal     & PARSEC  & T       & F     & T \\
+                                                                                                              
+             Facesim     & PARSEC  & N       & N     & F \\
+             Fluidanimate& PARSEC  & N       & N     & N \\
+             Freqmine    & PARSEC  & N       & N     & N \\                                                  
+             Raytrace    & PARSEC  & N       & N     & T \\
+            Streamcluster& PARSEC  & S      & S     & F \\
+             Vips        & PARSEC  & N       & F     & T \\
+             x264        & PARSEC  & F       & F     & T \\
+             ep.C        & NAS     & N       & N     & N \\
+             is.C        & NAS     & N       & N     & N \\
+             cg.C        & NAS     & F       & F     & S \\
+             lu.C        & NAS     & S       & S     & S \\  
+             mg.C        & NAS     & S       & S     & S \\  
+             sp.C        & NAS     & S       & S     & S \\  
+
+        \bottomrule
+        \end{tabular}
+    }
+    \label{tab: classes}
+    \end{table}
+\end{landscape} 

@@ -1,0 +1,149 @@
+\chapter{Hybrid Task Manager for Interactive Workloads}
+\label{chapter: hipster}
+
+%Previous chapter
+
+\looseness -1 \lettrine{I}{n} the previous chapters, we introduced a framework to
+estimate performance and power consumption of batch workloads using a statistical
+modelling technique. By contrast, this chapter focuses on an application-level scheduling
+approach for latency-critical and batch workloads, by taking advantage of processor
+capabilities (like OS-level DVFS)~\citep{WonyoungKim2008SystemRegulators,
+Godycki2014EnablingNetworks, Putnam2014AServices, Lo2014DynamicChips} to improve energy
+efficiency or resource utilisation.  Collocating latency-critical with batch workloads is
+interesting because the former is striving to deliver a service within a certain
+quantum~\citep{Barroso2013TheEdition}, whereas the latter is aimed at maximising
+performance.
+
+%Importance of EF, and new computing
+
+%\looseness -1 Maintaining energy efficiency in large scale data centres is, in fact, one
+%of the most important problem of this decade and modern systems have been exploring
+%alternative heterogeneous processors~\citep{Halpern2016MobileSatisfaction,
+%Wong2012KnightShift:Heterogeneity, Chitlur2012QuickIA:Prototypes,
+%Guevara2013NavigatingMechanisms, Mars2011HeterogeneityOpportunity,
+%Cong2012Energy-efficientArchitectures, DBLP:journals/ppl/VillebonnetCLPS15} and DVFS to
+%trade-off performance and power.
+
+%Need for QoS metric 
+
+\looseness -1 Many important cloud workload are latency-critical, and require strict levels of QoS to
+meet SLA requirements~\citep{Lo2015Heracles, Kasture2015Rubik, Lo2014TowardsWorkloads}.
+For instance, a web-request must complete within a certain time frame otherwise users are
+likely to leave.  Recent study has shown that marginal delays in QoS (of hundreds of
+milliseconds) can impact revenue massively~\citep{Eric2009TheSearch}. In particular it is
+important to meet QoS tail latency, such as \ninefive or \ninenine percentile of request
+latency distribution~\citep{Dean2013TheScale}.
+
+%Traditional schedulers are not suitable.
+
+\looseness -1 Recent works~\citep{Petrucci2015Octopus-Man:Computers, Lo2015Heracles, Kasture2015Rubik,
+Delimitrou2013Paragon:Datacenters, Vamanan2015TimeTrader:Search, Zhu2016Dirigent} have shown that
+traditional power management practices and CPU utilisation measures are unsuitable to
+drive task management for data centre workloads.  This is because prior schemes (like
+OS-level DVFS) work well to deliver long-term performance for batch workloads, but they
+can severely hurt the QoS of latency-critical data centre workloads. 
+
+%Need for corunning
+
+\looseness -1 As noticed in prior work~\citep{Petrucci2015Octopus-Man:Computers, Lo2015Heracles,
+Kasture2015Rubik, Delimitrou2013Paragon:Datacenters, Vamanan2015TimeTrader:Search,
+Zhu2016Dirigent}, workload management can be very challenging in heterogeneous server
+systems because an application can experience different behaviour in QoS and resource
+efficiency depending on specific resource allocation decisions. This requires careful
+resource characterisation of the running workloads to optimise resource usage. In many
+data centres, there also is a wish to run both latency-critical and batch workloads.
+Running both latency-critical and batch workloads, in this way, increases cluster
+utilisation during periods of low demand, reducing operational cost and total energy
+consumption.
+
+\looseness -1 Precisely, we introduce \textbf{Hipster}, a scheme that manages
+heterogeneous \muc allocation and DVFS settings for latency-critical workloads given QoS
+constraints, while minimising system power consumption. In addition, Hipster allows
+collocation of latency-critical and batch workloads in shared data centres to maximise the
+data centre utilisation. In such scenarios, the resources allocated to latency-critical
+workloads are just enough to meet the QoS target, and the remaining resources are
+allocated to throttle the batch workloads.
+
+The major contributions of this chapter are: 
+
+\looseness -1 {\small\circled{1}} We present \textbf{Hipster}, a hybrid management
+solution combining  heuristic techniques and reinforcement learning to make
+resource-efficient allocation decisions, specifically deciding the best mapping of
+latency-critical and batch workloads on heterogeneous cores (big and small) and their DVFS
+setting (Section~\ref{sec: methodology-hipster}).
+
+\looseness -1 {\small\circled{2}} Hipster is presented in two variants: \textbf{HipsterIn} and
+\textbf{HipsterCo}. HipsterIn (for interactive workloads) is targeted towards allocating
+resources to latency-critical workloads so that the system power consumption is minimised,
+whereas HipsterCo (for collocated workloads)  enables running both latency-critical and
+batch workloads for improved server utilisation. Both variants ensure that QoS for
+latency-critical workloads is met.  
+
+{\small\circled{3}} We carried out real measurement experiments on a 64-bit big-LITTLE
+(ARM Juno R1) platform along with back-end services such as Web-Search and Memcached. The
+request generator for each of the back-end services follows a diurnal load pattern typical
+of production data centres (Section~\ref{sec: architecture}).  
+
+
+{\small\circled{4}} We evaluate Hipster against the only other heterogeneous
+platform-aware state-of-the-art scheme~\citep{Petrucci2015Octopus-Man:Computers} that
+dynamically allocates heterogeneous cores to latency-critical workloads. Our results show
+that HipsterIn outperforms prior work, in energy consumption reduction by 13\%, while
+achieving up to 99\% QoS guarantees for the latency-critical workloads. In addition, our
+results for HipsterCo show that it improves performance by $2.3\times$ compared to a
+static/conservative policy running batch workloads, while meeting QoS targets for
+latency-critical workloads (Section~\ref{sec: evaluation-hipster}).
+
+{\small\circled{5}} We evaluate the ability of our scheme to adapt dynamically to changes
+in application at runtime. Our results show that HipsterIn can adapt to changes in
+application, while achieving up to 98\% QoS guarantees for the latency-critical workloads.
+Finally, we present the source code written in Python for Hipster that can be used to
+deploy different cloud workloads such as Web-Search and Memcached. 
+
+
+
+\iffalse
+
+\looseness -1 We begin this chapter by motivating the need for a new scheduler
+(Section~\ref{sec:Motivation}) by identifying the flaws in the existing state-of-the-art.
+Next, we present \textbf{Hipster} (), which is a hybrid management solution combining
+heuristic techniques and reinforcement learning (RL) to make resource-efficient allocation
+decisions, specifically deciding the best mapping of latency-critical and batch workloads
+on heterogeneous cores (big and small) and their DVFS setting. Hipster is presented in two
+variants: \textbf{HipsterIn} and \textbf{HipsterCo}. 
+
+\looseness -1 Thereafter, we describe HipsterIn (for interactive workloads) is targeted towards
+allocating resources to latency-critical workloads so that the system power consumption in
+minimised.  Followed by HipsterCo (for collocated workloads)  which enables running both
+latency-critical and batch workloads for improved server utilisation. Both variants ensure
+that QoS for latency-critical workloads is met. 
+
+\looseness -1 The results for Hipster were carried real measurement experiments using a 64-bit
+big.LITTLE (ARM Juno R1) platform along with back-end services such as Web-Search and
+Memcached. The request generator for each of the back-end services follows a diurnal load
+pattern typical of production data centres. The description of the ARM processor is given
+in .
+
+\looseness -1 Next, we evaluate  Hipster against the only other \het platform-aware
+state-of-the-art scheme~\citep{Petrucci2015Octopus-Man:Computers} that dynamically
+allocates \het cores to latency-critical workloads, and show that our scheduling algorithm
+out-performs the state-of-the-art scheme.
+
+\looseness -1 Finally, we evaluate the ability of our scheme to adapt dynamically to changes in
+application at runtime. Our results show that HipsterIn can adapt to changes in
+application, while achieving up to 98\% QoS guarantees for the latency-critical workloads.
+Finally, we present the source code written in Python for Hipster that can be used to
+deploy different cloud workloads such as Web-Search and Memcached.  
+
+\fi
+
+\nomenclature[z-RL]{$RL$}{Reinforcement learning}
+
+
+\input{Chapter4/motivation}
+\input{Chapter4/methodology}
+\input{Chapter4/evaluation}
+%\input{Chapter4/implementation}
+\input{Chapter4/launch_hipster} 
+
+\input{Chapter4/conclusion}

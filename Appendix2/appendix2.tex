@@ -1,0 +1,229 @@
+\chapter{Multiprogrammed benchmarks}
+\label{chap: benchmarks multi}
+
+We categorise the batch workloads into multiprogrammed batch workloads based on the methodology described in section~\ref{subsection: batch workloads}. 
+The multiprogrammed are generated from single threaded batch workloads. The single threaded
+batch workloads used are 22 SPEC CPU 2006~\citep{2006core2,Henning2006SPECDescriptions},
+nine PARSEC 3.0~\citep{bienia:2008:pbs:1454115.1454128}, six
+NAS~\citep{Bailey:1991:NPB:125826.125925}, 11 SPLASH2x~\citep{524546}.  These workloads
+exhibit both memory and computational bound phases.  The number of benchmarks in a
+multiprogrammed workload is equal to the number of cores in each architecture, thereby,
+having 35 workloads of four benchmarks on AMD and Intel, and ten workloads of two
+benchmarks on ARM.  On the ARM processor, we use only the big cluster as the small cluster
+does not allow us to gather most counters. The methodology to build the workloads is
+described by Sanchez and Kozyrakis~\citep{Sanchez:2011:VSE:2000064.2000073}. 
+Tables~\ref{tab: classes-ARM} and~\ref{tab: classes-AMD-Intel} show the
+multiprogrammed workloads on ARM, AMD and Intel.  
+
+\iffalse 
+
+\looseness -1 The benchmarks are divided into four categories, following the
+categorisation by Sanchez and Kozyrakis~\citep{Sanchez:2011:VSE:2000064.2000073}.  We run
+all the applications in isolation and gather PMCs at a sampling frequency of
+\SI{250}{\milli\second} until the end, and compute mean value of the ratio of number of
+kilo-LLC misses for kilo-IPS. For all workloads, we select the native input set size.
+Those which have  ratio less 0.1 are considered as Thrashing or Streaming (\textbf{S}),
+applications that benefit cache size, that is, ratio between 0.1 and 0.2 are classified as
+Cache-Fitting (\textbf{T}).  Then, applications with a ratio between than 0.2 and 1 are
+classified as Cache-Friendly (\textbf{F}). Finally, applications with ratio greater than 1
+are classified as Insensitive (\textbf{N}). There are 35 possible combinations (with
+repetitions) of these four categories, each of which forms a group. In the multiprogrammed
+workloads consisting of four benchmarks from SPEC, PARSEC 3.0, NAS, and SPLASH2x suites,
+we have one mix per group.  In the multiprogrammed workloads, each application is randomly
+selected from the category.  Similar methodology is followed on ARM, however, the SPEC
+could not be compiled.  
+
+\fi
+
+\begin{table}[htb]
+    \centering
+%\setlength{\tabcolsep}{1pt}
+    \caption{Multiprogrammed workloads on ARM}
+    
+    \scalebox{0.93}{
+    \begin{tabular}{@{}llr@{}}
+        \toprule 
+        Multiprogrammed workloads & Category \\
+        \midrule
+
+             radiosity,streamcluster & FF \\
+             streamcluster,ep.c & FN \\
+             fluidanimate,is.c & NN \\
+             sp.c,facesim & SF \\
+             sp.c,blackscholes & SN \\
+             sp.c,mg.c & SS \\
+             ocean\_cp,water\_spatial & ST \\
+             radix,water\_nsquared & TF \\
+             radix,lu\_cb & TN \\
+             radix,radix & TT \\
+        \bottomrule
+    \end{tabular}
+    }
+    \label{tab: classes-ARM}
+\end{table}
+
+
+
+\iffalse
+\begin{table}[htb]
+    \centering
+%\setlength{\tabcolsep}{1pt}
+    \caption{Multiprogrammed workloads on AMD}
+    \begin{tabular}{@{}lllr@{}}
+        \toprule 
+        Architecture & Multiprogrammed workloads & Category \\
+        \midrule
+        
+            AMD & lu\_ncb-bodytrack-x264-fmm                  & FFFF \\ 
+            AMD & vips-cactusADM-wrf-water\_nsquared          & FFFN \\
+            AMD & wrf-streamcluster-hmmer-gromacs             & FFNN \\
+            AMD & lu\_ncb-blackscholes-calculix-ep.C          & FNNN \\ 
+            AMD & raytrace-freqmine-freqmine-tonto            & NNNN \\
+            AMD & milc-fmm-bodytrack-canneal                  & SFFF \\
+            AMD & lu.C-zeusmp-streamcluster-omnetpp           & SFFN \\
+            AMD & libquantum-zeusmp-water\_spatial-calculix   & SFNN \\
+            AMD & dedup-hmmer-gobmk-povray                    & SNNN \\
+            AMD & gemsFDTD-libquantum-streamcluster-bodytrack & SSFF \\
+            AMD & libquantum-mg.C-canneal-tonto               & SSFN \\
+            AMD & lu.C-lbm-freqmine-sjeng                     & SSNN \\
+            AMD & sp.C-lu.C-milc-canneal                      & SSSF \\
+            AMD & mcf-gemsFDTD-mg.C-raytrace                  & SSSN \\
+            AMD & lu.C-sp.C-mcf-gemsFDTD                      & SSSS \\
+            AMD & libquantum-milc-dedup-soplex                & SSST \\
+            AMD & mg.C-dedup-bwaves-fmm                       & SSTF \\
+            AMD & lbm-sp.C-soplex-bzip2                       & SSTN \\
+            AMD & mcf-libquantum-radix-radix                  & SSTT \\
+            AMD & libquantum-astar-x264-bodytrack             & STFF \\
+            AMD & milc-astar-bodytrack-radiosity              & STFN \\
+            AMD & gemsFDTD-soplex-hmmer-radiosity             & STNN\\
+            AMD & lbm-soplex-soplex-bodytrack                 & STTF \\
+            AMD & dedup-radix-astar-freqmine                  & STTN \\
+            AMD & libquantum-astar-astar-radix                & STTT \\
+            AMD & astar-canneal-canneal-lu\_ncb               & TFFF \\
+            AMD & bwaves-canneal-canneal-calculix             & TFFN \\
+            AMD & astar-x264-povray-raytrace                  & TFNN \\
+            AMD & astar-water\_spatial-omnetpp-omnetpp        & TNNN \\
+            AMD & astar-bwaves-zeusmp-vips                    & TTFF \\
+            AMD & radix-soplex-bodytrack-water\_nsquared      & TTFN \\
+            AMD & astar-astar-blackscholes-bzip2              & TTNN \\
+            AMD & radix-soplex-bwaves-zeusmp                  & TTTF \\ 
+            AMD & radix-astar-astar-namd                      & TTTN \\
+            AMD & soplex-astar-astar-bwaves                   & TTTT \\
+        \bottomrule
+    \end{tabular}
+    \label{tab: classes-AMD}
+\end{table}
+    
+
+\begin{table}[htb]
+    \centering
+    \caption{Multiprogrammed workloads in Intel}
+    
+    \begin{tabular}{@{}lllr@{}}
+        \toprule 
+        Architecture & Multiprogrammed workloads & Category \\
+        \midrule
+
+            Intel & x264-libquantum-cactusADM-x264 & FFFF \\
+            Intel & ocean\_cp-ocean\_cp-lu\_ncb-calculix & FFFN \\
+            Intel & libquantum-lbm-radiosity-freqmine & FFNN \\
+            Intel & water\_nsquared-povray-water\_spatial-bzip2 & FNNN \\
+            Intel & bodytrack-calculix-povray-water\_spatial & NNNN \\
+            Intel & xalancbmk-x264-cactusADM-libquantum & SFFF \\
+            Intel & mcf-libquantum-x264-hmmer & SFFN \\
+            Intel & mcf-lu\_ncb-dedup-raytrace & SFNN \\
+            Intel & xalancbmk-freqmine-bzip2-bzip2 & SNNN \\
+            Intel & xalancbmk-xalancbmk-ocean\_cp-lu\_ncb & SSFF \\
+            Intel & mcf-milc-cactusADM-bzip2 & SSFN \\
+            Intel & milc-xalancbmk-povray-raytrace & SSNN \\
+            Intel & milc-milc-mcf-cactusADM & SSSF \\
+            Intel & xalancbmk-streamcluster-xalancbmk-bzip2 & SSSN \\
+            Intel & xalancbmk-mcf-streamcluster-milc & SSSS \\
+            Intel & streamcluster-xalancbmk-streamcluster-soplex & SSST \\
+            Intel & milc-xalancbmk-soplex-ocean\_cp & SSTF \\
+            Intel & streamcluster-streamcluster-astar-water\_spatial & SSTN \\
+            Intel & xalancbmk-streamcluster-canneal-canneal & SSTT \\
+            Intel & milc-soplex-lu\_ncb-lu\_ncb & STFF \\
+            Intel & streamcluster-soplex-water\_nsquared-bzip2 & STFN \\
+            Intel & streamcluster-astar-povray-radiosity & STNN \\
+            Intel & xalancbmk-radix-canneal-x264 & STTF \\
+            Intel & streamcluster-gemsFDTD-soplex-hmmer & STTN \\
+            Intel & xalancbmk-radix-radix-canneal & STTT \\
+            Intel & soplex-cactusADM-lbm-lbm & TFFF \\
+            Intel & astar-lu\_ncb-libquantum-gobmk & TFFN \\
+            Intel & astar-ocean\_cp-freqmine-bzip2 & TFNN \\
+            Intel & canneal-raytrace-water\_spatial-wrf & TNNN \\
+            Intel & astar-soplex-lu\_ncb-water\_nsquared & TTFF \\
+            Intel & radix-soplex-water\_nsquared-bodytrack & TTFN \\
+            Intel & astar-canneal-tonto-bzip2 & TTNN \\
+            Intel & soplex-radix-radix-lbm & TTTF \\
+            Intel & astar-canneal-soplex-bodytrack & TTTN \\
+            Intel & soplex-soplex-soplex-soplex & TTTT \\
+        
+        \bottomrule
+    \end{tabular}
+    \label{tab: classes-Intel}
+\end{table}
+ 
+\fi
+\begin{table}[htb]
+    \centering
+    \caption{Multiprogrammed workloads on AMD and Intel}
+    \scalebox{0.93}{
+    \begin{tabular}{@{}lllr@{}}
+        \toprule 
+        Multiprogrammed workloads (AMD) & Multiprogrammed workloads (Intel) & Category \\
+        \midrule
+
+lu\_ncb bodytrack x264 fmm                  	& libquantum, wrf, fmm, water\_spatial & FFFF \\
+vips cactusadm wrf water\_nsquared          	& barnes water\_spatial fmm hmmer & FFFN \\
+wrf streamcluster hmmer gromacs             	& cactusadm lbm radiosity omnetpp & FFNN \\
+lu\_ncb blackscholes calculix ep.c          	& fmm omnetpp volrend facesim & FNNN \\
+raytrace freqmine freqmine tonto            	& lu\_cb povray radiosity tonto & NNNN \\
+
+milc fmm bodytrack canneal                  	& mcf lu\_ncb cg.c lbm & SFFF \\
+
+lu.c zeusmp streamcluster omnetpp           	& streamcluster fmm zeusmp bzip2          & SFFN \\
+libquantum zeusmp calculix,  	                & lu.c lu\_ncb fluidanimate raytrace           & SFNN \\
+\hspace*{8em}water\_spatial    	                &           &   \\
+
+dedup hmmer gobmk povray                    	&mg.c tonto fft fft           & SNNN \\
+
+gemsfdtd libquantum bodytrack, 	                & lu.c sp.c cactusadm fmm           & SSFF \\
+\hspace*{8em}        streamcluster            	&           &  \\
+
+libquantum mg.c canneal tonto               	& lu.c mcf sjeng dedup          & SSFN \\
+lu.c lbm freqmine sjeng                     	& mg.c sp.c radiosity ep.c           & SSNN \\
+
+sp.c lu.c milc canneal                      	& milc lu.c milc water\_spatial           & SSSF \\
+mcf gemsfdtd mg.c raytrace                  	& milc milc xalancbmk blackscholes           & SSSN \\
+
+lu.c sp.c mcf gemsfdtd                      	& xalancbmk xalancbmk streamcluster sp.c           & SSSS \\
+libquantum milc dedup soplex                	& mg.c lu.c xalancbmk soplex           & SSST \\
+mg.c dedup bwaves fmm                       	& milc lu.c radix x264           & SSTF \\
+lbm sp.c soplex bzip2                       	&  lu.c lu.c astar raytrace          & SSTN \\
+mcf libquantum radix radix                  	& streamcluster lu.C bwaves soplex         & SSTT \\
+libquantum astar x264 bodytrack             	& lu.c astar ocean\_cp libquantum           & STFF \\
+milc astar bodytrack radiosity              	& xalancbmk astar zeusmp water\_nsquared           & STFN \\
+gemsfdtd soplex hmmer radiosity             	& mcf soplex freqmine bodytrack           & STNN \\
+lbm soplex soplex bodytrack                 	& milc astar soplex cg.c           & STTF \\
+dedup radix astar freqmine                  	& mg.c astar astar bodytrack           & STTN \\
+libquantum astar astar radix                	& mcf canneal radix canneal           & STTT \\
+astar canneal canneal lu\_ncb               	& astar fmm cactusadm water\_spatial           & TFFF \\
+bwaves canneal canneal calculix             	& radix cg.c fmm vips           & TFFN \\
+astar x264 povray raytrace                  	& soplex x264 ep.c tonto           & TFNN \\
+astar omnetpp omnetpp,        	                & gemsfdtd radiosity fft namd           & TNNN \\
+    \hspace*{8em}water\_spatial        	        &           &  \\
+astar bwaves zeusmp vips                    	& radix soplex sjeng barnes           & TTFF \\
+radix soplex bodytrack      	                & radix radix cg.c radiosity           & TTFN \\
+        \hspace*{8em}water\_nsquared      	    &           &  \\
+astar astar blackscholes bzip2              	& soplex radix vips gromacs          & TTNN \\
+radix soplex bwaves zeusmp                  	& canneal bwaves radix x264           & TTTF \\
+radix astar astar namd                      	& bwaves soplex gemsfdtd is.c          & TTTN \\
+soplex astar astar bwaves                   	&  radix astar bwaves soplex          & TTTT \\
+
+        \bottomrule
+    \end{tabular}
+}
+    \label{tab: classes-AMD-Intel}
+\end{table}

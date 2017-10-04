@@ -1,0 +1,1684 @@
+\begin{thebibliography}{100}
+
+\bibitem{paulbook}
+Joseph~M. Williams.
+\newblock
+  {\href{http://www.unalmed.edu.co/~poboyca/documentos/Doc.%20Seminario%20I/style.pdf}{Style
+  Towards Clarity and Grace}}, February 2017.
+\newblock
+  \url{unalmed.edu.co/~poboyca/documentos/Doc.%20Seminario%20I/style.pdf}.
+
+\bibitem{Delforge2014DataAssessment}
+Pierre Delforge and Josh Whitney.
+\newblock
+  \href{https://www.nrdc.org/sites/default/files/data-center-efficiency-assessment-IP.pdf}{{Data
+  Center Efficiency Assessment}}.
+\newblock {\em Natural Resources Defense Council (NRDC)}, May 2014.
+\newblock
+  \url{nrdc.org/sites/default/files/data-center-efficiency-assessment-IP.pdf}.
+
+\bibitem{powerforbes}
+Forbes.
+\newblock
+  \href{http://www.forbes.com/sites/christopherhelman/2016/06/28/how-much-electricity-does-it-take-to-run-the-internet/#7d19a621539b}{Berkeley
+  Lab: It Takes 70 Billion Kilowatt Hours A Year To Run The Internet}, June
+  2016.
+\newblock
+  \url{forbes.com/sites/christopherhelman/2016/06/28/how-much-electricity-does-it-take-to-run-the-internet}.
+
+\bibitem{co2emissions}
+Natural Resource Defense~Council (NRDC).
+\newblock
+  \href{https://www.nrdc.org/experts/pierre-delforge/power-efficiency-cut-data-center-energy-waste}{The
+  Power of Efficiency to Cut Data Center Energy Waste}, June 2016.
+\newblock
+  \url{nrdc.org/experts/pierre-delforge/power-efficiency-cut-data-center-energy-waste}.
+
+\bibitem{mlawend2}
+MIT~Technology Review.
+\newblock
+  \href{https://www.technologyreview.com/s/601102/intel-puts-the-brakes-on-moores-law/}{Intel
+  Puts the Brakes on Moore’s Law}, May 2016.
+\newblock
+  \url{technologyreview.com/s/601102/intel-puts-the-brakes-on-moores-law/}.
+
+\bibitem{montblanc}
+Mont-Blanc.
+\newblock \href{https://www.montblanc-project.eu/}{Mont-Blanc}, December 2016.
+\newblock \url{montblanc-project.eu/}.
+
+\bibitem{FM1000}
+Ilkka Tuomi.
+\newblock \href{http://journals.uic.edu/ojs/index.php/fm/article/view/1000}{The
+  Lives and Death of Moore's Law}.
+\newblock {\em First Monday}, 7(11), December 2002.
+
+\bibitem{facebook}
+Facebook Inc.
+\newblock \href{https://www.facebook.com}{Facebook}, November 2016.
+\newblock \url{facebook.com}.
+
+\bibitem{googlesearch}
+Google Inc.
+\newblock \href{https://www.google.es}{Google search}, November 2016.
+\newblock \url{google.es}.
+
+\bibitem{twitter}
+Twitter Inc.
+\newblock \href{https://www.twitter.com}{Twitter}, November 2016.
+\newblock \url{twitter.com}.
+
+\bibitem{ec2pricing}
+Amazon EC2.
+\newblock \href{https://aws.amazon.com/ec2/pricing/on-demand/}{Amazon {EC2}
+  pricing}, November 2016.
+\newblock \url{aws.amazon.com/ec2/pricing/on-demand/}.
+
+\bibitem{rack}
+Rackspace.
+\newblock \href{https://www.rackspace.com/}{Rackspace}, November 2016.
+\newblock \url{rackspace.com}.
+
+\bibitem{pdata1}
+James Hamilton.
+\newblock
+  \href{http://perspectives.mvdirona.com/2008/11/cost-of-power-in-large-scale-data-centers/}{Cost
+  of Power in Large-Scale Data Centers}, December 2016.
+\newblock
+  \url{perspectives.mvdirona.com/2008/11/cost-of-power-in-large-scale-data-centers/}.
+
+\bibitem{pdata2}
+Michael Allen.
+\newblock
+  \href{https://www.datacenters.com/news/infrastructure/135-data-center-power-costs-and-requirements}{Data
+  Center Power Costs and Requirements}, December 2016.
+\newblock
+  \url{datacenters.com/news/infrastructure/135-data-center-power-costs-and-requirements}.
+
+\bibitem{Bhattacharya:2012:NSS:2410145.2410772}
+Arka~A. Bhattacharya, David Culler, Aman Kansal, Sriram Govindan, and Sriram
+  Sankar.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2410772}{The Need for Speed
+  and Stability in Data Center Power Capping}.
+\newblock In {\em Proceedings of the 2012 International Green Computing
+  Conference (IGCC)}, IGCC '12, pages 1--10, Washington, DC, USA, 2012. IEEE
+  Computer Society.
+
+\bibitem{WuDynamo:System}
+Qiang Wu, Qingyuan Deng, Lakshmi Ganesh, Chang-Hong Hsu, Yun Jin, Sanjeev
+  Kumar, Bin Li, Justin Meza, and Yee~Jiun Song.
+\newblock
+  \href{https://web.eecs.umich.edu/~hsuch/downloads/papers/pdfs/wu2016dynamo.pdf}{Dynamo:
+  Facebook's Data Center-Wide Power Management System}.
+\newblock In {\em 2016 ACM/IEEE 43rd Annual International Symposium on Computer
+  Architecture (ISCA)}, pages 469--480, June 2016.
+
+\bibitem{Eric2009TheSearch}
+Schurman Eric and Brutlag Jake.
+\newblock
+  \href{http://conferences.oreilly.com/velocity/velocity2009/public/schedule/detail/8523}{{The
+  User and Business Impact of Server Delays, Additional Bytes, and HTTP
+  Chunking in Web Search}}.
+\newblock {\em Velocity}, 2009.
+
+\bibitem{fblue}
+Facebook Inc.
+\newblock
+  \href{https://www.facebook.com/notes/lule%C3%A5-data-center/lule%C3%A5-goes-live/474321655969861#}{Lule\aa~goes
+  live}, November 2016.
+\newblock \url{facebook.com}.
+
+\bibitem{Lefurgy:2003:EMC:957964.957972}
+Charles Lefurgy, Karthick Rajamani, Freeman Rawson, Wes Felter, Michael
+  Kistler, and Tom~W. Keller.
+\newblock \href{http://dl.acm.org/citation.cfm?id=957972}{Energy Management for
+  Commercial Servers}.
+\newblock {\em Computer}, 36(12):39--48, December 2003.
+
+\bibitem{6557176}
+Emre K{\"u}lt{\"u}rsay, Mahmut Kandemir, Anand Sivasubramaniam, and Onur Mutlu.
+\newblock \href{http://ieeexplore.ieee.org/document/6557176/}{Evaluating
+  STT-RAM as an energy-efficient main memory alternative}.
+\newblock In {\em 2013 IEEE International Symposium on Performance Analysis of
+  Systems and Software (ISPASS)}, pages 256--267, April 2013.
+
+\bibitem{4658648}
+Ibrahim Hur and Calvin Lin.
+\newblock \href{http://ieeexplore.ieee.org/document/4658648/}{A comprehensive
+  approach to DRAM power management}.
+\newblock In {\em 2008 IEEE 14th International Symposium on High Performance
+  Computer Architecture}, pages 305--316, Feb 2008.
+
+\bibitem{Barroso2013TheEdition}
+Luiz~André Barroso, Jimmy Clidaras, and Urs H{\"{o}}lzle.
+\newblock
+  \href{http://www.morganclaypool.com/doi/abs/10.2200/S00516ED2V01Y201306CAC024}{{The
+  Datacenter as a Computer: An Introduction to the Design of Warehouse-Scale
+  Machines, Second edition}}.
+\newblock {\em Synthesis Lectures on Computer Architecture}, 8(3):1--154, 7
+  2013.
+
+\bibitem{5510883}
+John Carter and Karthick Rajamani.
+\newblock \href{http://ieeexplore.ieee.org/document/5510883/}{Designing
+  Energy-Efficient Servers and Data Centers}.
+\newblock {\em Computer}, 43(7):76--78, July 2010.
+
+\bibitem{Petrucci2015Octopus-Man:Computers}
+Vinicius Petrucci, Michael~A. Laurenzano, John Doherty, Yunqi Zhang, Daniel
+  Mosse, Jason Mars, and Lingjia Tang.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=7056037}{{Octopus-Man:
+  QoS-driven task management for heterogeneous multicores in warehouse-scale
+  computers}}.
+\newblock In {\em 2015 IEEE 21st International Symposium on High Performance
+  Computer Architecture (HPCA)}, pages 246--258. IEEE, 2 2015.
+
+\bibitem{Delimitrou2014Quasar}
+Christina Delimitrou and Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2541941}{{Quasar:
+  resource-efficient and QoS-aware cluster management}}.
+\newblock In {\em Proceedings of the 19th international conference on
+  Architectural support for programming languages and operating systems -
+  ASPLOS '14}, pages 127--144, New York, New York, USA, 2014. ACM Press.
+
+\bibitem{Prekas:2015:EPW:2806777.2806848}
+George Prekas, Mia Primorac, Adam Belay, Christos Kozyrakis, and Edouard
+  Bugnion.
+\newblock \href{http://doi.acm.org/10.1145/2806777.2806848}{Energy
+  Proportionality and Workload Consolidation for Latency-critical
+  Applications}.
+\newblock In {\em Proceedings of the Sixth ACM Symposium on Cloud Computing},
+  SoCC '15, pages 342--355, New York, NY, USA, 2015. ACM.
+
+\bibitem{Barroso2003WebArchitecture}
+Luiz~Andr{\'e} Barroso, Jeffrey Dean, and Urs H\"{o}lzle.
+\newblock \href{http://dl.acm.org/citation.cfm?id=776716}{Web Search for a
+  Planet: The Google Cluster Architecture}.
+\newblock {\em IEEE Micro}, 23(2):22--28, March 2003.
+
+\bibitem{Meisner2011PowerServices}
+David Meisner, Christopher~M. Sadler, Luiz~Andr{\'e} Barroso, Wolf-Dietrich
+  Weber, and Thomas~F. Wenisch.
+\newblock \href{http://doi.acm.org/10.1145/2024723.2000103}{Power Management of
+  Online Data-intensive Services}.
+\newblock {\em SIGARCH Comput. Archit. News}, 39(3):319--330, June 2011.
+
+\bibitem{Bilgir_exploringthe}
+Ozlem Bilgir, Margaret Martonosi, Qiang Wu, and Facebook Inc.
+\newblock
+  \href{http://mrmgroup.cs.princeton.edu/papers/obilgir-weed2011.pdf}{{Exploring
+  the Potential of CMP Core Count Management on Data Center Energy Savings}}.
+\newblock In {\em Proceedings of the Workshop on Energy Efficient Design
+  (WEED)}, June 2011.
+
+\bibitem{Nishtala:2013:ETC:2555754.2555775}
+Rajiv Nishtala, Daniel Moss{\'e}, and Vinicius Petrucci.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2555754.2555775}{Energy-aware
+  Thread Co-location in Heterogeneous Multicore Processors}.
+\newblock In {\em Proceedings of the Eleventh ACM International Conference on
+  Embedded Software}, EMSOFT '13, pages 21:1--21:9, Piscataway, NJ, USA, 2013.
+  IEEE Press.
+
+\bibitem{Zhuravlev:2013:SES:2498743.2498946}
+Sergey Zhuravlev, Juan~Carlos Saez, Sergey Blagodurov, Alexandra Fedorova, and
+  Manuel Prieto.
+\newblock \href{http://dx.doi.org/10.1109/TPDS.2012.20}{Survey of
+  Energy-Cognizant Scheduling Techniques}.
+\newblock {\em IEEE Trans. Parallel Distrib. Syst.}, 24(7):1447--1464, July
+  2013.
+
+\bibitem{Blagodurov:2010:CSM:1880018.1880019}
+Sergey Blagodurov, Sergey Zhuravlev, and Alexandra Fedorova.
+\newblock \href{http://doi.acm.org/10.1145/1880018.1880019}{Contention-Aware
+  Scheduling on Multicore Systems}.
+\newblock {\em ACM Trans. Comput. Syst.}, 28(4):8:1--8:45, December 2010.
+
+\bibitem{Petrucci:2012:LSE:2387869.2387876}
+Vinicius Petrucci, Orlando Loques, and Daniel Moss{\'e}.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2387869.2387876}{Lucky
+  Scheduling for Energy-efficient Heterogeneous Multi-core Systems}.
+\newblock In {\em Proceedings of the 2012 USENIX Conference on Power-Aware
+  Computing and Systems}, HotPower'12, pages 7--7, Berkeley, CA, USA, 2012.
+  USENIX Association.
+
+\bibitem{Petrucci:2015:ETA:2724585.2566618}
+Vinicius Petrucci, Orlando Loques, Daniel Moss{\'e}, Rami Melhem, Neven~Abou
+  Gazala, and Sameh Gobriel.
+\newblock \href{http://doi.acm.org/10.1145/2566618}{Energy-Efficient Thread
+  Assignment Optimization for Heterogeneous Multicore Systems}.
+\newblock {\em ACM Trans. Embed. Comput. Syst.}, 14(1):15:1--15:26, January
+  2015.
+
+\bibitem{Zivanovic:2016:LNE:2989081.2989083}
+Darko Zivanovic, Milan Radulovic, Germ\'{a}n Llort, David Zaragoza, Janko
+  Strassburg, Paul~M. Carpenter, Petar Radojkovi\'{c}, and Eduard Ayguad{\'e}.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2989083}{Large-Memory Nodes
+  for Energy Efficient High-Performance Computing}.
+\newblock In {\em Proceedings of the Second International Symposium on Memory
+  Systems}, MEMSYS '16, pages 3--9, New York, NY, USA, 2016. ACM.
+
+\bibitem{Asifuzzaman:2016:PIS:2989081.2989082}
+Kazi Asifuzzaman, Milan Pavlovic, Milan Radulovic, David Zaragoza, Ohseong
+  Kwon, Kyung-Chang Ryoo, and Petar Radojkovi\'{c}.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2989082}{Performance Impact
+  of a Slower Main Memory: A Case Study of STT-MRAM in HPC}.
+\newblock In {\em Proceedings of the Second International Symposium on Memory
+  Systems}, MEMSYS '16, pages 40--49, New York, NY, USA, 2016. ACM.
+
+\bibitem{Guo:2015:PLS:2785956.2787496}
+Chuanxiong Guo, Lihua Yuan, Dong Xiang, Yingnong Dang, Ray Huang, Dave Maltz,
+  Zhaoyi Liu, Vin Wang, Bin Pang, Hua Chen, Zhi-Wei Lin, and Varugis Kurien.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2787496}{Pingmesh: A
+  Large-Scale System for Data Center Network Latency Measurement and Analysis}.
+\newblock In {\em Proceedings of the 2015 ACM Conference on Special Interest
+  Group on Data Communication}, SIGCOMM '15, pages 139--152, New York, NY, USA,
+  2015. ACM.
+
+\bibitem{Mars2013Whare-map}
+Jason Mars and Lingjia Tang.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2508148.2485975}{{Whare-map:
+  heterogeneity in "homogeneous" warehouse-scale computers}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 41(3):619, 7 2013.
+
+\bibitem{Su:2014:POP:2742155.2742200}
+Bo~Su, Junli Gu, Li~Shen, Wei Huang, Joseph~L. Greathouse, and Zhiying Wang.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2742200}{PPEP: Online
+  Performance, Power, and Energy Prediction Framework and DVFS Space
+  Exploration}.
+\newblock In {\em Proceedings of the 47th Annual IEEE/ACM Int'l Symposium on
+  Microarchitecture}, MICRO-47, pages 445--457. IEEE Computer Society, 2014.
+
+\bibitem{Lo2015Heracles}
+David Lo, Liqun Cheng, Rama Govindaraju, Parthasarathy Ranganathan, and
+  Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2872887.2749475}{{Heracles:
+  improving resource efficiency at scale}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 43(3):450--462, 6 2015.
+
+\bibitem{Dean2013TheScale}
+Jeffrey Dean and Luiz~Andr{\'e} Barroso.
+\newblock \href{http://doi.acm.org/10.1145/2408776.2408794}{The Tail at Scale}.
+\newblock {\em Commun. ACM}, 56(2):74--80, February 2013.
+
+\bibitem{Nathuji2010Q-clouds}
+Ripal Nathuji, Aman Kansal, and Alireza Ghaffarkhah.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1755938}{{Q-clouds: managing
+  performance interference effects for QoS-aware clouds}}.
+\newblock In {\em Proceedings of the 5th European conference on Computer
+  systems - EuroSys '10}, page 237, New York, New York, USA, 4 2010. ACM Press.
+
+\bibitem{Halpern2016MobileSatisfaction}
+Matthew Halpern, Yuhao Zhu, and Vijay~Janapa Reddi.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=7446054}{{Mobile
+  CPU's rise to power: Quantifying the impact of generational mobile CPU design
+  trends on performance, energy, and user satisfaction}}.
+\newblock In {\em 2016 IEEE International Symposium on High Performance
+  Computer Architecture (HPCA)}, pages 64--76. IEEE, 3 2016.
+
+\bibitem{Wong2012KnightShift:Heterogeneity}
+Daniel Wong and Murali Annavaram.
+\newblock
+  \href{http://dl.acm.org/citation.cfm?id=2457472.2457491}{{KnightShift:
+  Scaling the Energy Proportionality Wall through Server-Level Heterogeneity}}.
+\newblock In {\em 2012 45th Annual IEEE/ACM International Symposium on
+  Microarchitecture}, pages 119--130. IEEE, 12 2012.
+
+\bibitem{JanapaReddi2010WebCores}
+Vijay Janapa~Reddi, Benjamin~C. Lee, Trishul Chilimbi, and Kushagra Vaid.
+\newblock \href{http://doi.acm.org/10.1145/1815961.1816002}{Web Search Using
+  Mobile Cores: Quantifying and Mitigating the Price of Efficiency}.
+\newblock In {\em Proceedings of the 37th Annual International Symposium on
+  Computer Architecture}, ISCA '10, pages 314--325, New York, NY, USA, 2010.
+  ACM.
+
+\bibitem{Chitlur2012QuickIA:Prototypes}
+Nagabhushan Chitlur, Ganapati Srinivasa, Scott Hahn, P~K Gupta, Dheeraj Reddy,
+  David Koufaty, Paul Brett, Abirami Prabhakaran, Li~Zhao, Nelson Ijih, Suchit
+  Subhaschandra, Sabina Grover, Xiaowei Jiang, and Ravi Iyer.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6169046}{{QuickIA:
+  Exploring heterogeneous architectures on real prototypes}}.
+\newblock In {\em IEEE International Symposium on High-Performance Comp
+  Architecture}, pages 1--8. IEEE, 2 2012.
+
+\bibitem{Guevara2013NavigatingMechanisms}
+Marisabel Guevara, Benjamin Lubin, and Benjamin~C. Lee.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6522310}{{Navigating
+  heterogeneous processors with market mechanisms}}.
+\newblock In {\em 2013 IEEE 19th International Symposium on High Performance
+  Computer Architecture (HPCA)}, pages 95--106. IEEE, 2 2013.
+
+\bibitem{7855903}
+Andrew Lukefahr, Shruti Padmanabha, Reetuparna Das, Ronald Dreslinski,
+  Thomas~F. Wenisch, and Scott Mahlke.
+\newblock \href{http://ieeexplore.ieee.org/document/7855903/}{Heterogeneous
+  microarchitectures trump voltage scaling for low-power cores}.
+\newblock In {\em 2014 23rd International Conference on Parallel Architecture
+  and Compilation Techniques (PACT)}, pages 237--249, Aug 2014.
+
+\bibitem{JanapaReddi:2010:WSU:1816038.1816002}
+Vijay Janapa~Reddi, Benjamin~C. Lee, Trishul Chilimbi, and Kushagra Vaid.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1816002}{Web Search Using
+  Mobile Cores: Quantifying and Mitigating the Price of Efficiency}.
+\newblock {\em SIGARCH Comput. Archit. News}, 38(3):314--325, June 2010.
+
+\bibitem{montblanc2}
+Mont-Blanc 2.
+\newblock \href{http://cordis.europa.eu/project/rcn/110381_en.html}{{Mont-Blanc
+  2, European scalable and power efficient HPC platform based on low-power
+  embedded technology}}, December 2016.
+\newblock \url{cordis.europa.eu/project/rcn/110381_en.html}.
+
+\bibitem{montblancproto}
+Alex Ramirez.
+\newblock
+  \href{https://www.montblanc-project.eu/sites/default/files/publications/20140522montblanc-prototypes-workshop.pdf}{{The
+  Mont-Blanc Prototype}}, October 2016.
+\newblock
+  \url{montblanc-project.eu/sites/default/files/publications/20140522montblanc-prototypes-workshop.pdf}.
+
+\bibitem{Rajovic:2013:SCC:2503210.2503281}
+Nikola Rajovic, Paul~M. Carpenter, Isaac Gelado, Nikola Puzovic, Alex Ramirez,
+  and Mateo Valero.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2503281}{Supercomputing with
+  Commodity CPUs: Are Mobile SoCs Ready for HPC?}
+\newblock In {\em Proceedings of the International Conference on High
+  Performance Computing, Networking, Storage and Analysis}, SC '13, pages
+  40:1--40:12, New York, NY, USA, 2013. ACM.
+
+\bibitem{armmuscle}
+John Russell.
+\newblock
+  \href{https://www.hpcwire.com/2016/08/22/arm-unveils-scalable-vector-extension-hpc-hot-chips/}{{ARM
+  Unveils Scalable Vector Extension for HPC at Hot Chips}}, October 2016.
+\newblock
+  \url{hpcwire.com/2016/08/22/arm-unveils-scalable-vector-extension-hpc-hot-chips/}.
+
+\bibitem{Cristal:2004:OCP:1072448.1072456}
+Adrian Cristal, Daniel Ortega, Josep Llosa, and Mateo Valero.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1072456}{Out-of-Order Commit
+  Processors}.
+\newblock In {\em Proceedings of the 10th International Symposium on High
+  Performance Computer Architecture}, HPCA '04, pages 48--, Washington, DC,
+  USA, 2004. IEEE Computer Society.
+
+\bibitem{Zhuravlev:2012:SST:2379776.2379780}
+Sergey Zhuravlev, Juan~Carlos Saez, Sergey Blagodurov, Alexandra Fedorova, and
+  Manuel Prieto.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2379780}{{Survey of
+  Scheduling Techniques for Addressing Shared Resources in Multicore
+  Processors}}.
+\newblock {\em ACM Comput. Surv.}, 45(1):4:1--4:28, December 2012.
+
+\bibitem{Mars:2011:BIU:2155620.2155650}
+Jason Mars, Lingjia Tang, Robert Hundt, Kevin Skadron, and Mary~Lou Soffa.
+\newblock \href{http://doi.acm.org/10.1145/2155620.2155650}{Bubble-Up:
+  Increasing Utilization in Modern Warehouse Scale Computers via Sensible
+  Co-locations}.
+\newblock In {\em Proceedings of the 44th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-44, pages 248--259, New York, NY, USA,
+  2011. ACM.
+
+\bibitem{Mars:2011:DCC:1944862.1944887}
+Jason Mars, Lingjia Tang, and Mary~Lou Soffa.
+\newblock \href{http://doi.acm.org/10.1145/1944862.1944887}{Directly
+  Characterizing Cross Core Interference Through Contention Synthesis}.
+\newblock In {\em Proceedings of the 6th International Conference on High
+  Performance and Embedded Architectures and Compilers}, HiPEAC '11, pages
+  167--176, New York, NY, USA, 2011. ACM.
+
+\bibitem{Yang2013Bubble-flux}
+Hailong Yang, Alex Breslow, Jason Mars, and Lingjia Tang.
+\newblock
+  \href{http://dl.acm.org/citation.cfm?id=2508148.2485974}{{Bubble-flux:
+  precise online QoS management for increased utilization in warehouse scale
+  computers}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 41(3):607, 7 2013.
+
+\bibitem{6651797}
+Rance Rodrigues, Arunachalam Annamalai, Israel Koren, and Sandip Kundu.
+\newblock \href{http://ieeexplore.ieee.org/abstract/document/6651797/}{A Study
+  on the Use of Performance Counters to Estimate Power in Microprocessors}.
+\newblock {\em IEEE Transactions on Circuits and Systems II: Express Briefs},
+  60(12):882--886, Dec 2013.
+
+\bibitem{Kasture2015Rubik}
+Harshad Kasture, Davide~B. Bartolini, Nathan Beckmann, and Daniel Sanchez.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2830772.2830797}{{Rubik: fast
+  analytical power management for latency-critical systems}}.
+\newblock In {\em Proceedings of the 48th International Symposium on
+  Microarchitecture - MICRO-48}, pages 598--610, New York, New York, USA, 12
+  2015. ACM Press.
+
+\bibitem{NCAP:HPCA}
+Mohammad Alian, H.M.O~Ahmed Abulila, Lokesh Jindal, Daehoon Kim, and Nam~Sung
+  Kim.
+\newblock \href{https://sites.google.com/site/malian1369/publications}{{NCAP:
+  Network-Driven, Packet Context-Aware Power Management for Client-Server
+  Architecture}}.
+\newblock In {\em 2017 IEEE 23rd International Symposium on High Performance
+  Computer Architecture (HPCA)}. IEEE, 2 2017.
+
+\bibitem{montblancbull}
+Bull~Atos Technology.
+\newblock
+  \href{http://www.bull.com/mont-blanc-european-project-gains-new-impetus-its-climb-exascale}{{Mont-Blanc
+  European project gains new impetus for its climb to Exascale}}, December
+  2016.
+\newblock
+  \url{bull.com/mont-blanc-european-project-gains-new-impetus-its-climb-exascale}.
+
+\bibitem{armscale}
+John Russell.
+\newblock
+  \href{https://www.hpcwire.com/2017/01/18/arm-waving-gathering-attention/}{{ARM}
+  Waving: Attention, Deployments, and Development}, February 2017.
+\newblock \url{hpcwire.com/2017/01/18/arm-waving-gathering-attention/}.
+
+\bibitem{samsung}
+Samsung.
+\newblock
+  \href{http://www.samsung.com/semiconductor/minisite/Exynos/w/solution/mobile_ap/5_dual/}{Samsung
+  Exynos 5 Dual}, February 2017.
+\newblock \url{samsung.com/semiconductor/minisite/Exynos}.
+
+\bibitem{A15}
+ARM.
+\newblock
+  \href{https://www.arm.com/products/processors/cortex-a/cortex-a15.php}{ARM
+  Cortex-15 processor}, February 2017.
+\newblock \url{arm.com}.
+
+\bibitem{Mali}
+ARM.
+\newblock
+  \href{http://www.arm.com/products/graphics-and-multimedia/mali-gpu}{Mali
+  graphics processing from ARM}, February 2017.
+\newblock \url{arm.com}.
+
+\bibitem{Mars2011HeterogeneityOpportunity}
+Jason Mars, Lingjia Tang, and Robert Hundt.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5887296}{{Heterogeneity
+  in 'Homogeneous' Warehouse-Scale Computers: A Performance Opportunity}}.
+\newblock {\em IEEE Computer Architecture Letters}, 10(2):29--32, 2 2011.
+
+\bibitem{Cong2012Energy-efficientArchitectures}
+Jason Cong and Bo~Yuan.
+\newblock
+  \href{http://dl.acm.org/citation.cfm?id=2333660.2333737}{{Energy-efficient
+  scheduling on heterogeneous multi-core architectures}}.
+\newblock In {\em Proceedings of the 2012 ACM/IEEE international symposium on
+  Low power electronics and design - ISLPED '12}, page 345, New York, New York,
+  USA, 7 2012. ACM Press.
+
+\bibitem{DBLP:journals/ppl/VillebonnetCLPS15}
+Violaine Villebonnet, Georges~Da Costa, Laurent Lef{\`{e}}vre, Jean{-}Marc
+  Pierson, and Patricia Stolf.
+\newblock
+  \href{http://dblp.uni-trier.de/rec/bib/journals/ppl/VillebonnetCLPS15}{"Big,
+  Medium, Little": Reaching Energy Proportionality with Heterogeneous Computing
+  Scheduler}.
+\newblock {\em Parallel Processing Letters}, 25(3), 2015.
+
+\bibitem{Cochran:2011:PCA:2155620.2155641}
+Ryan Cochran, Can Hankendi, Ayse~K. Coskun, and Sherief Reda.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2155641}{Pack \& Cap:
+  Adaptive DVFS and Thread Packing Under Power Caps}.
+\newblock In {\em Proceedings of the 44th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-44, pages 175--185, New York, NY, USA,
+  2011. ACM.
+
+\bibitem{Huang2000AManagement}
+Michael Huang, Jose Renau, Seung-Moon Yoo, and Josep Torrellas.
+\newblock \href{http://portal.acm.org/citation.cfm?doid=360128.360149}{{A
+  framework for dynamic energy efficiency and temperature management}}.
+\newblock In {\em Proceedings of the 33rd annual ACM/IEEE international
+  symposium on Microarchitecture - MICRO 33}, pages 202--213, New York, New
+  York, USA, 2000. ACM Press.
+
+\bibitem{Isci2006AnBudget}
+Canturk Isci, Alper Buyuktosunoglu, Chen-yong Cher, Pradip Bose, and Margaret
+  Martonosi.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4041859}{{An
+  Analysis of Efficient Multi-Core Global Power Management Policies: Maximizing
+  Performance for a Given Power Budget}}.
+\newblock In {\em 2006 39th Annual IEEE/ACM International Symposium on
+  Microarchitecture (MICRO'06)}, pages 347--358. IEEE, 12 2006.
+
+\bibitem{6008553}
+Barry Rountree, David Lowenthal, Martin Schulz, and Bronis R.~de Supinski.
+\newblock \href{http://ieeexplore.ieee.org/document/6008553/}{Practical
+  performance prediction under Dynamic Voltage Frequency Scaling}.
+\newblock In {\em 2011 International Green Computing Conference and Workshops},
+  IGCC 2011, pages 1--8, July 2011.
+
+\bibitem{Singh2009RealCounters}
+Karan Singh, Major Bhadauria, and Sally~A. McKee.
+\newblock \href{http://portal.acm.org/citation.cfm?doid=1577129.1577137}{{Real
+  time power estimation and thread scheduling via performance counters}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 37(2):46, 7 2009.
+
+\bibitem{Olsen:2006:PEP:1137248.1137532}
+C.~Michael Olsen and Chandra Narayanaswami.
+\newblock \href{http://dx.doi.org/10.1109/TMC.2006.103}{PowerNap: An Efficient
+  Power Management Scheme for Mobile Devices}.
+\newblock {\em IEEE Transactions on Mobile Computing}, 5(7):816--828, July
+  2006.
+
+\bibitem{acpikernel}
+A.~Leonard Brown.
+\newblock
+  \href{https://landley.net/kdocs/ols/2004/ols2004v1-pages-121-132.pdf}{{The
+  State of {ACPI} in the Linux Kernel}}.
+\newblock {\em SIGARCH Comput. Archit. News}, 1(1):121--132, 2004.
+
+\bibitem{ondemand}
+Dominik Brodowski.
+\newblock
+  \href{https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt}{CPU
+  frequency and voltage scaling code in the Linux kernel}, February 2017.
+\newblock \url{kernel.org/doc/Documentation/cpu-freq/governors.txt}.
+
+\bibitem{Intel}
+Intel.
+\newblock {\em Intel 64 and IA-32 Architecture Software Developer's Manual},
+  November 2011.
+
+\bibitem{Schone:2015:WLP:2766527.2766547}
+Robert Sch\"{o}ne, Daniel Molka, and Michael Werner.
+\newblock \href{http://dx.doi.org/10.1007/s00450-014-0270-z}{Wake-up Latencies
+  for Processor Idle States on Current x86 Processors}.
+\newblock {\em Comput. Sci.}, 30(2):219--227, May 2015.
+
+\bibitem{maillistperfmon}
+Stephanie Eranian.
+\newblock
+  \href{https://sourceforge.net/p/perfmon2/mailman/message/34954001/}{Issues
+  with libpfm4.7.0 and perf on ARM Juno r0}, April 2016.
+\newblock \url{sourceforge.net/p/perfmon2/mailman/message/34954001/}.
+
+\bibitem{powerclamp}
+Intel.
+\newblock
+  \href{https://www.kernel.org/doc/Documentation/thermal/intel_powerclamp.txt}{{Power
+  Clamp Driver}}, October 2016.
+\newblock \url{kernel.org/doc/Documentation/thermal/intel_powerclamp.txt}.
+
+\bibitem{AMD}
+AMD.
+\newblock {\em AMD64 Architecture Prog. Manual Volume 2: System Prog.},
+  September 2016.
+
+\bibitem{ARM}
+ARM.
+\newblock {\em Infocenter for ARM Cortex-A57}, September 2016.
+
+\bibitem{AppliedXGene2http://goo.gl/XA04r1}
+Applied Micro.
+\newblock {\href{http://goo.gl/XA04r1}{Applied Micro XGene2}}, March 2016.
+\newblock \url{goo.gl/XA04r1}.
+
+\bibitem{2016Perf:Counters}
+Linux.
+\newblock \href{https://perf.wiki.kernel.org/index.php/Main{\_}Page}{{Perf:
+  Linux profiling with performance counters}}, December 2016.
+\newblock \url{perf.wiki.kernel.org/index.php/Main{\_}Page}.
+
+\bibitem{Ren2010Google-WideCenters}
+Gang Ren, Eric Tune, Tipp Moseley, Yixin Shi, Silvius Rus, and Robert Hundt.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1849301.1849332}{{Google-Wide
+  Profiling: A Continuous Profiling Infrastructure for Data Centers}}.
+\newblock {\em IEEE Micro}, 30(4):65--79, 7 2010.
+
+\bibitem{Kanev:2015:PWC:2749469.2750392}
+Svilen Kanev, Juan~Pablo Darago, Kim Hazelwood, Parthasarathy Ranganathan, Tipp
+  Moseley, Gu-Yeon Wei, and David Brooks.
+\newblock \href{http://doi.acm.org/10.1145/2749469.2750392}{Profiling a
+  Warehouse-scale Computer}.
+\newblock In {\em Proceedings of the 42nd Annual International Symposium on
+  Computer Architecture}, ISCA '15, pages 158--169, New York, NY, USA, 2015.
+  ACM.
+
+\bibitem{perfmon2}
+Stephanie Eranian.
+\newblock \href{http://perfmon2.sourceforge.net}{Perfmon2: Improving
+  Performance Monitoring on Linux}, April 2016.
+\newblock \url{perfmon2.sourceforge.net}.
+
+\bibitem{Bernstein2014ContainersKubernetes}
+David Bernstein.
+\newblock
+  \href{https://www.computer.org/csdl/mags/cd/2014/03/mcd2014030081-abs.html}{{Containers
+  and Cloud: From LXC to Docker to Kubernetes}}.
+\newblock {\em IEEE Cloud Computing}, 1(3):81--84, 9 2014.
+
+\bibitem{ARMLimitedARMManual}
+{ARM Limited}.
+\newblock
+  \href{http://infocenter.arm.com/help/topic/com.arm.doc.ddi0500g/DDI0500G{\_}cortex{\_}a53{\_}trm.pdf}{{ARM
+  {\textregistered} Cortex {\textregistered} -A53 MPCore Processor Technical
+  Reference Manual}}.
+\newblock
+  \url{infocenter.arm.com/help/topic/com.arm.doc.ddi0500g/DDI0500G{\_}cortex{\_}a53{\_}trm.pdf}.
+
+\bibitem{ARMLimitedARMManualb}
+{ARM Limited}.
+\newblock
+  \href{http://infocenter.arm.com/help/topic/com.arm.doc.ddi0488c/DDI0488C{\_}cortex{\_}a57{\_}mpcore{\_}r1p0{\_}trm.pdf}{{ARM
+  {\textregistered} Cortex {\textregistered} -A57 MPCore Processor Revision:
+  r1p0 Technical Reference Manual}}.
+\newblock
+  \url{infocenter.arm.com/help/topic/com.arm.doc.ddi0488c/DDI0488C{\_}cortex{\_}a57{\_}mpcore{\_}r1p0{\_}trm.pdf}.
+
+\bibitem{msrtool}
+H.~Peter Anvin.
+\newblock \href{https://www.kernel.org/pub/linux/utils/cpu/msr-tools/}{{MSR}
+  Tools}, March 2016.
+\newblock \url{kernel.org/pub/linux/utils/cpu/msr-tools/}.
+
+\bibitem{wattsuppro}
+Wattsup Pro.
+\newblock \href{https://www.wattsupmeters.com/secure/products.php}{Wattsup
+  Pro}, April 2016.
+\newblock \url{wattsupmeters.com/secure/products.php}.
+
+\bibitem{ARMRegisters}
+ARM.
+\newblock \href{http://goo.gl/JryrgT}{ARM Juno Power}, April 2016.
+\newblock \url{goo.gl/JryrgT}.
+
+\bibitem{ARMRegistershttps://github.com/ARM-software/devlib/blob/master/src/readenergy/readenergy.c}
+ARM.
+\newblock
+  \href{https://github.com/ARM-software/devlib/blob/master/src/readenergy/readenergy.c}{ARM
+  Juno Power Registers}, April 2016.
+\newblock
+  \url{github.com/ARM-software/devlib/blob/master/src/readenergy/readenergy.c"}.
+
+\bibitem{ARMSYS_POW_SYSHttps://goo.gl/fmTTQi}
+{ARM}.
+\newblock \href{https://goo.gl/fmTTQi}{{SYS{\_}POW{\_}SYS Register}}, April
+  2016.
+\newblock \url{goo.gl/fmTTQi}.
+
+\bibitem{4544393}
+Michael K.~Patterson.
+\newblock
+  \href{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.522.4334}{The
+  effect of data center temperature on energy efficiency}.
+\newblock In {\em Thermal and Thermomechanical Phenomena in Electronic Systems,
+  2008. ITHERM 2008. 11th Intersociety Conference on}, pages 1167--1174, May
+  2008.
+
+\bibitem{Henkel:2016:TPR:2971808.2971810}
+J\"{o}rg Henkel, Santiago Pagani, Heba Khdr, Florian Kriebel, Semeen Rehman,
+  and Muhammad Shafique.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2971808.2971810}{Towards
+  Performance and Reliability-efficient Computing in the Dark Silicon Era}.
+\newblock In {\em Proceedings of the 2016 Conference on Design, Automation \&
+  Test in Europe}, DATE '16, pages 1--6, San Jose, CA, USA, 2016. EDA
+  Consortium.
+
+\bibitem{Googledatacentre}
+Google.
+\newblock \href{https://www.google.com/green/efficiency/datacenters/}{Designing
+  efficient data centers}, September 2016.
+\newblock \url{google.com/green/efficiency/datacenters/}.
+
+\bibitem{Fisher:2009:TGR:1548886.1549641}
+Nathan Fisher, Jian-Jia Chen, Shengquan Wang, and Lothar Thiele.
+\newblock \href{http://dx.doi.org/10.1109/RTAS.2009.34}{Thermal-Aware Global
+  Real-Time Scheduling on Multicore Systems}.
+\newblock In {\em Proceedings of the 2009 15th IEEE Symposium on Real-Time and
+  Embedded Technology and Applications}, RTAS '09, pages 131--140, Washington,
+  DC, USA, 2009. IEEE Computer Society.
+
+\bibitem{FBsweden}
+The Guardian.
+\newblock
+  \href{https://www.theguardian.com/technology/2015/sep/25/facebook-datacentre-lulea-sweden-node-pole}{The
+  node pole: inside Facebook's Swedish hub near the Arctic Circle}, September
+  2016.
+\newblock
+  \url{theguardian.com/technology/2015/sep/25/facebook-datacentre-lulea-sweden-node-pole}.
+
+\bibitem{FacebookHttp://goo.gl/dKVnSB}
+Facebook.
+\newblock \href{http://goo.gl/dKVnSB}{Facebook is opening a new wind-powered
+  data center in Texas}.
+\newblock \url{goo.gl/dKVnSB}.
+
+\bibitem{Lo2014TowardsWorkloads}
+David Lo, Liqun Cheng, Rama Govindaraju, Luiz~André Barroso, and Christos
+  Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2678373.2665718}{{Towards
+  energy proportionality for large-scale latency-critical workloads}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 42(3):301--312, 10
+  2014.
+
+\bibitem{2006core2}
+Tribuvan Kumar~Prakash and Lu~Peng.
+\newblock \href{http://www.ece.lsu.edu/lpeng/papers/isast08.pdf}{{Performance
+  Characterization of SPEC CPU2006 Benchmarks on Intel Core 2 Duo Processor}}.
+\newblock In {\em Proceedings of the ISAST Transactions on Computers and
+  Software Engineering}, ISAST 2008, pages 36 --41. IEEE, 2008.
+
+\bibitem{Henning2006SPECDescriptions}
+John~L. Henning.
+\newblock \href{http://portal.acm.org/citation.cfm?doid=1186736.1186737}{{SPEC
+  CPU2006 benchmark descriptions}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 34(4):1--17, 9 2006.
+
+\bibitem{bienia:2008:pbs:1454115.1454128}
+Christian Bienia, Sanjeev Kumar, Jaswinder~Pal Singh, and Kai Li.
+\newblock \href{http://doi.acm.org/10.1145/1454115.1454128}{The PARSEC
+  Benchmark Suite: Characterization and Architectural Implications}.
+\newblock In {\em Proceedings of the 17th International Conference on Parallel
+  Architectures and Compilation Techniques}, PACT '08, pages 72--81, New York,
+  NY, USA, 2008. ACM.
+
+\bibitem{Bailey:1991:NPB:125826.125925}
+D.~H. Bailey, E.~Barszcz, J.~T. Barton, D.~S. Browning, R.~L. Carter, L.~Dagum,
+  R.~A. Fatoohi, P.~O. Frederickson, T.~A. Lasinski, R.~S. Schreiber, H.~D.
+  Simon, V.~Venkatakrishnan, and S.~K. Weeratunga.
+\newblock \href{http://doi.acm.org/10.1145/125826.125925}{The {NAS} Parallel
+  Benchmarks;Summary and Preliminary Results}.
+\newblock In {\em Proceedings of the 1991 ACM/IEEE Conference on
+  Supercomputing}, Supercomputing '91, pages 158--165, New York, NY, USA, 1991.
+  ACM.
+
+\bibitem{524546}
+Steven C.~Woo, Moriyoshi Ohara, Evan Torrie, Jaswinder P.~Singh, and Anoop
+  Gupta.
+\newblock \href{http://dl.acm.org/citation.cfm?id=223990}{The SPLASH-2
+  programs: characterization and methodological considerations}.
+\newblock In {\em 22nd International Symposium on Computer Architecture}, ISCA
+  1995, pages 24--36, June 1995.
+
+\bibitem{Sanchez:2011:VSE:2000064.2000073}
+Daniel Sanchez and Christos Kozyrakis.
+\newblock \href{http://doi.acm.org/10.1145/2000064.2000073}{Vantage: Scalable
+  and Efficient Fine-grain Cache Partitioning}.
+\newblock In {\em Proceedings of the 38th Annual International Symposium on
+  Computer Architecture}, ISCA '11, pages 57--68, New York, NY, USA, 2011. ACM.
+
+\bibitem{MemcachedHttps://memcached.org/}
+Memcached.
+\newblock {\href{http://memcached.org}{Memcached}}, March 2016.
+\newblock \url{memcached.org}.
+
+\bibitem{Elasticsearchhttps://github.com/elastic/elasticsearch}
+ElasticSearch.
+\newblock {\href{https://github.com/elastic/elasticsearch}{Elasticsearch}},
+  March 2016.
+\newblock \url{github.com/elastic/elasticsearch}.
+
+\bibitem{199376}
+Kaushik Veeraraghavan, Justin Meza, David Chou, Wonho Kim, Sonia Margulis,
+  Scott Michelson, Rajesh Nishtala, Daniel Obenshain, Dmitri Perelman, and
+  Yee~Jiun Song.
+\newblock
+  \href{https://www.usenix.org/conference/osdi16/technical-sessions/presentation/veeraraghavan}{Kraken:
+  Leveraging Live Traffic Tests to Identify and Resolve Resource Utilization
+  Bottlenecks in Large Scale Web Services}.
+\newblock In {\em 12th USENIX Symposium on Operating Systems Design and
+  Implementation (OSDI 16)}, pages 635--651, GA, 2016. USENIX Association.
+
+\bibitem{Nishtala2013ScalingFacebook}
+Rajesh Nishtala, Hans Fugal, Steven Grimm, Marc Kwiatkowski, Herman Lee,
+  Harry~C. Li, Ryan McElroy, Mike Paleczny, Daniel Peek, Paul Saab, David
+  Stafford, Tony Tung, and Venkateshwaran Venkataramani.
+\newblock \href{https://www.usenix.org/node/172909}{{Scaling Memcache at
+  Facebook}}.
+\newblock In {\em Proceedings of the 10th USENIX conference on Networked
+  Systems Design and Implementation}, pages 385--398. USENIX Association, 2013.
+
+\bibitem{Atikoglu2012WorkloadStore}
+Berk Atikoglu, Yuehai Xu, Eitan Frachtenberg, Song Jiang, and Mike Paleczny.
+\newblock \href{http://dl.acm.org/citation.cfm?doid=2254756.2254766}{{Workload
+  analysis of a large-scale key-value store}}.
+\newblock In {\em Proceedings of the 12th ACM SIGMETRICS/PERFORMANCE joint
+  international conference on Measurement and Modeling of Computer Systems -
+  SIGMETRICS '12}, page~53, New York, New York, USA, 2012. ACM Press.
+
+\bibitem{FabanHttp://faban.org/}
+Faban.
+\newblock {\href{https://faban.org}{Faban}}, March 2016.
+\newblock \url{faban.org}.
+
+\bibitem{Ferdman2012ClearingClouds}
+Michael Ferdman, Babak Falsafi, Almutaz Adileh, Onur Kocberber, Stavros Volos,
+  Mohammad Alisafaee, Djordje Jevdjic, Cansu Kaynak, Adrian~Daniel Popescu, and
+  Anastasia Ailamaki.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2189750.2150982}{{Clearing
+  the clouds: a study of emerging scale-out workloads on modern hardware}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 40(1):37, 4 2012.
+
+\bibitem{Google:PUE}
+Google.
+\newblock
+  \href{https://www.google.com/about/datacenters/efficiency/internal/}{{Efficiency:
+  How we do it}}, October 2016.
+\newblock \url{google.com/about/datacenters/efficiency/internal/}.
+
+\bibitem{Hoelzle2009TheMachinesb}
+Urs Hoelzle and Luiz~Andre Barroso.
+\newblock {\em \href{http://dl.acm.org/citation.cfm?id=1643608}{{The Datacenter
+  as a Computer: An Introduction to the Design of Warehouse-Scale Machines}}}.
+\newblock Morgan and Claypool Publishers, 2009.
+
+\bibitem{IBMTivoli}
+Intel Tivoli~Management Framework.
+\newblock
+  \href{http://www-01.ibm.com/software/tivoli/products/mgt-framework/}{Intel
+  Intelligent Power Node Manager}, June 2016.
+\newblock \url{ibm.com/software/tivoli/products/mgt-framework/}.
+
+\bibitem{Nathuji:2007:EPH:1270385.1270764}
+Ripal Nathuji, Canturk Isci, and Eugene Gorbatov.
+\newblock \href{http://dx.doi.org/10.1109/ICAC.2007.16}{Exploiting Platform
+  Heterogeneity for Power Efficient Data Centers}.
+\newblock In {\em Proceedings of the Fourth International Conference on
+  Autonomic Computing}, ICAC '07, pages 5--, Washington, DC, USA, 2007. IEEE
+  Computer Society.
+
+\bibitem{IntelNode}
+Intel.
+\newblock
+  \href{http://download.intel.com/support/motherboards/server/sysmgmt/sb/node_manager_white_paper.pdf}{Intel
+  Intelligent Power Node Manager}, June 2016.
+\newblock
+  \url{download.intel.com/support/motherboards/server/sysmgmt/sb/node_manager_white_paper.pdf}.
+
+\bibitem{Openstack}
+Openstack.
+\newblock \href{openstack.org}{OpenStack}, June 2016.
+\newblock \url{openstack.org}.
+
+\bibitem{Singh:2009:RTP:1577129.1577137}
+Karan Singh, Major Bhadauria, and Sally~A. McKee.
+\newblock \href{http://doi.acm.org/10.1145/1577129.1577137}{Real Time Power
+  Estimation and Thread Scheduling via Performance Counters}.
+\newblock {\em SIGARCH Comput. Archit. News}, 37(2):46--55, July 2009.
+
+\bibitem{Nishtala:ICPP}
+Rajiv Nishtala, Marc~Gonz{\'{a}}lez Tallada, and Xavier Martorell.
+\newblock \href{http://dx.doi.org/10.1109/ICPPW.2015.29}{A Methodology to Build
+  Models and Predict Performance-Power in CMPs}.
+\newblock In {\em 44th International Conference on Parallel Processing
+  Workshops, {ICPPW} 2015, Beijing, China, September 1-4, 2015}, pages
+  193--202, 2015.
+
+\bibitem{Nishtala:SBACPAD}
+Rajiv Nishtala, Xavier Martorell, Vinicius Petrucci, and Daniel Mossé.
+\newblock \href{http://ieeexplore.ieee.org/document/7789335/}{REPP-H: Runtime
+  Estimation of Power and Performance on Heterogeneous Data Centers}.
+\newblock In {\em 2016 28th International Symposium on Computer Architecture
+  and High Performance Computing (SBAC-PAD)}, pages 150--157, Oct 2016.
+
+\bibitem{Nishtala:IGSC}
+Rajiv Nishtala and Xavier Martorell.
+\newblock
+  \href{https://nishtalaraj.files.wordpress.com/2016/10/pid4390435.pdf}{{REPP-C:
+  Runtime Estimation of Performance-Power with Workload Consolidation in
+  CMPs}}.
+\newblock In {\em Proceedings of the 7th International Green and Sustainable
+  Computing Conference}, IGSC '16. IEEE Press, 2016.
+
+\bibitem{Bellosa:2000:BED:566726.566736}
+Frank Bellosa.
+\newblock \href{https://os.itec.kit.edu/21_930.php}{{The Benefits of Event:
+  Driven Energy Accounting in Power-sensitive Systems}}.
+\newblock In {\em Proceedings of the 9th Workshop on ACM SIGOPS European
+  Workshop: Beyond the PC: New Challenges for the Operating System}, EW 9,
+  pages 37--42, New York, NY, USA, 2000. ACM.
+
+\bibitem{Lewis:2010:CAP:1924920.1924929}
+Adam Lewis, Jim Simon, and Nian-Feng Tzeng.
+\newblock
+  \href{https://www.usenix.org/legacy/event/hotpower10/tech/slides/lewis.pdf}{{Chaotic
+  Attractor Prediction for Server Run-time Energy Consumption}}.
+\newblock In {\em Proceedings of the 2010 International Conference on Power
+  Aware Computing and Systems}, HotPower'10, pages 1--16, Berkeley, CA, USA,
+  2010. USENIX Association.
+
+\bibitem{Isci:2003:RPM:956417.956567}
+Canturk Isci and Margaret Martonosi.
+\newblock \href{http://dl.acm.org/citation.cfm?id=956567}{{Runtime Power
+  Monitoring in High-End Processors: Methodology and Empirical Data}}.
+\newblock In {\em Proceedings of the 36th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO 36, pages 93--, Washington, DC, USA,
+  2003. IEEE Computer Society.
+
+\bibitem{Bertran:2013:CPM:2479391.2479401}
+Ramon Bertran, Marc Gonz\`{a}lez, Xavier Martorell, Nacho Navarro, and Eduard
+  Ayguad{\'e}.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2479401}{Counter-Based Power
+  Modeling Methods}.
+\newblock {\em Comput. J.}, 56(2):198--213, February 2013.
+
+\bibitem{Bertran:2012:SEC:2457472.2457499}
+Ramon Bertran, Alper Buyuktosunoglu, Meeta~S. Gupta, Marc Gonzalez, and Pradip
+  Bose.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2457499}{Systematic Energy
+  Characterization of CMP/SMT Processor Systems via Automated
+  Micro-Benchmarks}.
+\newblock In {\em Proceedings of the 2012 45th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-45, pages 199--211, Washington, DC,
+  USA, 2012. IEEE Computer Society.
+
+\bibitem{Bertran:2012:EAS:2039447.2039649}
+Ramon Bertran, Yolanda Becerra, David Carrera, Vicen\c{c} Beltran, Marc
+  Gonz\'{\i}lez, Xavier Martorell, Nacho Navarro, Jordi Torres, and Eduard
+  Ayguad{\'e}.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2039649}{Energy Accounting
+  for Shared Virtualized Environments Under DVFS Using PMC-based Power Models}.
+\newblock {\em Future Gener. Comput. Syst.}, 28(2):457--468, February 2012.
+
+\bibitem{10.1109/TC.2012.97}
+Ramon Bertran, Marc Gonzalez, Xavier Martorell, Nacho Navarro, and Eduard
+  Ayguade.
+\newblock \href{http://doi.ieeecomputersociety.org/10.1109/TC.2012.97}{{A
+  Systematic Methodology to Generate Decomposable and Responsive Power Models
+  for CMPs}}.
+\newblock {\em IEEE Transactions on Computers}, 62(7):1289--1302, 2013.
+
+\bibitem{6114398}
+Trevor E.~Carlson, Wim Heirman, and Lieven Eeckhout.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2063454}{{Sniper: Exploring
+  the level of abstraction for scalable and accurate parallel multi-core
+  simulation}}.
+\newblock In {\em High Performance Computing, Networking, Storage and Analysis
+  (SC), 2011 International Conference for}, pages 1--12, Nov 2011.
+
+\bibitem{Miftakhutdinov:2012:PPI:2457472.2457493}
+Rustam Miftakhutdinov, Eiman Ebrahimi, and Yale~N. Patt.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2457493}{{Predicting
+  Performance Impact of DVFS for Realistic Memory Systems}}.
+\newblock In {\em Proceedings of the 2012 45th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-45, pages 155--165, Washington, DC,
+  USA, 2012. IEEE Computer Society.
+
+\bibitem{LinuxKernel}
+{M. Le Thang}.
+\newblock \href{http://cfile28.uf.tistory.com/attach/1266C1385075387C151D16}{{A
+  study on Linux Kernel Scheduler Version 2.6.32}}, March 2016.
+\newblock \url{cfile28.uf.tistory.com/attach/1266C1385075387C151D16}.
+
+\bibitem{Lefurgy:2008:PCP:1355774.1355779}
+Charles Lefurgy, Xiaorui Wang, and Malcolm Ware.
+\newblock
+  \href{http://researcher.watson.ibm.com/researcher/files/us-lefurgy/cc2007submit.pdf}{{Power
+  Capping: A Prelude to Power Shifting}}.
+\newblock {\em Cluster Computing}, 11(2):183--195, June 2008.
+
+\bibitem{McCullough:2011:EEM:2002181.2002193}
+John~C. McCullough, Yuvraj Agarwal, Jaideep Chandrashekar, Sathyanarayan
+  Kuppuswamy, Alex~C. Snoeren, and Rajesh~K. Gupta.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2002193}{{Evaluating the
+  Effectiveness of Model-based Power Characterization}}.
+\newblock In {\em Proceedings of the 2011 USENIX Conference on USENIX Annual
+  Technical Conference}, USENIXATC'11, pages 12--12, Berkeley, CA, USA, 2011.
+  USENIX Association.
+
+\bibitem{6974701}
+Satoshi Imamura, Hiroshi Sasaki, Koji Inoue, and Dimitrios S.~Nikolopoulos.
+\newblock
+  \href{http://ieeexplore.ieee.org/document/6974701/?reload=true&arnumber=6974701}{{Power-capped
+  DVFS and thread allocation with ANN models on modern NUMA systems}}.
+\newblock In {\em Computer Design (ICCD), 2014 32nd IEEE International
+  Conference on}, pages 324--331, Oct 2014.
+
+\bibitem{Becchi:2006:DTA:1128022.1128029}
+Michela Becchi and Patrick Crowley.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1128029}{{Dynamic Thread
+  Assignment on Heterogeneous Multiprocessor Architectures}}.
+\newblock In {\em Proceedings of the 3rd Conference on Computing Frontiers}, CF
+  '06, pages 29--40, New York, NY, USA, 2006. ACM.
+
+\bibitem{Gandhi:2010:OAE:1869138.1869264}
+Anshul Gandhi, Varun Gupta, Mor Harchol-Balter, and Michael~A. Kozuch.
+\newblock
+  \href{http://www.cs.cmu.edu/~./anshulg/perf_power_2010.pdf}{{Optimality
+  Analysis of Energy-performance Trade-off for Server Farm Management}}.
+\newblock {\em Perform. Eval.}, 67(11):1155--1171, November 2010.
+
+\bibitem{Brooks:2000:WFA:339647.339657}
+David Brooks, Vivek Tiwari, and Margaret Martonosi.
+\newblock \href{http://dl.acm.org/citation.cfm?id=339657}{{Wattch: A Framework
+  for Architectural-level Power Analysis and Optimizations}}.
+\newblock In {\em Proceedings of the 27th Annual International Symposium on
+  Computer Architecture}, ISCA '00, pages 83--94, New York, NY, USA, 2000. ACM.
+
+\bibitem{Gandhi:2009:OPA:1555349.1555368}
+Anshul Gandhi, Mor Harchol-Balter, Rajarshi Das, and Charles Lefurgy.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1555349.1555368}{{Optimal
+  Power Allocation in Server Farms}}.
+\newblock In {\em Proceedings of the Eleventh International Joint Conference on
+  Measurement and Modeling of Computer Systems}, SIGMETRICS '09, pages
+  157--168, New York, NY, USA, 2009. ACM.
+
+\bibitem{6604487}
+Mohammad A.~Haque, Hakan Aydin, and Dakai Zhu.
+\newblock \href{http://ieeexplore.ieee.org/document/6604487/}{{Energy
+  management of standby-sparing systems for fixed-priority real-time
+  workloads}}.
+\newblock In {\em Green Computing Conference (IGCC), 2013 International}, pages
+  1--10, June 2013.
+
+\bibitem{Srinivasan:2011:EIO:1945023.1945032}
+Sadagopan Srinivasan, Li~Zhao, Ramesh Illikkal, and Ravishankar Iyer.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1945032}{{Efficient
+  Interaction Between OS and Architecture in Heterogeneous Platforms}}.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 45(1):62--72, February 2011.
+
+\bibitem{Pusukuri-PAAE}
+Kishore~Kumar Pusukuri, David Vengerov, and Alexandra Fedorova.
+\newblock \href{http://alumni.cs.ucr.edu/~kishore/papers/wiosca-09.pdf}{A
+  Methodology for Developing Simple and Robust Power Models using Performance
+  Monitoring Events}.
+\newblock In {\em Proceedings of the Workshop Interaction between Operating
+  Systems and Computer Architecture}, WIOSCA 2009, Washington, DC, USA, 2009.
+  IEEE Computer Society.
+
+\bibitem{Bircher-PAAE}
+William~Lloyd Bircher and Lizy~K. John.
+\newblock \href{http://dx.doi.org/10.1109/TC.2011.47}{Complete System Power
+  Estimation Using Processor Performance Events}.
+\newblock {\em IEEE Trans. Comput.}, 61(4):563--577, April 2012.
+
+\bibitem{Kanungo00anefficient}
+Tapas Kanungo, David~M. Mount, Nathan~S. Netanyahu, Christine~D. Piatko, Ruth
+  Silverman, and Angela~Y. Wu.
+\newblock \href{http://dx.doi.org/10.1109/TPAMI.2002.1017616}{An Efficient
+  k-Means Clustering Algorithm: Analysis and Implementation}.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 24(7):881--892, July
+  2002.
+
+\bibitem{marc}
+Dimitrios Chasapis, Marc Casas, Miquel Moret\'{o}, Raul Vidal, Eduard
+  Ayguad{\'e}, Jes\'{u}s Labarta, and Mateo Valero.
+\newblock \href{http://doi.acm.org/10.1145/2829952}{PARSECSs: Evaluating the
+  Impact of Task Parallelism in the PARSEC Benchmark Suite}.
+\newblock {\em ACM Trans. Archit. Code Optim.}, 12(4):41:1--41:22, December
+  2015.
+
+\bibitem{Kang:2013:HPP:2499368.2451155}
+Hui Kang and Jennifer~L. Wong.
+\newblock \href{http://doi.acm.org/10.1145/2499368.2451155}{To Hardware
+  Prefetch or Not to Prefetch?: A Virtualized Environment Study and Core
+  Binding Approach}.
+\newblock {\em SIGPLAN Not.}, 48(4):357--368, March 2013.
+
+\bibitem{yingxin}
+Yingxin Wang, Yan Cui, Pin Tao, Haining Fan, Yu~Chen, and Yuanchun Shi.
+\newblock
+  \href{http://ieeexplore.ieee.org/document/6008947/?reload=true&arnumber=6008947}{Reducing
+  Shared Cache Contention by Scheduling Order Adjustment on Commodity
+  Multi-cores}.
+\newblock In {\em Parallel and Distributed Processing Workshops and Phd Forum
+  (IPDPSW), 2011 IEEE International Symposium on}, pages 984--992, May 2011.
+
+\bibitem{Petrucci:2012:TAO:2224483.2225012}
+Vinicius Petrucci, Orlando Loques, Daniel Mosse, Rami Melhem, Neven~Abou
+  Gazala, and Sameh Gobriel.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2225012}{Thread Assignment
+  Optimization with Real-Time Performance and Memory Bandwidth Guarantees for
+  Energy-Efficient Heterogeneous Multi-core Systems}.
+\newblock In {\em Proceedings of the 2012 IEEE 18th Real Time and Embedded
+  Technology and Applications Symposium}, RTAS '12, pages 263--272, Washington,
+  DC, USA, 2012. IEEE Computer Society.
+
+\bibitem{sysfstool}
+Linux Kernel.
+\newblock
+  \href{https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu}{{sysfs}
+  devices}, January 2015.
+\newblock
+  \url{kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu}.
+
+\bibitem{lkmlerror}
+Ethan Zhao.
+\newblock \href{https://lkml.org/lkml/2015/5/1/29}{{mce\_restart()} race with
+  CPU hotplug operation}, September 2015.
+\newblock \url{lkml.org/lkml/2015/5/1/29}.
+
+\bibitem{Nishtala:HPCA}
+Rajiv Nishtala, Paul Carpenter, Vinicius Petrucci, and Xavier Martorell.
+\newblock
+  \href{https://nishtalaraj.files.wordpress.com/2016/10/main.pdf}{{Hipster:
+  Hybrid Task Manager for Latency-Critical Cloud Workloads}}.
+\newblock In {\em Proceedings of the 23rd Symposium on High Performance
+  Computer Architecture}, HPCA'16. IEEE Press, 2016.
+
+\bibitem{RDTSC}
+Intel.
+\newblock \href{https://en.wikipedia.org/wiki/Time_Stamp_Counter}{Time Stamp
+  Counter}, February 2017.
+\newblock \url{en.wikipedia.org/wiki/Time_Stamp_Counter}.
+
+\bibitem{WonyoungKim2008SystemRegulators}
+Wonyoung Wonyoung~Kim, Meeta~S. Gupta, Gu-Yeon Wei, and David Brooks.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4658633}{{System
+  level analysis of fast, per-core DVFS using on-chip switching regulators}}.
+\newblock In {\em 2008 IEEE 14th International Symposium on High Performance
+  Computer Architecture}, pages 123--134. IEEE, 2 2008.
+
+\bibitem{Godycki2014EnablingNetworks}
+Waclaw Godycki, Christopher Torng, Ivan Bukreyev, Alyssa Apsel, and Christopher
+  Batten.
+\newblock \href{http://dx.doi.org/10.1109/MICRO.2014.52}{Enabling Realistic
+  Fine-Grain Voltage Scaling with Reconfigurable Power Distribution Networks}.
+\newblock In {\em Proceedings of the 47th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-47, pages 381--393, Washington, DC,
+  USA, 2014. IEEE Computer Society.
+
+\bibitem{Putnam2014AServices}
+Andrew Putnam, Adrian~M. Caulfield, Eric~S. Chung, Derek Chiou, Kypros
+  Constantinides, John Demme, Hadi Esmaeilzadeh, Jeremy Fowers, Gopi~Prashanth
+  Gopal, Jan Gray, Michael Haselman, Scott Hauck, Stephen Heil, Amir Hormati,
+  Joo-Young Kim, Sitaram Lanka, James Larus, Eric Peterson, Simon Pope, Aaron
+  Smith, Jason Thong, Phillip~Yi Xiao, and Doug Burger.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6853195}{{A
+  reconfigurable fabric for accelerating large-scale datacenter services}}.
+\newblock In {\em 2014 ACM/IEEE 41st International Symposium on Computer
+  Architecture (ISCA)}, pages 13--24. IEEE, 6 2014.
+
+\bibitem{Lo2014DynamicChips}
+David Lo and Christos Kozyrakis.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6835969}{{Dynamic
+  management of TurboMode in modern multi-core chips}}.
+\newblock In {\em 2014 IEEE 20th International Symposium on High Performance
+  Computer Architecture (HPCA)}, pages 603--613. IEEE, 2 2014.
+
+\bibitem{Delimitrou2013Paragon:Datacenters}
+Christina Delimitrou and Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2490301.2451125}{{Paragon:
+  QoS-aware scheduling for heterogeneous datacenters}}.
+\newblock {\em ACM SIGARCH Computer Architecture News}, 41(1):77--77, 3 2013.
+
+\bibitem{Vamanan2015TimeTrader:Search}
+Balajee Vamanan, Hamza~Bin Sohail, Jahangir Hasan, and T.~N. Vijaykumar.
+\newblock \href{http://doi.acm.org/10.1145/2830772.2830779}{TimeTrader:
+  exploiting latency tail to save datacenter energy for online search}.
+\newblock In {\em Proceedings of the 48th International Symposium on
+  Microarchitecture, {MICRO} 2015, Waikiki, HI, USA, December 5-9, 2015}, pages
+  585--597, 2015.
+
+\bibitem{Zhu2016Dirigent}
+Haishan Zhu and Mattan Erez.
+\newblock \href{http://dl.acm.org/citation.cfm?doid=2872362.2872394}{{Dirigent:
+  Enforcing QoS for Latency-Critical Tasks on Shared Multicore Systems}}.
+\newblock In {\em Proceedings of the Twenty-First International Conference on
+  Architectural Support for Programming Languages and Operating Systems -
+  ASPLOS '16}, pages 33--47, New York, New York, USA, 2016. ACM Press.
+
+\bibitem{Roy:2015:ISN:2785956.2787472}
+Arjun Roy, Hongyi Zeng, Jasmeet Bagga, George Porter, and Alex~C. Snoeren.
+\newblock \href{http://doi.acm.org/10.1145/2785956.2787472}{Inside the Social
+  Network's (Datacenter) Network}.
+\newblock In {\em Proceedings of the 2015 ACM Conference on Special Interest
+  Group on Data Communication}, SIGCOMM '15, pages 123--137, New York, NY, USA,
+  2015. ACM.
+
+\bibitem{180185}
+Nathan Bronson, Zach Amsden, George Cabrera, Prasad Chakka, Peter Dimov, Hui
+  Ding, Jack Ferris, Anthony Giardullo, Sachin Kulkarni, Harry Li, Mark
+  Marchukov, Dmitri Petrov, Lovro Puzar, Yee~Jiun Song, and Venkat
+  Venkataramani.
+\newblock
+  \href{https://www.usenix.org/conference/atc13/technical-sessions/presentation/bronson}{TAO:
+  Facebook{\textquoteright}s Distributed Data Store for the Social Graph}.
+\newblock In {\em Presented as part of the 2013 USENIX Annual Technical
+  Conference (USENIX ATC 13)}, pages 49--60, San Jose, CA, 2013. USENIX.
+
+\bibitem{Delimitrou:2013:QSH:2542150.2556583}
+Christina Delimitrou and Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2556583}{QoS-Aware Scheduling
+  in Heterogeneous Datacenters with Paragon}.
+\newblock {\em ACM Trans. Comput. Syst.}, 31(4):12:1--12:34, December 2013.
+
+\bibitem{Li2014TalesTail}
+Jialin Li, Naveen~Kr. Sharma, Dan R.~K. Ports, and Steven~D. Gribble.
+\newblock \href{http://dl.acm.org/citation.cfm?doid=2670979.2670988}{{Tales of
+  the Tail}}.
+\newblock In {\em Proceedings of the ACM Symposium on Cloud Computing - SOCC
+  '14}, pages 1--14, New York, New York, USA, 2014. ACM Press.
+
+\bibitem{Puterman:1994:MDP:528623}
+Martin~L. Puterman.
+\newblock {\em \href{http://dl.acm.org/citation.cfm?id=528623}{Markov Decision
+  Processes: Discrete Stochastic Dynamic Programming}}.
+\newblock John Wiley \& Sons, Inc., New York, NY, USA, 1st edition, 1994.
+
+\bibitem{Mnih2015Human-levelLearning}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis
+  Antonoglou, Helen King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and
+  Demis Hassabis.
+\newblock \href{http://dx.doi.org/10.1038/nature14236}{{Human-level control
+  through deep reinforcement learning}}.
+\newblock {\em Nature}, 518(7540):529--533, 2 2015.
+
+\bibitem{TesauroAAllocation}
+Gerald Tesauro, Nicholas Jong, Rajarshi Das, and Mohamed Bennani.
+\newblock
+  \href{http://ieeexplore.ieee.org/articleDetails.jsp?arnumber=1662383}{{A
+  Hybrid Reinforcement Learning Approach to Autonomic Resource Allocation}}.
+\newblock In {\em 2006 IEEE International Conference on Autonomic Computing},
+  pages 65--73. IEEE, 2006.
+
+\bibitem{2007IBMReports}
+IBM.
+\newblock
+  \href{http://domino.watson.ibm.com/library/cyberdig.nsf/papers/F5E3B7F574B24BAD852570C1005E35A9/$File/rc23802.pdf}{{Model-Based
+  and Model-Free Approaches to Autonomic Resource Allocation}}, February 2007.
+\newblock
+  \url{domino.watson.ibm.com/library/cyberdig.nsf/papers/F5E3B7F574B24BAD852570C1005E35A9/$File/rc23802.pdf}.
+
+\bibitem{Tesauro2005OnlineLearning.}
+Gerald Tesauro.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1619410.1619475}{Online
+  Resource Allocation Using Decompositional Reinforcement Learning}.
+\newblock In {\em Proceedings of the 20th National Conference on Artificial
+  Intelligence - Volume 2}, AAAI'05, pages 886--891. AAAI Press, 2005.
+
+\bibitem{Horvath2007DynamicControl}
+Tibor Horvath, Tarek Abdelzaher, Kevin Skadron, and Xue Liu.
+\newblock
+  \href{http://ieeexplore.ieee.org/articleDetails.jsp?arnumber=4118669}{{Dynamic
+  Voltage Scaling in Multitier Web Servers with End-to-End Delay Control}}.
+\newblock {\em IEEE Transactions on Computers}, 56(4):444--458, 4 2007.
+
+\bibitem{Suton.R.S1998ReinforcementIntroduction}
+Richard Suton and Andrew Barto.
+\newblock {\em
+  \href{http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf}{{Reinforcement
+  Learning: An Introduction}}}.
+\newblock MIT Press, Cambridge, MA, 1998.
+
+\bibitem{Leverich2009PowerGating}
+Jacob Leverich, Matteo Monchiero, Vanish Talwar, Parthasarathy Ranganathan, and
+  Christos Kozyrakis.
+\newblock
+  \href{http://ieeexplore.ieee.org/articleDetails.jsp?arnumber=5224259}{{Power
+  Management of Datacenter Workloads Using Per-Core Power Gating}}.
+\newblock {\em IEEE Computer Architecture Letters}, 8(2):48--51, 2 2009.
+
+\bibitem{Madan2011AProcessorsb}
+Niti Madan, Alper Buyuktosunoglu, Pradip Bose, and Murali Annavaram.
+\newblock
+  \href{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5749737}{{A
+  case for guarded power gating for multi-core processors}}.
+\newblock In {\em 2011 IEEE 17th International Symposium on High Performance
+  Computer Architecture}, pages 291--300. IEEE, 2 2011.
+
+\bibitem{PattisComplexityHttps://www.ics.uci.edu/pattis/ICS-33/lectures/complexitypython.txt}
+Richard Pattis.
+\newblock
+  \href{https://www.ics.uci.edu/{\~{}}pattis/ICS-33/lectures/complexitypython.txt}{{Complexity
+  of Python Operations}}, June 2016.
+\newblock \url{ics.uci.edu/{\~{}}pattis/ICS-33/lectures/complexitypython.txt"}.
+
+\bibitem{Krishnan:2013:SOS:2710154.2710696}
+Sunder~Ram Krishnan and Chandra~Sekhar Seelamantula.
+\newblock \href{http://dx.doi.org/10.1109/TSP.2012.2225055}{On the Selection of
+  Optimum Savitzky-Golay Filters}.
+\newblock {\em Trans. Sig. Proc.}, 61(2):380--391, January 2013.
+
+\bibitem{Rethinagiri:2014:SPE:2555486.2555491}
+Santhosh~Kumar Rethinagiri, Oscar Palomar, Rabie Ben~Atitallah, Smail Niar,
+  Osman Unsal, and Adrian~Cristal Kestelman.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2555491}{System-level Power
+  Estimation Tool for Embedded Processor Based Platforms}.
+\newblock In {\em Proceedings of the 6th Workshop on Rapid Simulation and
+  Performance Evaluation: Methods and Tools}, RAPIDO '14, pages 5:1--5:8, New
+  York, NY, USA, 2014. ACM.
+
+\bibitem{1598119}
+Canturk Isci and Margaret Martonosi.
+\newblock \href{http://ieeexplore.ieee.org/document/1598119/}{Phase
+  characterization for power: evaluating control-flow-based and
+  event-counter-based techniques}.
+\newblock In {\em The Twelfth International Symposium on High-Performance
+  Computer Architecture, 2006.}, pages 121--132, Feb 2006.
+
+\bibitem{4838819}
+Gaurav Dhiman and Tajana~\v{S}imunic Rosing.
+\newblock \href{http://dx.doi.org/10.1109/TCAD.2009.2015740}{System-level Power
+  Management Using Online Learning}.
+\newblock {\em Trans. Comp.-Aided Des. Integ. Cir. Sys.}, 28(5):676--689, May
+  2009.
+
+\bibitem{Patki:2013:EHO:2464996.2465009}
+Tapasya Patki, David~K. Lowenthal, Barry Rountree, Martin Schulz, and Bronis~R.
+  de~Supinski.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2465009}{{Exploring Hardware
+  Overprovisioning in Power-constrained, High Performance Computing}}.
+\newblock In {\em Proceedings of the 27th International ACM Conference on
+  International Conference on Supercomputing}, ICS '13, pages 173--182, New
+  York, NY, USA, 2013. ACM.
+
+\bibitem{6270741}
+Barry Rountree, Dong Ahn, Bronis R.~de Supinski, David K.~Lowenthal, and Martin
+  Schulz.
+\newblock \href{http://ieeexplore.ieee.org/document/6270741/}{Beyond DVFS: A
+  First Look at Performance under a Hardware-Enforced Power Bound}.
+\newblock In {\em Parallel and Distributed Processing Symposium Workshops PhD
+  Forum (IPDPSW), 2012 IEEE 26th International}, pages 947--953, May 2012.
+
+\bibitem{Fedorova:2007:IPI:1299042.1299108}
+Alexandra Fedorova, Margo Seltzer, and Michael~D. Smith.
+\newblock \href{http://dx.doi.org/10.1109/PACT.2007.40}{Improving Performance
+  Isolation on Chip Multiprocessors via an Operating System Scheduler}.
+\newblock In {\em Proceedings of the 16th International Conference on Parallel
+  Architecture and Compilation Techniques}, PACT '07, pages 25--38, Washington,
+  DC, USA, 2007. IEEE Computer Society.
+
+\bibitem{Knauerhase:2008:UOO:1435611.1436101}
+Rob Knauerhase, Paul Brett, Barbara Hohlt, Tong Li, and Scott Hahn.
+\newblock \href{http://dx.doi.org/10.1109/MM.2008.48}{Using OS Observations to
+  Improve Performance in Multicore Systems}.
+\newblock {\em IEEE Micro}, 28(3):54--66, May 2008.
+
+\bibitem{Tam:2007:TCS:1272996.1273004}
+David Tam, Reza Azimi, and Michael Stumm.
+\newblock \href{http://doi.acm.org/10.1145/1272996.1273004}{Thread Clustering:
+  Sharing-aware Scheduling on SMP-CMP-SMT Multiprocessors}.
+\newblock In {\em Proceedings of the 2nd ACM SIGOPS/EuroSys European Conference
+  on Computer Systems 2007}, EuroSys '07, pages 47--58, New York, NY, USA,
+  2007. ACM.
+
+\bibitem{Tam:2009:RAL:1508284.1508259}
+David~K. Tam, Reza Azimi, Livio~B. Soares, and Michael Stumm.
+\newblock \href{http://doi.acm.org/10.1145/1508284.1508259}{RapidMRC:
+  Approximating L2 Miss Rate Curves on Commodity Systems for Online
+  Optimizations}.
+\newblock {\em SIGPLAN Not.}, 44(3):121--132, March 2009.
+
+\bibitem{Lo:2016:IRE:2912575.2882783}
+David Lo, Liqun Cheng, Rama Govindaraju, Parthasarathy Ranganathan, and
+  Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2882783}{Improving Resource
+  Efficiency at Scale with Heracles}.
+\newblock {\em ACM Trans. Comput. Syst.}, 34(2):6:1--6:33, May 2016.
+
+\bibitem{5751940}
+Michael Floyd, Malcolm Allen-Ware, Karthick Rajamani, Bishop Brock, Charles
+  Lefurgy, Alan~J. Drake, Lorena Pesantez, Tilman Gloekler, Jose~A. Tierno,
+  Pradip Bose, and Alper Buyuktosunoglu.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1978280}{Introducing the
+  Adaptive Energy Management Features of the Power7 Chip}.
+\newblock 31(2):60--75, March 2011.
+
+\bibitem{6008552}
+Vasileios Spiliopoulos, Stefanos Kaxiras, and Georgios Keramidas.
+\newblock \href{http://ieeexplore.ieee.org/document/6008552/}{Green governors:
+  A framework for Continuously Adaptive DVFS}.
+\newblock In {\em Green Computing Conference and Workshops (IGCC), 2011
+  International}, pages 1--8, July 2011.
+
+\bibitem{4536219}
+Jordi Torres, David Carrera, Kevin Hogan, Ricard Gavalda, Vicenc Beltran, and
+  Nicolas Poggi.
+\newblock \href{http://ieeexplore.ieee.org/document/4536219/}{Reducing wasted
+  resources to help achieve green data centers}.
+\newblock In {\em 2008 IEEE International Symposium on Parallel and Distributed
+  Processing}, pages 1--8, April 2008.
+
+\bibitem{5514319}
+Gaurav Dhiman and Tajana~Simunic Rosing.
+\newblock \href{http://doi.acm.org/10.1145/1283780.1283825}{Dynamic Voltage
+  Frequency Scaling for Multi-tasking Systems Using Online Learning}.
+\newblock In {\em Proceedings of the 2007 International Symposium on Low Power
+  Electronics and Design}, ISLPED '07, pages 207--212, New York, NY, USA, 2007.
+  ACM.
+
+\bibitem{Dhiman:2006:DPM:1233501.1233656}
+Gaurav Dhiman and Tajana~Simunic Rosing.
+\newblock \href{http://doi.acm.org/10.1145/1233501.1233656}{Dynamic Power
+  Management Using Machine Learning}.
+\newblock In {\em Proceedings of the 2006 IEEE/ACM International Conference on
+  Computer-aided Design}, ICCAD '06, pages 747--754, New York, NY, USA, 2006.
+  ACM.
+
+\bibitem{6266671}
+Sherief Reda, Ryan Cochran, and Ayse Coskun.
+\newblock
+  \href{http://ieeexplore.ieee.org/document/6266671/?reload=true&arnumber=6266671}{Adaptive
+  Power Capping for Servers with Multithreaded Workloads}.
+\newblock {\em Proceedings of the 2012 45th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, 32(5):64--75, Sept 2012.
+
+\bibitem{Das09powercapping}
+Rajarshi Das, Mor Harchol-balter, Anshul Gandhi, Jeffrey~O. Kephart, and
+  Charles Lefurgy.
+\newblock
+  \href{http://repository.cmu.edu/cgi/viewcontent.cgi?article=1868&context=compsci}{{Power
+  Capping Via Forced Idleness}}, June 2009.
+\newblock
+  \url{repository.cmu.edu/cgi/viewcontent.cgi?article=1868&context=compsci}.
+
+\bibitem{Deng:2012:CCC:2457472.2457494}
+Qingyuan Deng, David Meisner, Abhishek Bhattacharjee, Thomas~F. Wenisch, and
+  Ricardo Bianchini.
+\newblock \href{http://dx.doi.org/10.1109/MICRO.2012.22}{CoScale: Coordinating
+  CPU and Memory System DVFS in Server Systems}.
+\newblock In {\em Proceedings of the 2012 45th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-45, pages 143--154, Washington, DC,
+  USA, 2012. IEEE Computer Society.
+
+\bibitem{Sasaki:2013:CPO:2523721.2523732}
+Hiroshi Sasaki, Satoshi Imamura, and Koji Inoue.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2523721.2523732}{Coordinated
+  Power-performance Optimization in Manycores}.
+\newblock In {\em Proceedings of the 22Nd International Conference on Parallel
+  Architectures and Compilation Techniques}, PACT '13, pages 51--62,
+  Piscataway, NJ, USA, 2013. IEEE Press.
+
+\bibitem{Su:2014:ILL:2643634.2643656}
+Bo~Su, Joseph~L. Greathouse, Junli Gu, Michael Boyer, Li~Shen, and Zhiying
+  Wang.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2643634.2643656}{Implementing
+  a Leading Loads Performance Predictor on Commodity Processors}.
+\newblock In {\em Proceedings of the 2014 USENIX Conference on USENIX Annual
+  Technical Conference}, USENIX ATC'14, pages 205--210, Berkeley, CA, USA,
+  2014. USENIX Association.
+
+\bibitem{7029183}
+Istv\'{a}n~Z. Reguly, Abdoul-Kader Keita, and Michael~B. Giles.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2886455}{Benchmarking the IBM
+  Power8 Processor}.
+\newblock pages 61--69, 2015.
+
+\bibitem{7459368}
+Anip Das, Geoff V.~Merrett, and Bashir M.~Al-Hashimi.
+\newblock \href{http://ieeexplore.ieee.org/document/7459368/}{The slowdown or
+  race-to-idle question: Workload-aware energy optimization of SMT multicore
+  platforms under process variation}.
+\newblock In {\em 2016 Design, Automation Test in Europe Conference Exhibition
+  (DATE)}, pages 535--538, March 2016.
+
+\bibitem{Porter:2015:MMS:2695583.2687651}
+Leo Porter, Michael~A. Laurenzano, Ananta Tiwari, Adam Jundt, William~A. Ward,
+  Jr., Roy Campbell, and Laura Carrington.
+\newblock \href{http://doi.acm.org/10.1145/2687651}{Making the Most of SMT in
+  HPC: System- and Application-Level Perspectives}.
+\newblock {\em ACM Trans. Archit. Code Optim.}, 11(4):59:1--59:26, January
+  2015.
+
+\bibitem{Kumar:2003:SHM:956417.956569}
+Rakesh Kumar, Keith~I. Farkas, Norman~P. Jouppi, Parthasarathy Ranganathan, and
+  Dean~M. Tullsen.
+\newblock \href{http://dl.acm.org/citation.cfm?id=956417.956569}{Single-ISA
+  Heterogeneous Multi-Core Architectures: The Potential for Processor Power
+  Reduction}.
+\newblock In {\em Proceedings of the 36th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO 36, pages 81--, Washington, DC, USA,
+  2003. IEEE Computer Society.
+
+\bibitem{Cong:2012:ESH:2333660.2333737}
+Jason Cong and Bo~Yuan.
+\newblock \href{http://doi.acm.org/10.1145/2333660.2333737}{Energy-efficient
+  Scheduling on Heterogeneous Multi-core Architectures}.
+\newblock In {\em Proceedings of the 2012 ACM/IEEE International Symposium on
+  Low Power Electronics and Design}, ISLPED '12, pages 345--350, New York, NY,
+  USA, 2012. ACM.
+
+\bibitem{Padmanabha:2013:TBP:2540708.2540746}
+Shruti Padmanabha, Andrew Lukefahr, Reetuparna Das, and Scott Mahlke.
+\newblock \href{http://doi.acm.org/10.1145/2540708.2540746}{Trace Based Phase
+  Prediction for Tightly-coupled Heterogeneous Cores}.
+\newblock In {\em Proceedings of the 46th Annual IEEE/ACM International
+  Symposium on Microarchitecture}, MICRO-46, pages 445--456, New York, NY, USA,
+  2013. ACM.
+
+\bibitem{Saez:2010:CSA:1755913.1755929}
+Juan~Carlos Saez, Manuel Prieto, Alexandra Fedorova, and Sergey Blagodurov.
+\newblock \href{http://doi.acm.org/10.1145/1755913.1755929}{A Comprehensive
+  Scheduler for Asymmetric Multicore Systems}.
+\newblock In {\em Proceedings of the 5th European Conference on Computer
+  Systems}, EuroSys '10, pages 139--152, New York, NY, USA, 2010. ACM.
+
+\bibitem{Koufaty:2010:BSH:1755913.1755928}
+David Koufaty, Dheeraj Reddy, and Scott Hahn.
+\newblock \href{http://doi.acm.org/10.1145/1755913.1755928}{Bias Scheduling in
+  Heterogeneous Multi-core Architectures}.
+\newblock In {\em Proceedings of the 5th European Conference on Computer
+  Systems}, EuroSys '10, pages 125--138, New York, NY, USA, 2010. ACM.
+
+\bibitem{6114408}
+\'{I}\~{n}igo Goiri, Kien Le, Md.~E. Haque, Ryan Beauchea, Thu~D. Nguyen, Jordi
+  Guitart, Jordi Torres, and Ricardo Bianchini.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2063411}{GreenSlot:
+  Scheduling Energy Consumption in Green Datacenters}.
+\newblock In {\em Proceedings of 2011 International Conference for High
+  Performance Computing, Networking, Storage and Analysis}, SC '11, pages
+  20:1--20:11, New York, NY, USA, 2011. ACM.
+
+\bibitem{5598305}
+Kien Le, Ricardo Bianchini, Thu~D. Nguyen, Ozlem Bilgir, and Margaret
+  Martonosi.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1909725}{Capping the Brown
+  Energy Consumption of Internet Services at Low Cost}.
+\newblock In {\em Proceedings of the International Conference on Green
+  Computing}, GREENCOMP '10, pages 3--14, Washington, DC, USA, 2010. IEEE
+  Computer Society.
+
+\bibitem{Kontorinis:2012:MDU:2366231.2337216}
+Vasileios Kontorinis, Liuyi~Eric Zhang, Baris Aksanli, Jack Sampson, Houman
+  Homayoun, Eddie Pettis, Dean~M. Tullsen, and Tajana~Simunic Rosing.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2337216}{Managing Distributed
+  Ups Energy for Effective Power Capping in Data Centers}.
+\newblock {\em SIGARCH Comput. Archit. News}, 40(3):488--499, June 2012.
+
+\bibitem{Kumar:2006:CAO:1152154.1152162}
+Rakesh Kumar, Dean~M. Tullsen, and Norman~P. Jouppi.
+\newblock \href{http://doi.acm.org/10.1145/1152154.1152162}{Core Architecture
+  Optimization for Heterogeneous Chip Multiprocessors}.
+\newblock In {\em Proceedings of the 15th International Conference on Parallel
+  Architectures and Compilation Techniques}, PACT '06, pages 23--32, New York,
+  NY, USA, 2006. ACM.
+
+\bibitem{Gupta:2011:ASP:1945023.1945026}
+Vishakha Gupta, Rob Knauerhase, and Karsten Schwan.
+\newblock \href{http://doi.acm.org/10.1145/1945023.1945026}{Attaining System
+  Performance Points: Revisiting the End-to-end Argument in System Design for
+  Heterogeneous Many-core Systems}.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 45(1):3--10, February 2011.
+
+\bibitem{Fedorova:2009:MPE:1610252.1610270}
+Alexandra Fedorova, Juan~Carlos Saez, Daniel Shelepov, and Manuel Prieto.
+\newblock \href{http://doi.acm.org/10.1145/1610252.1610270}{Maximizing Power
+  Efficiency with Asymmetric Multicore Systems}.
+\newblock {\em Commun. ACM}, 52(12):48--57, December 2009.
+
+\bibitem{villebonnet:hal-01355452}
+Violaine Villebonnet, Georges Da~Costa, Laurent Lef{\`e}vre, Jean-Marc Pierson,
+  and Patricia Stolf.
+\newblock \href{http://ieeexplore.ieee.org/document/7789342/}{Energy Aware
+  Dynamic Provisioning for Heterogeneous Data Centers}.
+\newblock In {\em 2016 28th International Symposium on Computer Architecture
+  and High Performance Computing (SBAC-PAD)}, pages 206--213, Oct 2016.
+
+\bibitem{Wong:2016:PEA:3007787.3001188}
+Daniel Wong.
+\newblock \href{http://doi.acm.org/10.1145/3007787.3001188}{Peak Efficiency
+  Aware Scheduling for Highly Energy Proportional Servers}.
+\newblock {\em SIGARCH Comput. Archit. News}, 44(3):481--492, June 2016.
+
+\bibitem{Novakovic2013DeepDive:Environments}
+Dejan Novakovi\'{c}, Nedeljko Vasi\'{c}, Stanko Novakovi\'{c}, Dejan
+  Kosti\'{c}, and Ricardo Bianchini.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2535461.2535489}{DeepDive:
+  Transparently Identifying and Managing Performance Interference in
+  Virtualized Environments}.
+\newblock In {\em Proceedings of the 2013 USENIX Conference on Annual Technical
+  Conference}, USENIX ATC'13, pages 219--230, Berkeley, CA, USA, 2013. USENIX
+  Association.
+
+\bibitem{Zhang2013CPI2}
+Xiao Zhang, Eric Tune, Robert Hagmann, Rohit Jnagal, Vrigo Gokhale, and John
+  Wilkes.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2465388}{{CPI 2: CPU
+  performance isolation for shared compute clusters}}.
+\newblock In {\em Proceedings of the 8th ACM European Conference on Computer
+  Systems - EuroSys '13}, page 379, New York, New York, USA, 4 2013. ACM Press.
+
+\bibitem{43017}
+Marcus Carvalho, Walfredo Cirne, Franciso Brasileiro, and John Wilkes.
+\newblock \href{https://research.google.com/pubs/pub43017.html}{Long-term
+  {SLOs} for reclaimed cloud computing resources}.
+\newblock In {\em ACM Symposium on Cloud Computing (SoCC)}, pages 20:1--20:13,
+  Seattle, WA, USA, 2014.
+
+\bibitem{Delimitrou:2015:TRS:2806777.2806779}
+Christina Delimitrou, Daniel Sanchez, and Christos Kozyrakis.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2806779}{Tarcil: Reconciling
+  Scheduling Speed and Quality in Large Shared Clusters}.
+\newblock In {\em Proceedings of the Sixth ACM Symposium on Cloud Computing},
+  SoCC '15, pages 97--110, New York, NY, USA, 2015. ACM.
+
+\bibitem{199390}
+Ionel Gog, Malte Schwarzkopf, Adam Gleave, Robert N.~M. Watson, and Steven
+  Hand.
+\newblock
+  \href{https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gog}{Firmament:
+  Fast, Centralized Cluster Scheduling at Scale}.
+\newblock In {\em 12th USENIX Symposium on Operating Systems Design and
+  Implementation (OSDI 16)}, pages 99--115, GA, 2016. USENIX Association.
+
+\bibitem{QiangWuMakingHttps://goo.gl/vJi1kf}
+{Qiang Wu}.
+\newblock
+  \href{https://research.facebook.com/blog/making-facebook-s-software-infrastructure-more-energy-efficient-with-autoscale/}{{Making
+  Facebook's software infrastructure more energy efficient with Autoscale}}.
+\newblock
+  \url{research.facebook.com/blog/making-facebook-s-software-infrastructure-more-energy-efficient-with-autoscale/}.
+
+\bibitem{Zhou:2016:GLM:2925426.2926272}
+Xu~Zhou, Haoran Cai, Qiang Cao, Hong Jiang, Lei Tian, and Changsheng Xie.
+\newblock \href{http://doi.acm.org/10.1145/2925426.2926272}{GreenGear:
+  Leveraging and Managing Server Heterogeneity for Improving Energy Efficiency
+  in Green Data Centers}.
+\newblock In {\em Proceedings of the 2016 International Conference on
+  Supercomputing}, ICS '16, pages 12:1--12:14, New York, NY, USA, 2016. ACM.
+
+\bibitem{Ipek:2008:SMC:1381306.1382172}
+Engin Ipek, Onur Mutlu, Jos{\'e}~F. Mart\'{\i}nez, and Rich Caruana.
+\newblock \href{http://dl.acm.org/citation.cfm?id=1382172}{Self-Optimizing
+  Memory Controllers: A Reinforcement Learning Approach}.
+\newblock In {\em Proceedings of the 35th Annual International Symposium on
+  Computer Architecture}, ISCA '08, pages 39--50, Washington, DC, USA, 2008.
+  IEEE Computer Society.
+
+\end{thebibliography}
